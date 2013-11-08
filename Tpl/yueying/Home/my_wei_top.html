@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$title}</title>
+	<meta name="keywords" content="{$keywords}">
+	<meta name="description" content="{$description}">
+	<script type="text/javascript">window.isIndexPage = true;</script>
+	<include file="Home:home_header" />
+
+</head>
+
+<body>
+	<include file="Home:pp_header" />
+
+	<div class="head_bar wrap">
+		<dl class="mod_indexs_bar bor">
+			<dt class="c_txt5"><span>影视排行</span><i class="arrow"><b class="a_outer"></b><b class="a_inner"></b></i></dt>
+			<dd>微电影排行榜</dd>
+		</dl>
+	</div>
+
+	<div class="ui_box ui_box_kyf">
+		<!-- 左侧按钮区 -->
+		<div class="aside_left top_catalog">
+			<h2>
+				<a href="{:ff_mytpl_url('my_top.html')}">排行榜首页</a>
+			</h2>
+			<ul>
+				<li><a href="{:ff_mytpl_url('my_tv_top.html')}">电视剧</a></li>
+				<li><a href="{:ff_mytpl_url('my_movie_top.html')}">电影</a></li>
+				<li><a href="{:ff_mytpl_url('my_cartoon_top.html')}">经典动漫</a></li>
+				<li><a href="{:ff_mytpl_url('my_fun_top.html')}">综艺娱乐</a></li>
+				<li  class="current"><a class="site_color_bg" href="{:ff_mytpl_url('my_wei_top.html')}">微电影</a></li>
+			</ul>
+		</div>
+
+		<!-- 右侧内容区 -->
+		<div class="top_content aside_right">
+			<div class="top_item_box" id="top_detail">
+				<div class="ui_title clearfix">
+					<h3 class="site_color_text">
+						微电影排行榜
+					</h3>
+				</div>
+
+				<div class="ui_top_tab_item ui_top_tab_item_current">
+					<ul class="top_list_detail clearfix">
+					<?php $ranklist=ff_mysql_vod('cid:5;limit:100;order:vod_gold desc,vod_addtime desc'); ?>
+						<fflist name="ranklist" id="ppvod">
+							<li>
+								<span class="num <if condition="$i elt 3">site_color_text</if>">{$i}.</span>
+								<span class="tit"><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name}</a></span>
+								<span class="area">{$ppvod.vod_area}</span>
+								<span class="type">{$ppvod.list_name}</span>
+								<span class="score site_color_text">{$ppvod.vod_gold}</span>
+							</li>
+						</fflist>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!-- 右侧end -->
+
+	</div>
+	<!-- // ui_box end -->
+	<include file="Home:pp_footer" />
+</body>

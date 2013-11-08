@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>“{$tag_name}”类影视剧-{$title}</title>
+<meta name="keywords" content="2013最新{$list_name},{$list_name}推荐,{$list_name}大全,{$list_name}排行榜,{$list_title}，{$list_name}下载">
+<meta name="description" content="{$title}为观众收集整理2013最新{$list_name},{$list_name}推荐,{$list_name}大全,{$list_name}排行榜,{$list_name}下载与{$list_title}在线观看！">
+<script language="javascript">var Root='{$root}';var Sid='{$sid}';var Cid='{$list_id}';<if condition="$sid eq 1">var Id='{$vod_id}';<else />var Id='{$news_id}';</if></script>
+<script language="javascript" src="/Public/js/jquery.js" charset="utf-8"></script>
+<script language="javascript" src="/Public/js/jquery-autocomplete.js" charset="utf-8"></script>
+<link rel="stylesheet" href="{$tpl}css/common.css">
+<link rel="stylesheet" href="{$tpl}css/pages.css">
+<!--[if lt IE 9]><script src="{$tpl}js/html5.js"></script><![endif]-->
+<script src="{$tpl}js/common.js"></script>
+<script src="{$tpl}js/jilu.js"></script>
+<script>
+$(function(){
+	commonFixed("ul");		dlLazyload();	
+});
+</script>
+<style>
+.lsbox{width:318px;margin-left:10px;float:left;margin-top:5px;margin-bottom:0px;}
+</style>
+</head>
+<body>
+<include file="Home:pp_header" /> 
+<section class="wrapper">
+    <section class="pic960"><script type="text/javascript" src="/detail/list_top_960.js" charset="utf-8"></script><script type="text/javascript" src="/detail/all_top_960.js" charset="utf-8"></script></section>   
+	<article class="list" style="margin-bottom:5px;">
+	 <header class="t_c">
+		<div class="sort_box sort_box_r clearfix">
+		<p><?php echo "<a href=".$root."?s=vod-show-id-".$list_id; ?>-order-addtime.html <?php if($_GET[order]=="addtime") echo "class='active1'"; ?>>按时间</a><em>|</em><?php echo "<a href=".$root."?s=vod-show-id-".$list_id; ?>-order-hits.html <?php if($_GET[order]=="hits") echo "class='active1'"; ?>>按人气</a><em>|</em><?php  echo "<a href=".$root."?s=vod-show-id-".$list_id; ?>-order-gold.html <?php if($_GET[order]=="gold") echo "class='active1'"; ?>>按评分</a>
+			</p>	
+			
+		 </div>
+		 <h4 class="t_d">当前位置：<a href="/">首页</a> > <span>“{$tag_name}”类影视剧</span></h4>
+	 </header>
+	 
+		 <ul id="vod_list_html1" class="show_list"><php>$vod_list = ff_mysql_vod('tag:'.$tag_name.';limit:20;page:true;order:vod_addtime desc,vod_id desc');$page = $vod_list[0]['page'];</php>
+      <volist name="vod_list" id="ppvod">
+			<li>
+				 <a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}" target="_blank"><img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}" onerror="javascript:this.src='{$tpl}images/blank.gif';"></a>
+				 <h5><a href="{$ppvod.vod_readurl}" target="_blank" title="{$ppvod.vod_name}">{$ppvod.vod_name}</a></h5>
+				 <p>主演：<notempty name="ppvod.vod_actor">{$ppvod.vod_actor|ff_search_url}<else />未录入</notempty></p>
+				 <p class="listh">类型： {$ppvod.list_name} </p>
+				 <p><span class="gold" title="影片评分">{$ppvod.vod_gold} </span><span class="hits" title="推荐人数">{$ppvod.vod_hits} </span></p>
+				 <p>更新时间：{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</p>
+			 	<p>状态：<span class="status">第19集</span>(连载中)</p>
+			 	<span class="ratbar"><span style="width:83%;" class="ratbar_item">&nbsp;</span></span><span class="ratbar_num">8.3</span><span class="pinglun">评论<em>()</em></span><a href="/guochan/quanjiafuo/" title="古建家族50年的历史变迁" class="list_play" target="_blank"></a>
+			</li></volist>	 </ul>			 
+		 <div id="page_html" class="pages">{$page}</div>
+    </article>
+	<section class="ad960"><script type="text/javascript" src="/detail/list_mid2_960.js" charset="utf-8"></script></section>
+	<div id="bzrm" class="ui-top-tab lsbox" style="margin-left:0">
+		 <h5 style="text-indent:12px;">本周{$list_name}排行榜</h5>
+		 <div class="sub_minfo_a"><p style="font-size:12px;">这些 <span style="color:#f00">{$list_name}</span> ，最近一周被点播的最多</p></div>
+		 <ul class="ul-top"><php>$hot_week = ff_mysql_vod('cid:'.$list_id.';limit:10;order:vod_hits_week desc,vod_addtime desc');</php><volist name="hot_week" id="ppvod">
+			 <li><span class="fr"><b>{$ppvod.vod_gold}</b></span><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}" target="_blank">{$ppvod.vod_name}</a></li></volist> 	 </ul>
+	</div>
+	<div id="hkd" class="ui-top-tab lsbox">
+		 <h5 style="text-indent:12px;">好看的{$list_name}</h5>
+		 <div class="sub_minfo_a"><p style="font-size:12px;">这些 <span style="color:#f00">{$list_name}</span>，大家看完之后,评价最高！</p></div>
+		 <ul class="ul-top"><php>$hot_week = ff_mysql_vod('cid:'.$list_id.';limit:10;order:vod_gold desc,vod_addtime desc');</php><volist name="hot_week" id="ppvod">
+			  <li><span class="fr"><b>{$ppvod.vod_gold}</b></span><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}" target="_blank">{$ppvod.vod_name}</a></li></volist>  </ul>
+	</div>
+	<div id="zttj" class="ui-top-tab lsbox">
+		 <h5 style="text-indent:12px;">{$list_name}推荐</h5>
+		 <div class="sub_minfo_a"><p style="font-size:12px;">这些 <span style="color:#f00">{$list_name}</span>，是本站为您推荐的！</p></div>
+		 <ul class="ul-top"><php>$hot_week = ff_mysql_vod('cid:'.$list_id.';limit:10;order:vod_stars desc,vod_addtime desc');</php><volist name="hot_week" id="ppvod">
+			  <li><span class="fr"><b>{$ppvod.vod_gold}</b></span><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}" target="_blank">{$ppvod.vod_name}</a></li></volist>	 </ul>
+	</div>
+	<section class="ad960"><script type="text/javascript" src="/detail/list_zt_930.js" charset="utf-8"></script></section>
+	<div class="letter_zm">
+		<ul id="ul"><li>
+							<a href="#A">A</a>
+					</li><li>
+							<a href="#B">B</a>
+					</li><li>
+							<a href="#C">C</a>
+					</li><li>
+							<a href="#D">D</a>
+					</li><li>
+							<a href="#e">E</a>		</li><li>
+							<a href="#F">F</a>
+					</li><li>
+							<a href="#G">G</a>
+					</li><li>
+							<a href="#H">H</a>
+					</li><li>
+							<a href="#I">I</a>
+					</li><li>
+							<a href="#J">J</a>
+					</li><li>
+							<a href="#K">K</a>
+					</li><li>
+							<a href="#L">L</a>
+					</li><li>
+							<a href="#M">M</a>
+					</li><li>
+							<a href="#N">N</a>
+					</li><li>
+							<a href="#O">O</a>
+					</li><li>
+							<a href="#P">P</a>
+					</li><li>
+							<a href="#Q">Q</a>
+					</li><li>
+							<a href="#R">R</a>
+					</li><li>
+							<a href="#S">S</a>
+					</li><li>
+							<a href="#T">T</a>
+					</li><li>
+							<a href="#u">U</a>		</li><li>
+							<a href="#v">V</a>		</li><li>
+							<a href="#W">W</a>
+					</li><li>
+							<a href="#w">X</a>
+					</li><li>
+							<a href="#Y">Y</a>
+					</li><li>
+							<a href="#Z">Z</a>
+					</li>		<li class="sz">
+						<a href="#QT" target="_self">其它</a>
+		</li>
+		</ul>
+	</div>
+		<section class="list">
+         <header class="t_c"><h4 class="t_d">{$list_name}连载区更新</h4></header>
+		 <div class="sub_minfo_a"><p>以下为{$sitename}网友24小时不断从互联网各渠道收集的最新连载 <strong style="color:#f00">{$list_name}</strong> 片源列表，欢迎观看！欢迎分享推荐给朋友！</p></div>
+		<article class="txt_list" style="padding-bottom:12px;width:auto;">
+		     <ul><php>$hot_week = ff_mysql_vod('cid:'.$list_id.';lz:1;limit:48;order:vod_addtime desc');</php><volist name="hot_week" id="ppvod">
+			    <li ><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}" target="_blank">{$ppvod.vod_name} </a> <em>{$ppvod.vod_addtime|date='m-d',###}</em><eq name="ppvod.vod_stars" value="5"><img alt="new" src="{$tpl}images/new2.gif"></eq></li></volist>	 </ul>
+		</article>
+	</section>
+		<section class="list">
+        <header class="t_c" id="a0"><h1 class="t_d" title="{$list_name}字母导航">{$list_name}字母导航</h1></header>
+		<div class="letter_box clearfix" id="letter_box"><dl style="border-top:none">
+				<dt><a name="A"></a>A</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:a;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl>
+						  <dl >
+				<dt><a name="B"></a>B</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:b;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl> <dl >
+				<dt><a name="C"></a>C</dt>
+				<php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:c;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="D"></a>D</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:d;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl>
+                                <dl >
+				<dt><a name="E"></a>E</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:e;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist></dl>
+                                         <dl >
+				<dt><a name="F"></a>F</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:f;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist></dl><dl >
+				<dt><a name="G"></a>G</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:g;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist></dl>			  </dl>
+						  <dl >
+				<dt><a name="H"></a>H</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:h;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="I"></a>I</dt>
+				<php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:i;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="J"></a>J</dt>
+				<php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:j;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="K"></a>K</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:k;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="L"></a>L</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:l;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="M"></a>M</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:m;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="N"></a>N</dt>
+				<php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:n;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl><dl >
+				<dt><a name="O"></a>O</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:o;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="P"></a>P</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:p;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl><dl >
+				<dt><a name="Q"></a>Q</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:q;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl><dl >
+				<dt><a name="R"></a>R</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:r;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl><dl >
+				<dt>S</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:s;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="T"></a>T</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:t;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="U"></a>U</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:u;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="V"></a>V</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:v;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist> </dl><dl >
+				<dt><a name="W"></a>W</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:w;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist></dl> <dl >
+				<dt><a name="X"></a>X</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:x;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl>
+						  <dl >
+				<dt><a name="Y"></a>Y</dt>
+				<php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:y;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>  </dl>
+						  <dl >
+				<dt><a name="Z"></a>Z</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:z;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>	  </dl>
+						<dl id="qt" name="qt" >
+				<dt><a name="QT"></a>其他</dt>
+				 <php>$vod_num = ff_mysql_vod('cid:'.$list_id.';letter:1,2,3,4,5,6,7,8,9;limit:200;order:vod_letter asc,vod_addtime desc');</php><fflist name="vod_num" id="ppvod">
+				 <dd ><span>0{$i}.</span><a target="_blank" href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,20}</a></dd></fflist>	</dl>
+		</div>
+	</section>	
+    <section class="pic960"><script type="text/javascript" src="/detail/list_bottom_960.js" charset="utf-8"></script><script type="text/javascript" src="/detail/all_bottom_960.js" charset="utf-8"></script></section> 	
+</section>
+<include file="Home:pp_footer" />  
+<section class="foot_bar" id="foot_bar">
+	<div class="foot_bar_bg"></div>
+	<div class="wrapper"><ul class="fl clearfix">
+			<li><a href="#bzrm" title="本周热门{$list_name}">本周热门{$list_name}</a></li>		<li><a href="#hkd" title="好看的{$list_name}">好看的{$list_name}</a></li>		<li><a href="#zttj" title="{$list_name}推荐">{$list_name}推荐</a></li>
+				<li class="goto_top" id="back-to-top"><a href="javascript:;" title="回到顶部">回到顶部<i class="top"></i></a></li>
+	</ul></div>
+</section>
+<script type="text/javascript" src="/detail/list_pt.js" charset="utf-8"></script><script type="text/javascript" src="/detail/list_tp.js" charset="utf-8"></script>
+</body>
+</html>

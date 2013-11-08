@@ -1,0 +1,48 @@
+/*==========footer==========*/	
+#footer{
+	border-top: 2px solid #2d2d2d;
+	margin-top: 10px;
+	background: #ececec;
+	line-height: 24px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+.foot-nav{
+	color: #333;
+	height: 24px;		
+	overflow: hidden;
+	margin: 15px 0 10px 0;
+}
+.foot-nav a{ margin: 0 10px;}
+
+/* foot-weibo */
+.foot-weibo{
+	margin: 0 auto;
+	width: 165px;
+	margin-top: 10px;
+	padding-left: 8px;
+}
+
+/*back to top*/
+.mod_back_top{
+	position: fixed;
+	display: none;
+	_position: absolute;
+	z-index: 99999;
+	bottom: 45px;
+	_bottom: auto;
+	right: 30px;
+}
+.mod_back_top .back_top{
+	display: block;
+	width: 50px;
+	height: 50px;
+	line-height: 100;
+	overflow: hidden;
+	background: url(../images/back_to_top.gif) 0 0 no-repeat #777;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.mod_back_top .back_top:hover{
+	background-position: -50px 0;
+}

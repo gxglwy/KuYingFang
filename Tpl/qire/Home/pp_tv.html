@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$list_title}电视直播 - {$sitename}</title>
+<meta name="keywords" content="<notempty name="list_keywords">{$list_keywords}<else/>最新{$list_name},{$keywords}</notempty>">
+<meta name="description" content="<notempty name="list_description">{$list_description}<else/>{$description}</notempty>">
+<include file="Home:p_header" />
+<body>
+<include file="Home:pp_header" /> 
+<!-- // wrap Start -->
+<div class="wrap w960">
+	<div class="tv1"><Center>
+	<!-- // wrap Start -->
+	<div class="position w960 fn-clear">
+		<div class="fn-left">您现在的位置：<a href="{$root}">首页</a>〉<a href="{:getlistname('$list_id','list_url')}">{$list_name}</a>
+		</div>
+		<div class="share fn-right">
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <span class="bds_more">分享到：</span>
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+		<a class="shareCount"></a>
+    </div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&uid=600178" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+		</div>
+	</div>
+	<!-- // position End -->  
+
+	<div class="maxBox ui-sponsor">
+		<div class="boxs">
+                        <!-- 广告位：list01 --> 
+		        {:getadsurl('list1960')}
+		</div>
+	</div>
+	<!-- // maxBox End -->	
+
+<!--网络电视代码开始-->   
+<script>           
+var w = '950'; //宽度           
+var h = '480'; //高度           
+var s = 'yes'; //是否显示滚动条，yes显示，no不显示           
+document.write('<iframe width="'+w+'" height="'+h+'" src="http://live.64ma.com/tv/live.html" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="'+s+'"></iframe>');           
+</script>   
+<!--网络电视代码结束--><p align="center">   			  
+   </div>
+     </div>
+</div>
+<div class="tv2"><Center>
+
+ 	<div class="maxBox ui-sponsor">
+		<div class="boxs">
+                        <!-- 广告位：list02 --> 
+		        {:getadsurl('list2960')}
+		</div>
+	</div>
+	<!-- // maxBox End -->
+</Center></div> 
+<include file="Home:pp_footer" />
+</body>
+</html>

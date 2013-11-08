@@ -1,0 +1,57 @@
+<!--评论开始-->
+		<div class="cmt_msg" id="cmt_msg">
+			<form class="cmt_form clearfix" action="/?s=cm-insert" method="post">
+				<a class="face_wrap fl" href="javascript:;"><img id="mem_jpg" class="face" src="/Public/login/duface.png" onerror="javascript:this.src='/Public/login/duface.png'"></a>
+				<div class="input_wrap fl clearfix">
+					<textarea class="fl" id="comment_content" name="comment_content" onFocus="Cmt.textareaFcs(this)" onKeyup="Cmt.compRemaining(this)"></textarea>
+					<p class="fl clearfix">
+						<a class="expression fl" href="javascript:;" onClick="Cmt.expressionClk(this)"></a>
+						<span class="remaining fr">200</span>
+					</p>
+					<div class="eps">
+						<div class="expressions">
+							<ul><li onClick="Cmt.expressionTab(this,0)" class="current">默认表情</li><li onClick="Cmt.expressionTab(this,1)">阿狸</li></ul>
+							<ul class="eps_con"></ul>
+						</div>
+					</div>
+				</div>
+				<p class="smt_wrap fl clearfix">
+					<span class="total fl">共<em id="item_count">{:count($count)}</em>条影片评论</span>
+					<span class="fr clearfix">
+						<span id="login" style="display:none;">
+							<span></span>
+							<a name="anchor" href="/index.php?s=Member-outtt-url-~guochan~xiaoernanyang~">退出</a>
+						</span>
+						<input type="button" value="发布" onclick="FF.Comment.Post();">
+					</span>
+				</p>
+			</form>
+			<!--<div class="sort_wrap"><a href="" class="current" title="按时间排序">按时间排序</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" title="按热度排序">按热度排序</a></div>--><notempty name="cm_list">
+
+
+			<div class="cmt_wrap"><fflist name="cm_list" id="ppvod">
+
+
+						<div class="cmt_item clearfix">
+					<a class="face_wrap fl" href="javascript:;"><img class="face" src="{$ppvod.user_face}" onerror="javascript:this.src='/Public/login/duface.png'"></a>
+					<div class="item_con fl">
+						 {$ppvod.cm_floor} 
+						
+																			
+						
+						<p class="con">{$ppvod.cm_content|htmlspecialchars|remove_xss}</p>
+						<div class="bottom clearfix">
+							<ul class="fr clearfix">
+								<li><a class="up" href="javascript:;" onClick="Cmt.upDown(this,'up')">顶<span> {$ppvod.cm_up}</span></a></li>
+								<li><a class="down" href="javascript:;" onClick="Cmt.upDown(this,'down')">踩<span>{$ppvod.cm_down}</span></a></li>
+								<li><a class="reply" href="javascript:;" onClick="Cmt.replyClk(this)">回复</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>	</fflist>
+
+		</div>
+			<div class="pages">{$cm_pages}</div></notempty>
+
+		</div>
+		<!--评论结束-->

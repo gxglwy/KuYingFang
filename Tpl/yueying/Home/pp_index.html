@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$title}</title>
+	<meta name="keywords" content="{$keywords}">
+	<meta name="description" content="{$description}">
+	<script type="text/javascript">window.isIndexPage = true;</script>
+	<include file="Home:home_header" />
+
+</head>
+
+<body>
+
+	<include file="Home:pp_header" />
+
+	<div id="content" class="wrap">
+		<!-- 最新视频Tab -->
+		<div id="latest_tab" class="clearfix">
+			<!-- Tab切换控制条 -->
+			<div class="latest_tab_nav">
+				<ul class="clearfix">
+					<li id="latest1" class="current"><span><i class="ui-icon hot"></i>热门推荐</span></li>
+					<li id="latest2"><span><i class="ui-icon tv"></i>最新电视剧</span></li>
+					<li id="latest3"><span><i class="ui-icon movie"></i>最新电影</span></li>
+					<li id="latest4"><span><i class="ui-icon dm"></i>最新动漫</span></li>
+					<li id="latest5"><span><i class="ui-icon fun"></i>最新综艺</span></li>
+					<li id="latest6"><span><i class="ui-icon wei"></i>最新微电影</span></li>
+				</ul>
+			</div>
+
+			<!-- Tab的内容 -->
+			<div class="latest_tab_content">
+				<div id="latest_content_1">
+					<?php $latest=ff_mysql_vod('stars:5;limit:6;order:vod_addtime desc,vod_hits desc,vod_gold desc'); ?>
+					<ol class="pic_list">
+						<fflist name="latest" id="ppvod">
+						<li>
+							<a class="play_pic" href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
+								<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}">
+								<label class="mask">&nbsp;</label>
+								<label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">第{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label>
+							</a>
+							<h4><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name}</a></h4>
+							<p>{$ppvod.vod_actor|ff_search_url}</p>
+						</li>
+						</fflist>				
+					</ol>
+					<ul class="txt_list">
+						<?php $news_2=ff_mysql_vod('stars:5;limit:6,12;order:vod_addtime desc,vod_hits desc,vod_gold desc'); ?>
+						<fflist name="news_2" id="ppvod">
+							<li>
+								<span class="num"><if condition="$i lt 10">0{$i}<else />{$i}</if>.</span>
+								<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name|msubstr=0,-5}">{$ppvod.vod_name}</a>
+							</li>
+						</fflist>
+					</ul> 
+				</div>
+
+				<?php $arr=array(2,1,3,4,5) ?>
+
+				<fflist name="arr" id="ppcid" key="k">
+				<div id="latest_content_<?php echo($k+1) ?>" style="display: none;">
+					<!-- 上方的图片列 -->
+					<ol class="pic_list">
+						<?php $latest= ff_mysql_vod('cid:'.$ppcid.';limit:6;order:vod_addtime desc,vod_hits desc,vod_gold desc'); ?>
+						<fflist name="latest" id="ppvod">
+						<li>
+							<a class="play_pic" href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
+							<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}"/>
+								<label class="mask">&nbsp;</label>
+								<label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">连载至{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label>
+							</a>
+							<h4><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,7}</a></h4>
+							<p>{$ppvod.vod_actor|ff_search_url}</p>
+						</li>
+						</fflist>
+					</ol>
+					
+					<!-- 下方的文字列 -->
+					<ul class="txt_list">
+						<?php $latest=ff_mysql_vod('cid:'.$ppcid.';limit:6,12;order:vod_addtime desc,vod_hits desc,vod_gold desc'); ?>
+						<fflist name="latest" id="ppvod">
+						<li>
+							<span class="num"><if condition="$i lt 10">0{$i}<else />{$i}</if>.</span>
+							<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name}</a>/<span><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">第{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></span>
+						</li>
+						</fflist>
+					</ul> 
+				</div>
+				</fflist>
+			</div>
+		</div>
+		<!-- 最新视频Tab end -->
+
+		<!-- 各个板块区 -->
+		<?php $cidArr=array(2,1,3,4,5) ?>
+		<volist name="cidArr" id="cid">
+		<div id=<switch name="cid"><case value="2">"box_tv"</case><case value="1">"box_mv"</case><case value="3">"box_cartoon"</case><case value="4">"box_fun"</case><case value="5">"box_wei"</case></switch>class="ui_box ui_box_kyf">
+			<!-- 左边 -->
+			<div class="aside_left">
+				<!-- 标题 -->
+				<div class="ui_title clearfix">
+					<h3>
+						<switch name="cid"><case value="2">电视剧</case><case value="1">电影</case><case value="3">动漫</case><case value="4">综艺</case><case value="5">微电影</case></switch><a href="{:getlistname($cid,'list_url')}"></a>
+					</h3>
+					<a class="view_more site_color_text" href="{:getlistname($cid,'list_url')}">更多</a>
+				</div>
+
+				<in name="cid" value="1,2">
+				<div class="ui_sort">
+					<!-- 小分类 -->
+					<div class="sort_type">
+						<ul class="sort_list clearfix">
+						<?php $vod_type=M('list')->where(array('list_pid'=>$cid))->order('list_oid')->select() ?>
+						<fflist name="vod_type" id="ppvod">
+						<li><a href="{:getlistname($ppvod['list_id'],'list_url')}">{$ppvod.list_name}</a></li>
+						</fflist>
+						</ul>
+					</div>
+					<!-- 排行 -->
+					<div class="list">
+						<h4 class="list_title">排行榜</h4>
+						<ul class="list_rank clearfix">
+							<?php $ranklist=ff_mysql_vod('cid:'.$cid.';limit:12;order:vod_hits desc,vod_addtime desc,vod_gold desc'); ?>
+							<fflist name="ranklist" id="ppvod">
+							<li>
+								<span <if condition="$i elt 3">class="rank_light site_color_text"</if>><if condition="$i lt 10">0{$i}.<else />{$i}.</if></span>
+								<a href="{$ppvod.vod_readurl}" target="_blank" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,12}</a>
+							</li>
+							</fflist>
+						</ul>
+					</div>
+				</div>
+				</in>
+
+				<in name="cid" value="3,4,5">
+				<div class="list">
+					<h4 class="list_title">最新更新</h4>
+					<?php $hot=ff_mysql_vod('cid:'.$cid.';limit:0,6;order:vod_addtime desc'); ?>
+					<ul class="list_rank clearfix">
+						<fflist name="hot" id="ppvod">
+						<li>
+							<span <if condition="$i elt 3">class="rank_light site_color_text"</if>><if condition="$i lt 10">0{$i}.<else />{$i}.</if></span>
+							<a href="{$ppvod.vod_readurl}" target="_blank" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,12}</a>
+						</li>
+						</fflist>
+					</ul>
+					<h4 class="list_title fn_margin_top">排行榜</h4>
+					<?php $rank=ff_mysql_vod('cid:'.$cid.';limit:0,7;order:vod_hits desc'); ?>
+					<ul class="list_rank clearfix">
+						<fflist name="rank" id="ppvod">
+						<li>
+							<span <if condition="$i elt 3">class="rank_light site_color_text"</if>><if condition="$i lt 10">0{$i}.<else />{$i}.</if></span>
+							<a href="{$ppvod.vod_readurl}" target="_blank" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,12}</a></li>
+						</li>
+						</fflist>
+					</ul>
+				</div>
+				</in>
+			</div>
+			<!-- 左边end -->
+
+			<!-- 右边 -->
+			<div class="aside_right">
+				<?php $hot=ff_mysql_vod('cid:'.$cid.';limit:2;order:vod_hits_week desc'); ?>
+				<ul class="img_list list_top clearfix">
+					<fflist name="hot" id="ppvod">
+					<li>
+						<a class="play_img" href="{$ppvod.vod_readurl}" target="_blank">
+							<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
+							<label class="score">{$ppvod.vod_gold}</label>
+						</a>
+						<div class="play_txt">
+							<h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h5>
+							<p class="num site_color_text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></p>
+							<p class="desc">{$ppvod.vod_content|msubstr=0,40}...</p>
+							<dl class="item"><dt>演员：</dt><dd class="actor">{$ppvod.vod_actor}</dd> </dl>
+							<dl class="item"><dt>地区：</dt><dd>{$ppvod.vod_area}</dd></dl>
+							<dl class="item"><dt>类型：</dt><dd>{$ppvod.list_name}</dd></dl>
+						</div>
+					</li>
+					</fflist>
+				</ul>
+
+				<?php $hot=ff_mysql_vod('cid:'.$cid.';limit:2,5;order:vod_hits_week desc'); ?>
+				<ul class="img_list list_middle clearfix">
+					<volist name="hot" id="ppvod">
+					<li>
+						<a class="play_img" href="{$ppvod.vod_readurl}" target="_blank">
+							<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
+							<label class="mask"></label>
+							<label class="text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></label>
+							<label class="score">{$ppvod.vod_gold}</label>
+						</a>
+						<h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h5>
+						<p class="actor">{$ppvod.vod_actor}</p>
+					</li>
+					</volist>
+				</ul>
+
+				<?php $hot=ff_mysql_vod('cid:'.$cid.';limit:6,10;order:vod_hits_week desc'); ?>		
+				<ul class="list_bottom clearfix">
+					<volist name="hot" id="ppvod">
+					<li <if condition="$i == 1||$i==6">class="li_first"</if> ><a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name}</a></li>
+					</volist>
+				</ul>
+
+			</div>
+			<!-- 右边end -->
+		</div>
+		</volist>
+		<!-- 各个板块区end -->
+
+		
+	</div>
+	
+
+	<include file="Home:pp_footer" />
+</body>
+</html>

@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+#new_hot{
+	width:943px;
+	margin:10px auto 0 auto;
+	border:1px solid #ccc;
+	background:#fff;
+	padding:0 0 10px 15px;
+}
+#new_hot h2{
+	font-size:14px;
+	height:40px;
+	line-height:40px;
+	background:url(../images/title_bg.gif) repeat-x right center;
+	color:#69a63c;
+	border-bottom:1px dashed #dfdfdf;
+	width:98%;
+}
+#new_hot h2 strong{
+	background:url(../images/new.gif) no-repeat left center;
+	float:left;
+	padding:0 0 0 30px;
+}
+
+#new_hot dl{
+	width:106px;
+	display:block;
+	float:left;
+	padding:10px 13px 0 13px;
+	height:175px;
+}
+#new_hot dl:hover{
+	background:#eee;
+}
+#new_hot dl dt img{
+	width:100px;
+	height:130px;
+	display:block;
+}
+#new_hot dl dt a{
+	border:1px solid #ccc;
+	width:100px;
+	height:130px;
+	display:block;
+	padding:2px;
+}
+#new_hot dl dt a:hover{
+	border:1px solid #e12160;
+}
+#new_hot dl dd{
+	text-align:center;
+	padding-top:5px;
+}
+#new_hot dl dd a{
+	color:#333;
+}
+#new_hot dl dd a:hover{
+	color:#e12160;
+}

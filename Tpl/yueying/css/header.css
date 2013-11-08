@@ -1,0 +1,228 @@
+#site_header{
+	z-index: 100;
+}
+
+/*==========网站顶部区域==========*/
+#site_top{
+	position: relative;
+	overflow: hidden;
+}
+/*=====logo_area=====*/
+.logo_area{
+	float: left;
+	width: 280px;
+	margin-top: 15px;
+}
+.logo a{
+	display: block;
+	width: 155px;
+	height: 50px;
+	/*background: url(../images/site_logo.png) 0 0 no-repeat;*/
+}
+.logo a:hover{
+	/*background: url(../images/site_logo.png) 0 -50px no-repeat;*/
+}
+
+/*=====search_area=====*/
+.search_area{
+	float: left;
+	width: 240px;
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 240px;
+	border: 1px solid #93C533;
+	border-radius: 3px;
+	background-color: #FFF;
+}
+
+#search_form input{
+	border: 0;
+	height: 30px;
+	line-height: 20px;
+	font-size: 15px;
+	vertical-align: middle;
+	overflow: hidden;
+	color: #555;
+}
+#keyword{
+	width: 206px;
+	text-indent: 10px;
+	background-color: transparent;
+}
+#search_button{
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	border: 1px solid #f9f9f6;
+	border-radius: 4px;
+	background: url(../images/search.gif) 6px 6px no-repeat #f6f6f6;
+}
+#search_button:hover {
+	background-position: 6px 4px;
+}
+
+
+/*=====user_area=====*/
+.user_area{
+	float: right;
+	width: 200px;
+	margin-top: 20px;
+	margin-right: 20px;
+}
+.user_area_item{
+	float: right;
+	margin-right: 10px;
+	overflow: hidden;
+}
+.user_area_bar {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	color: #111;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	background: #ececec;
+	border-radius: 2px; 
+	/*box-shadow: 10px 10px 10px #000;*/
+	cursor: pointer;
+}
+.user_area_bar:hover{
+	color: #fff !important;
+	text-decoration: none;
+}
+.user_area_bar span{
+	display: inline-block;
+	float: left;
+	font-size: 10px;
+	/*font-family: stheiti,microsoft yahei;*/
+	text-indent: 6px;
+}
+.user_area_bar .triangle_down{
+	position:relative;
+	right:4px;
+	top:14px;
+	margin:0;
+	border-width:3px;
+	border-top:5px solid #7C7C7D;
+}
+.triangle_left,.triangle_down,.triangle_right,.triangle_up{
+	border:5px solid transparent;
+	display:inline-block;
+	width:0;
+	height:0;
+	font-size:0;
+	overflow:hidden;
+}
+.triangle_left{border-right:5px solid #000}
+.triangle_down{border-top:5px solid #000}
+.triangle_right{border-left:5px solid #000}
+.triangle_up{border-bottom:5px solid #000}
+
+.user_area_bar:hover .triangle_down{
+	border-top-color: #fff; 
+}
+
+/*==========site header end==========*/
+
+
+
+
+/*1==========site_nav==========*/
+.site_nav{
+	position: relative;
+	height: 35px;
+	background-color: #262626;
+	overflow: hidden;
+	/*z-index: 1;*/
+}
+.site_nav_item{
+	float: left;
+	height: 34px;
+}
+.site_nav_item a{
+	color: #C2C2C2;
+	font-size: 14px;
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	padding: 0 16px;
+}
+.site_nav_item a:hover{
+	text-decoration: none;
+	color: #fff !important;
+}
+.site_nav_item.current{
+	background-color: #0B0D0E;
+}
+.site_nav_item.current a{
+	height: 32px;
+	color: #fff;
+}
+.site_nav_item .divide{
+	position: relative;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 12px;
+	border-left: 1px solid #222;
+	border-right: 1px solid #363636;
+	color: #ccc;
+}
+
+.site_nav .fn_right{
+	float: right;
+}
+
+/*==========subnav==========*/
+.site_subnav{
+	position: relative;
+	height: 40px;
+	background-color: #f0f0f0;
+	/*border-bottom: 1px solid #E2E2E2;*/
+	box-shadow: 0px 2px 4px #888;
+	overflow: hidden;
+	/*z-index: 1;*/
+}
+.site_subnav_tv,.site_subnav_mv{
+	float: left;
+	height: 40px;
+	margin-left: 10px;
+	overflow: hidden;
+}
+.site_subnav_tv{
+	margin-right: 90px;
+}
+.site_subnav h3{
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 10px;
+}
+.site_subnav_title_tv{
+	color: #FF3300;
+}
+.site_subnav_title_mv{
+	color: #669933;
+}
+.site_subnav_list{
+	float: left;
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+}
+
+.site_subnav_item{
+	float: left;
+	margin-right: 10px;
+}
+.site_subnav_item a{
+	color: #222;
+	font-size: 14px;
+}
+.site_subnav_item a:hover{
+	text-decoration: none;
+}

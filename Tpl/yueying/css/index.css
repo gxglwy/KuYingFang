@@ -1,0 +1,471 @@
+
+/****************首页内容区域***************/
+#content{
+	margin-top: 10px;
+}
+
+/*==========latest_tab==========*/
+.latest_tab{
+	position: relative;
+	margin-top: 20px;
+	height: 384px;
+	overflow: hidden;
+}
+
+/*==========tab栏目切换框==========*/
+.latest_tab_nav{
+	width: 997px;
+	height: 40px;
+	margin-bottom: -2px;
+	overflow: hidden;
+}
+.latest_tab_nav li{
+	position: relative;
+	float: left;
+	width: 165px;
+	height: 33px;
+	line-height: 33px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #333;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	margin: 4px -1px 0 0;
+	border-bottom: 0 none;
+	text-align: center;
+	cursor: default;
+	overflow: hidden;
+}
+.latest_tab_nav li.current{
+	height: 35px;
+	line-height: 35px;
+	top: -4px;
+	border-top-width: 4px; 
+	background-color: #fff;
+	border-radius: 4px 4px 0 0;
+}
+
+/*==========latest_tab_content==========*/
+.latest_tab_content{
+	width: 995px;
+	background: white;
+	border: 1px solid #ddd;
+	overflow: hidden;
+}
+/*pic_list*/
+.latest_tab_content .pic_list{
+	width: 998px;
+	height: 235px;
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list li{
+	float: left;
+	width: 165px;
+	height: 235px;
+	margin: 0 auto;
+	border-right: 1px solid #fefefe;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list li a.play_pic{
+	position: relative;
+	display: block;
+	width: 110px;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 16px;
+	padding: 3px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list li a.play_pic:hover{
+	border: 1px solid #93C533;
+}
+.latest_tab_content .pic_list li img{
+	width: 110px;
+	height: 150px;
+	display: block;
+	background: url(../images/loading.gif) no-repeat center center transparent;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list .mask{
+	width: 110px;
+	height: 20px;
+	display: block;
+	background-color: #000;
+	position: absolute;
+	left: 3px;
+	bottom: 3px;
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+	z-index: 1;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list .text{
+	position: absolute;
+	left: 3px;
+	bottom: 3px;
+	padding: 0 5px;
+	text-align: right;
+	width: 100px;
+	height: 20px;
+	color: #fff;
+	white-space: nowrap;
+	line-height: 20px;
+	display: block;
+	z-index: 2;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list h4{
+	width: 110px;
+	height: 22px;
+	line-height: 22px;
+	margin: 0 auto;
+	margin-top: 4px;
+	font-size: 14px;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list p{
+	width: 110px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	color: #aaa;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.latest_tab_content .pic_list p a{
+	color: #aaa;
+}
+
+/*txt_list*/
+.latest_tab_content .txt_list{
+	width: 1000px;
+	margin: 5px 11px;
+	overflow: hidden;
+}
+
+.latest_tab_content .txt_list li{
+	float: left;
+	width: 231px;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 15px;
+	font-size: 12px;
+	color: #aaa;
+	border-bottom: 1px dotted #e0e0e0;
+	overflow: hidden;
+}
+.latest_tab_content .txt_list a{
+	margin: 0 4px;
+}
+
+
+
+
+/*==========板块区==========*/
+/*====左边====*/
+.aside_left .ui_title{
+	float: left;
+	width: 243px;
+	height: 55px;
+	position: relative;
+	border-bottom: 1px solid #eee;
+}
+.aside_left .ui_title h3{
+	float: left;
+	position: relative;
+	color: #669933;
+	width: 196px;
+	height: 55px;
+	line-height: 55px;
+	font-size: 26px;
+	font-weight: bold;
+	text-indent: 10px;
+}
+.aside_left .ui_title h3 a{
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	height: 55px;
+	width: 196px;
+	text-decoration: none;
+	z-index: 1;
+}
+.aside_left .ui_title .view_more{
+	float: right;
+	height: 56px;
+	line-height: 56px;
+	margin-right: 8px;
+	z-index: 3;
+}
+
+.aside_left .ui_sort{
+	float: left;
+	width: 243px;
+}
+
+/*类型*/
+.aside_left .ui_sort .sort_type{
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.aside_left .ui_sort .sort_type li{
+	float: left;
+	font-size: 14px;
+	width: 55px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+}
+
+
+/*排行榜*/
+.aside_left .list{
+	float: left;
+	width: 200px;
+	padding:10px 20px 20px 20px;
+}
+.aside_left .list_title{
+	font-size:14px;
+	font-weight:bold;
+	color:#333;
+	line-height: 27px;
+	border-bottom:1px dashed #dcdcdc;
+}
+.aside_left .list_rank li{
+	line-height:27px;
+	line-height:28px;
+	border-bottom:1px dashed #dcdcdc;
+	overflow:hidden;
+}
+.aside_left .list_rank li span{
+	font-weight: bold;
+	font-family: Tahoma;
+	font-style: italic;
+}
+
+.aside_left .fn_margin_top{
+	margin-top: 20px;
+}
+
+
+/*====右边====*/
+.aside_right .img_list li{
+	float: left;
+	margin-left: -1px;
+	border-left: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+}
+.aside_right .img_list li:hover{
+	background-color: #fbfafa;
+}
+.aside_right .img_list .play_img{
+	float: left;
+	position: relative;
+	display: block;
+	border: 1px solid #fff;
+	background-color: #fff;
+	background:url(../images/loading.gif) no-repeat center center transparent;
+	overflow: hidden;
+}
+/*第一行图片*/
+.aside_right .list_top li{
+	width: 360px;
+	height: 200px;
+	padding: 16px 0 0 16px;
+}
+.aside_right .list_top .play_img{
+	width: 130px;
+	height: 180px;
+	margin: 0 10px 0 0;
+}
+.aside_right .img_list .play_img:hover{
+	border: 1px solid #93C533;
+}
+.aside_right .list_top .play_img img{
+	width: 126px;
+	height: 176px;
+	position: relative;
+	top: 2px;
+	left: 2px;
+}
+.play_img .score{
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 8px;
+	width: 30px;
+	height: 18px;
+	line-height: 16px;
+	padding-right: 5px;
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+	overflow: hidden;
+	z-index: 3;
+	background: url(../images/score_icon.gif) 0 0 no-repeat;	
+}
+
+.aside_right .list_top .play_txt{
+	float: right;
+	width: 193px;
+	height: 180px;
+	overflow: hidden;
+	padding-right: 20px;
+}
+.img_list h5{
+	width: 100%;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #666;
+	height: 20px;
+	overflow: hidden;
+}
+.aside_right .list_top h5{
+	font-weight: bold;
+}
+.aside_right li p{
+	height: 20px;
+	line-height: 20px;
+}
+.aside_right li p.num{
+	font-weight: bold;
+}
+.aside_right li p.desc{
+	height: 60px;
+	line-height: 20px;
+	padding: 5px 0;
+	margin-bottom: 5px;
+	border-bottom: 1px dotted #ddd;
+}
+.aside_right .play_txt .item{
+	width: 100%;
+	overflow: hidden;
+	line-height: 20px;
+}
+.aside_right .play_txt .item dt{
+	float: left;
+	width: 36px;
+	overflow: hidden;
+}
+.aside_right .play_txt .item dd{
+	float: right;
+	width: 140px;
+	overflow: hidden;
+}
+.aside_right .play_txt .item dd {
+	margin: 0 7px 0 0;
+}
+
+
+/*第二行图片*/
+/*754/5=150(%4)*/
+.aside_right .list_middle li{
+	width: 150px;
+	height: 235px;
+}
+.aside_right .list_middle .play_img{
+	width: 114px;
+	height: 154px;
+	margin: 16px 0 0 16px;
+}
+.aside_right .list_middle .play_img img{
+	position: relative;
+	left: 2px;
+	top: 2px;
+	width: 110px;
+	height: 150px;
+}
+.aside_right .play_img .mask{
+	position: absolute;
+	width: 110px;
+	height: 20px;
+	left: 2px;
+	bottom: 2px;
+	display: block;
+	overflow: hidden;
+	background-color: #000;
+	filter:alpha(opacity=30);
+	opacity: 0.3;
+	z-index: 1;
+}
+
+.play_img .text{
+	position: absolute;
+	left: 3px;
+	bottom: 2px;
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 12px;
+	padding: 0 5px;
+	text-align: right;
+	z-index: 2;
+	color: #fff;
+	white-space:nowrap;
+	overflow: hidden;
+}
+.aside_right .list_middle h5{
+	width: 110px;
+	height: 22px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.aside_right .list_middle p{
+	width: 110px;
+	height: 22px;
+	line-height: 22px;
+	color: #999;
+	overflow: hidden;
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+.aside_right .list_bottom{
+	width:627px;
+	border-bottom:1px solid #eee;
+	margin:10px 0 10px 45px;
+}
+.aside_right .list_bottom li{
+	float:left;
+	width:125px;
+}
+.aside_right .list_bottom li a{
+	color:#333;
+	display:block;
+	height:30px;
+	line-height:30px;
+	border-right:1px solid #eee;
+	border-top:1px solid #eee;
+	background:url(../images/assist_icon.gif) no-repeat;
+	padding:0 0 0 35px;
+	overflow:hidden;
+}
+
+#box_tv .aside_right .list_bottom li a{
+	background-position:20px 10px;
+}
+#box_mv .aside_right .list_bottom li a{
+	background-position:20px -30px;
+}
+#box_cartoon .aside_right .list_bottom li a{
+	background-position:20px -70px;
+}
+#box_fun .aside_right .list_bottom li a{
+	background-position:20px -110px;
+}
+#box_wei .aside_right .list_bottom li a{
+	background-position:20px -30px;
+}
+.aside_right .list_bottom li.li_first{
+	border-left:1px solid #eee;
+}
+.aside_right .list_bottom li.bottom{
+	border-bottom:1px solid #eee;
+}

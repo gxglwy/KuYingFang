@@ -1,0 +1,106 @@
+<?php
+$s_area=array('大陆','香港','台湾','港台','欧美','日本','韩国','日韩','新加坡','泰国','俄罗斯','其他');
+
+$s_class_tv=array('言情','都市','家庭','生活','偶像','喜剧','历史','古装','武侠','刑侦','战争','神话');
+
+$s_language=array('国语','粤语','韩语','日语','英语','其他');
+
+$s_year=array('2013','2012','2011','2010','2009','2008','2007','2006','2005','2004','2003','2002','2001','2000');
+
+if($_GET[year]) $u_year="-year-".$_GET[year];else $u_year=NULL;
+if($_GET[area]) $u_area="-area-".$_GET[area];else $u_area=NULL;
+if($_GET[language]) $u_language="-language-".$_GET[language];else $u_language=NULL;
+if($_GET[order]) $u_order="-order-".$_GET[order];else $u_order=NULL;
+?>
+
+
+<div id="site_header">
+	<!-- 顶部 -->
+	<div id="site_top">
+		<div class="wrap">
+			<div class="logo_area">
+				<h1 class="logo">
+					<a href="{$root}" rel="home"></a>
+				</h1>
+			</div>
+			<!-- end logo_area -->
+
+			<div class="search_area" role="search">
+				<form id="search_form" name="search_form" method="post" action="{$root}index.php?s=vod-search">
+					<input type="text" name="keyword" id="keyword" class="search_text" autocomplete="off"/>
+					<input type="submit" id="search_button" class="search_button" value="" />
+				</form>
+			</div>
+			<!-- end searsh_area -->
+
+			<div class="user_area">
+				<ul class="clearfix">
+					<li class="user_area_favorites user_area_item">
+						<a class="user_area_bar site_color_bg_hover" id="fav_bar"><span>收藏</span><i class="triangle_down"></i></a>
+					</li>
+					<li class="user_area_history user_area_item">
+						<a class="user_area_bar site_color_bg_hover" id="history_bar"><span>看过</span><i class="triangle_down"></i></a>
+					</li>
+				</ul>
+			</div>
+			<!-- end user_area -->
+		</div>
+		<!-- end site_header -->
+	</div>
+
+	<!-- =====导航栏===== -->
+	<!-- 总导航栏 -->
+	<div class="site_nav" role="navigation sitemap">
+		<div class="wrap">
+			<ul class="site_nav_list clearfix">
+				<li class="site_nav_item" id="index_page_navbtn">
+					<a href="{$root}"><strong>首页</strong></a>
+				</li>
+				<volist name="list_menu" id="list">
+					<if condition="$list.list_oid elt 6">
+						<li class="site_nav_item <eq name="list.list_id" value="$list_id">current</eq>"<eq name="list.list_id" value="$list_pid">current"</eq>><a href="{$list.list_url}">{$list.list_name}</a></li>
+					</if>
+				</volist>
+				<li class="site_nav_item">
+					<a href="{:ff_mytpl_url('my_tv.html')}" class="tv">电视直播</a>
+				</li>
+				<li class="site_nav_item fn_right">
+					<a href="{:ff_mytpl_url('my_top.html')}">影视排行</a>
+				</li>
+				<li class="site_nav_item fn_right">
+					<a href="{:ff_mytpl_url('my_new.html')}">最近更新</a>
+				</li>
+				<li class="site_nav_item fn_right">
+					<a href="{:UU('Home-vod/type')}">片库索引</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 子栏目 -->
+	<div class="site_subnav" role="navigation sitemap">
+		<div class="wrap">
+			<!-- 副栏 -->
+			<!-- 电视剧下的子栏目 -->
+			<div class="site_subnav_tv">
+				<h3 class="site_subnav_title_tv">电视剧：</h3>
+				<ul class="site_subnav_list site_subnav_list_tv clearfix">
+					<?php $vod_type=M('list')->where(array('list_pid'=>2))->order('list_oid')->select() ?>
+					<fflist name="vod_type" id="ppvod">
+						<li class="site_subnav_item"><a href="{:getlistname($ppvod['list_id'],'list_url')}">{$ppvod.list_name}</a></li>
+					</fflist>
+				</ul>
+			</div>
+			<!-- 电影下子栏目 -->
+			<div class="site_subnav_mv">
+				<h3 class="site_subnav_title_mv">电&nbsp;&nbsp;影：</h3>
+				<ul class="site_subnav_list site_subnav_list_mv clearfix">
+					<volist name="list_menu[1][son]" id="list">
+						<li class="site_subnav_item"><a href="{$list.list_url}">{$list.list_name}</a></li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end site_nav -->
+</div>

@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+#speciallist{
+	width:930px;
+	margin:0 auto;
+	border:1px solid #ccc;
+	background:#fff;
+	padding:30px 0 0 30px;
+}
+#speciallist dl {
+	width:210px;
+	height:110px;
+	position:relative;
+	float:left;
+	margin:0 20px 20px 0;
+}
+#speciallist dl dt img{
+	width:200px;
+	height:100px;
+	padding:2px;
+	border:1px solid #ccc;
+	display:block;
+}
+#speciallist dl dd.bg{
+	position:absolute;
+	background:#000;
+	width:200px;
+	top:83px;
+	left:3px;
+	height:20px;
+	line-height:20px;
+	text-indent:-9999px;
+	filter:alpha(opacity=50);
+	 -moz-opacity:0.5;
+	 -khtml-opacity: 0.5;
+	 opacity: 0.5;
+}
+#speciallist dl dd.title{
+	position:absolute;
+	width:200px;
+	top:83px;
+	left:3px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+}
+#speciallist dl dd.title a{
+	color:#fff;
+}
+
+
+#banner{
+	background:#ccc;
+	padding:10px 0;
+}
+#banner img{
+	width:960px;
+	height:300px;
+	display:block;
+	margin:0 auto;
+}
+
+
+
+
+
+
+

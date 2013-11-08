@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>面包网 - 用户登录</title>
+	<meta name="keywords" content="面包网">
+	<meta name="description" content="面包网提供最全的最新电视剧，2013最新电影，韩国电视剧、香港TVB电视剧、韩剧、日剧、美剧、综艺的在线观看和剧集交流场所，在线观看分为普通视频模式、百度影音等播放高清播放模式，每天第一时间更新，放送最新好看的高清免费电视剧">
+	<link href="static/css/base.css" type="text/css" rel="stylesheet">
+	<link href="static/css/qirebox.css" type="text/css" rel="stylesheet">
+	<script src="static/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script src="static/js/jquery.base.js" type="text/javascript"></script>
+	<script src="/static/js/vaild/formValidator-4.0.1.js" type="text/javascript"></script>
+	<script src="/static/js/vaild/formValidatorRegex.js" type="text/javascript"></script>
+	<script language="javascript" src="/static/js/vaild/DateTimeMask.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="layout" id="sign-header">
+		<div id="sign-logo">
+			<a href="http://www.mianbao.com/">
+				<img src="static/images/logo.png" alt=""></a>
+		</div>
+	</div>
+	<!-- // sign-header end -->
+	<div class="layout" id="sign-content">
+		<div class="ui-box ui-qire sign-focus" id="login-box">
+			<div class="ui-title fn-clear">
+				<span>
+					还没有面包网会员帐号？请
+					<a href="/user-Reg">注册面包网会员</a>
+				</span>
+				<h2>面包网会员登录</h2>
+			</div>
+			<div class="ui-cnt fn-clear">
+				<form id="loginform_web" action="/user" method="post" onsubmit="return false;">
+					<div class="ui-form" id="sign-primary">
+						<div class="ui-form-item fn-clear">
+							<label for="username" class="ui-label w100">您的帐号：</label>
+							<input type="text" id="username" name="username" class="ui-input w220" value="">
+							<p class="onShow ui-message" id="usernameTip">请输入正确的用户名或者email</p>
+						</div>
+						<div class="ui-form-item fn-clear">
+							<label for="password" class="ui-label w100">密码：</label>
+							<input type="password" id="password" name="password" maxlength="20" class="ui-input w220" value="">
+							<p class="onShow ui-message" id="passwordTip">请输入密码</p>
+						</div>
+						<div class="ui-form-item ui-form-checkbox fn-clear">
+							<label class="ui-label w100">&nbsp;</label>
+							<div class="ui-form-block w220">
+								<label for="agreement" class="ui-label-checkbox">
+									<input type="checkbox" name="agreement" id="agreement" checked="checked" value="1">下次自动登录</label>
+								<a href="/user-index-getpsw">忘记密码了？</a>
+							</div>
+						</div>
+						<div class="ui-form-item fn-clear">
+							<label class="ui-label w100">&nbsp;</label>
+							<input type="submit" id="loginbt" class="ui-button w220" value="登录面包网"></div>
+					</div>
+					<!-- // ui-form#sign-primary end -->
+				</form>
+				<div id="sign-app">
+					<div class="sign-app-list">
+						<h5>你还可以用以下方式直接登录：</h5>
+						<a href="/user-login-qqlogin">
+							<img src="static/images/qq_login.gif" alt=""></a>
+					</div>
+				</div>
+				<!-- // sign-app end -->
+			</div>
+		</div>
+		<!-- // sign-box#regbox end -->
+		<script type="text/javascript">
+		$.formValidator.initConfig({
+			formID:"loginform_web",
+			debug:false,
+			submitOnce:false,
+			onSuccess:function(){
+				//alert('dddddddddddddd');
+				$("#loginform_web").qiresub({
+					curobj:$("#loginform_web #loginbt"),
+					txt:'数据提交中,请稍后...',
+					onsucc:function(result){
+						//$.showfloatdiv({offset:$("#register").offset(),txt:'成功注册'});
+						$.hidediv(result);
+						//alert(result.msg);
+					}
+				}).post({url:'/user-login-viluser'});
+				return false;
+			},
+			onError:function(msg,obj,errorlist){
+				$("#errorlist").empty();
+				$.map(errorlist,function(msg){
+					$("#errorlist").append("<li>" + msg + "</li>")
+				});
+				//alert(msg);
+			},
+			submitAfterAjaxPrompt : '有数据正在异步验证，请稍等...'
+		});
+		$("#loginform_web #username").formValidator({
+			onShow:"请输入正确的用户名或者email",
+			onFocus:"至少4个字符",
+			onCorrect:"填写正确"
+		})
+		.inputValidator({
+			min:4,
+			onError:"你输入的用户名或者Email非法,请确认"
+		});
+		$("#loginform_web #password").formValidator({
+			onShow:"请输入密码",
+			onFocus:"至少6个长度",
+			onCorrect:"密码合法"
+		})
+		.inputValidator({
+			min:6,
+			empty:{
+				leftEmpty:false,
+				rightEmpty:false,
+				emptyError:"密码两边不能有空符号"
+			},
+			onError:"密码不能为空,请确认"
+		});
+	</script>
+	</div>
+	<!-- // sign-content end -->
+
+	<!-- footer -->
+
+
+	
+	<script src="static/js/language.js" type="text/javascript"></script>
+	<script language="javascript" src="static/js/vaild/qireobj.js" type="text/javascript"></script>
+	<script type="text/javascript" src="static/js/login.js"></script>
+	<div data-type="4" data-plugin="aroundbox" data-plugin-aroundbox-x="left" data-plugin-aroundbox-y="bottom" data-plugin-aroundbox-iconsize="60x60" data-plugin-aroundbox-fixed="1" data-plugin-aroundbox-offsetx="10"></div>
+	<script type="text/javascript" src="static/js/focus.js"></script>
+	<script src="static/js/vaild/formValidator-4.0.1.js" type="text/javascript"></script>
+	<script src="static/js/vaild/formValidatorRegex.js" type="text/javascript"></script>
+</body>
+</html>

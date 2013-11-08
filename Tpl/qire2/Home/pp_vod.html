@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file="./Public/tpl/title/vod_default_detail.html" />
+<link rel="stylesheet" type="text/css" href="{$tpl}style/vod.css"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<include file="Home:header" />
+</head>
+
+<body>
+<include file="Home:pp_header" />
+<div class="cpc">{:getadsurl('vod_cpc')}</div>
+<DIV id=address>
+<UL>
+  <LI><A href="{$root}">首页</A></LI>
+  <LI><A class=arrow href="{$list_url}">{$list_name}</A></LI>
+  <LI><A class=arrow title={$vod_name} href="{$vod_readurl}">{$vod_name|msubstr=0,30}</A></LI></UL><!-- Baidu Button BEGIN -->
+<DIV id=bdshare class="bdshare_t bds_tools get-codes-bdshare">
+<SPAN class=bds_more>分享到：</SPAN> <A class=bds_qzone></A><A class=bds_tsina></A><A class=bds_tqq></A><A class=bds_renren></A><A class=bds_douban></A><A class=bds_taobao></A><A class=bds_ty></A><A class=bds_tieba></A><A class=bds_kaixin001></A><A class=bds_copy></A></DIV>
+<SCRIPT id=bdshare_js type=text/javascript 
+data="type=tools&uid=722675"></SCRIPT>
+
+<SCRIPT id=bdshell_js type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+			document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+		</SCRIPT>
+<!-- Baidu Button END --></DIV>
+<DIV id=vod>
+<H2><SPAN class=title>{$vod_name}</SPAN><A id=fav2 class=collect href="javascript:void(0)">收藏</A>
+<A class=collect href="{$vod_rssurl}" target=_blank>订阅</A>
+<A class=collect href="{:UU('Home-gb/show',array(id=>$vod_id),false,true)}" target=_blank>报错</A></H2>
+<DIV class=rating-box>
+<DIV class=rating-total><LABEL style="WIDTH: <?php  
+$vod_gold1=str_replace(".", "", $vod_gold);
+echo $vod_gold1 ?>%" id=total 
+class=rating-total-item></LABEL>
+<DIV class=pingfen-total><STRONG id=pingfen> {$vod_gold} </STRONG><EM 
+id=pingfen2>{$vod_gold}</EM></DIV></DIV>
+<DIV class=rating-panle>
+<DIV class=rating-bar>
+<DIV style="WIDTH: <?php  
+$vod_gold1=str_replace(".", "", $vod_gold);
+echo $vod_gold1 ?>%" id=fenshu class=rating-bar-item></DIV></DIV></DIV></DIV>
+<DL class=infos>
+  <DT>
+  <P><IMG class=lazy alt={$vod_name}全集观看 onerror="javascript:this.src='{$tpl}/images/noimg.gif';" src="{$vod_readurl}" data-original="{$vod_picurl}"></P><SPAN></SPAN></DT>
+  <DD><SPAN class=Gold></SPAN><SPAN>[我也要给这影片打分]</SPAN> </DD>
+  <DD>主演：<notempty name="vod_actor">{$vod_actor|ff_search_url}<else />未录入</notempty></DD>
+  <DD>状态：<span class="blue"><notempty name='vod_title'>{$vod_title}<else/><empty name="vod_continu">全集<else/>第{$vod_continu}集</empty></notempty></span></DD>
+  <DD class=left>类型：<a href="{$list_url}">{$list_name}</a></DD>
+  <DD class=right>地区：<span class="gray">{$vod_area|default='未知'}</span></DD>
+  <DD class=left>语言：<span class="gray">{$vod_language|default='未知'}</span></DD>
+  <DD class=right>导演：<span class="gray"><notempty name="vod_director">{$vod_director|msubstr=0,4|ff_search_url}<else />未录入</notempty></span></DD>
+  <DD class=left>时间：<span class="gray">{$vod_addtime|date='Y-m-d',###}</span></DD>
+  <DD class=right>年份：<span class="gray">{$vod_year|default='未录入'}</span></DD>
+  <DD class=comment><SPAN>评论：</SPAN><A class=green href="{$vod_readurl}#comm" uyan_identify="true">当前有<SPAN>0</SPAN>条评论</A><A class=comms 
+  href="{$vod_readurl}#comm">我也要评论</A></DD>
+  <DD>剧情：<SPAN class=info>{$vod_content|msubstr=0,53}...<A class="link detail-desc"  href="#detail-intro">详细剧情</A></SPAN></DD></DL>
+<DIV id=gd>
+<DIV>
+这里是广告
+</DIV></DIV>
+<DL class=tag>
+<php>$hot_week = ff_mysql_vod('cid:'.$list_id.';limit:7,15;order:vod_hits_month desc,vod_addtime desc');</php>
+  <DD class=title>你是否也在<SPAN>寻找：</SPAN></DD>
+  <volist name="hot_week" id="ppvod">
+  <DD><A title={$ppvod.vod_name} 
+  href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</A></DD>
+  </volist>
+</DL>
+<DIV style="CLEAR: both"></DIV></DIV>
+<DIV id=prompt>※ 
+TS/TC：抢先版　DVD：普通清晰版　BD/HD：高清版　※清晰度越高，视频越大，要求的带宽越高，请根据自己的网速选择，也可以最小化下载好后再观看。<BR></DIV>
+
+<div id="play_url">
+	<volist name="vod_playlist" id="ppvod">
+	<h2 class="{$ppvod.playname}"><span>{$ppvod.playername}</span></h2>
+	<ul>
+		<volist name="ppvod['son']" id="ppvodson">
+		<li><a href="{$ppvodson.playurl}" target="_blank" >{$ppvodson.playname}</a></li>
+		</volist>
+		<div style="clear:both"></div>
+	</ul>
+	</volist>
+</div>
+
+
+<div id="like_list">
+	<h2>热播<a href="{$vod_playurl}">{$list_name}</a></h2>
+	<php>$hot_week = ff_mysql_vod('cid:'.$list_id.';limit:7;order:vod_hits_month desc,vod_addtime desc');</php>
+	<volist name="hot_week" id="ppvod">
+	<dl class="list <if condition='$i == 7'>last</if>">
+		<dt><a href="{$ppvod.vod_readurl}" target="_blank"><img src="{$ppvod.vod_pic|getpicurl_s}"  onerror="nofind(this,'{$ppvod.vod_pic|getpicurl}');"/></a></dt>
+		<dd class="grade">{$ppvod.vod_gold}</dd>
+		<dd class="transparent">背景</dd>
+		<dd class="new"><notempty name='vod_title'>{$vod_title}<else/><empty name="vod_continu">全集<else/>第{$vod_continu}集</empty></notempty></dd>
+		<dd class="title"><a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name}</a></dd>
+		<dd class="actor">{$ppvod.vod_actor}</dd>
+	</dl>
+	</volist>
+	
+	<php>$hot_week = ff_mysql_vod('cid:'.$list_id.';limit:7,15;order:vod_hits_month desc,vod_addtime desc');</php>
+	<ul>
+		<volist name="hot_week" id="ppvod">
+		<li><if condition="$i lt 10">0{$i}<else />{$i}</if>.<a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name}</a></li>
+		</volist>
+		<div style="clear:both"></div>
+	</ul>
+	<div style="clear:both"></div>
+</div>
+<div class="comm" id="comm">
+           <h3><strong>网友评论</strong></h3>
+           <div class="comment">
+      <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+<!-- UY END -->
+			</div>
+</div> 
+
+<div style="display:none">
+<script type="text/javascript" src="http://www.qire123.com/static/js/jquery.colorbox.js"></script>
+<div id="detail-intro">
+<div class="ui-dialog-cnt">
+  <div class="detail-desc-cnt"> <p>{$vod_content|msubstr=0,500}...</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".detail-desc").colorbox({
+		inline:true, 
+		opacity: 0.6,
+		width: "960px"
+	});
+});
+</script>
+</div>
+</div>
+
+<include file="Home:pp_footer" />
+<div>{:getadsurl('vod_cpv')}</div>
+<div>{:getadsurl('vod_cpm')}</div>
+</body>
+</html>

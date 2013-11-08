@@ -1,0 +1,133 @@
+﻿<!-- // Header Start -->
+<div class="header">
+	<div class="topBar">
+		<div class="w960 fn-clear">
+			<div class="fn-left">
+				<div style="text-align:left;color:#e12160;">
+					请把{$sitename}“
+					<a href="http://www.alimenhu.com/" class="a3">添加到桌面</a>
+					”便于直接访问!
+				</div>
+			</div>
+			<div class="a-link fn-right">
+				<p>
+					<!--以下是QQ邮件列表订阅嵌入代码-->
+					<a target="_blank" href="http://www.alimenhu.com/">
+						<img border="0" alt="填写您的邮件地址，订阅我们的精彩内容：" src="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_s.png" />
+					</a> <em>&nbsp;</em>
+					<a id="a-home" href="javascript:void(0);" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$siteurl}')">设置首页</a> <em>&nbsp;</em>
+					<a class="a-clo fav" href="javascript:void(0);">加入收藏</a>
+					<em>&nbsp;</em>
+					<a id="a-lang" class="color" href="javascript:transformLan();"  target="_self" title="點擊以繁體中文方式浏覽">繁體中文切換</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- // topBar Start -->
+	<div class="headBar w960 fn-clear">
+		<div class="logo fn-left">
+			<a href="http://www.alimenhu.com/">
+				<img class="png-img" src="{$tpl}images/logo.png" alt=""></a>
+		</div>
+		<!-- // Logo End -->
+		<div class="searchBar fn-right">
+			<div class="hisBox fn-left">
+				<div class="looked-box" id="history">
+					<span class="his-tip">历史观看记录</span>
+				</div>
+			</div>
+			<!-- // hisBox End -->
+			<div class="help-gb fn-right">
+				<p>
+					<a href="/baiduplayer/F.html" target="_blank">使用帮助</a>
+				</p>
+				<p>
+					<a class="gb" href="{$url_guestbook}" target="_blank">给我留言</a>
+				</p>
+			</div>
+			<div class="searchBox fn-right">
+				<div class="search">
+					<form id="ffsearch" name="ffsearch" method="POST" action="{$root}index.php?s=vod-search" onSubmit="return qrsearch();">
+						<input type="text" id="wd" name="wd" class="input-txt input-clear" value="{$wd}" />
+						<input type="submit"   class="input-btn" value="" />
+					</form>
+				</div>
+			</div>
+			<!-- // searchBox End -->
+			<div class="hotKeys"> <strong>热门搜索：</strong>
+				{$hotkey}
+			</div>
+			<!-- // hotKeys End -->
+		</div>
+		<!-- // searchBar End -->
+	</div>
+	<!-- // headBar End -->
+	<div class="menuBar">
+		<div class="menu w960 fn-clear">
+			<ul>
+				<li <if condition="'/index.php?s=Admin-Tpl-Add-id-.|Tpl|qirekk|Home|pp_header*html'=='/'">class="current"</if>
+				>
+				<a href="{$root}">
+					<span>首页</span>
+				</a>
+			</li>
+			<volist name="list_menu" id="ppvod">
+				<li <eq name="ppvod.list_id" value="$list_id">class="current"</eq>
+				<eq name="ppvod.list_id" value="$list_pid">class="current"</eq>
+				>
+				<a href="{$ppvod.list_url}">
+					<span>{$ppvod.list_name}</span>
+				</a>
+			</li>
+		</volist>
+		<li <if condition="strchr('/index.php?s=Admin-Tpl-Add-id-.|Tpl|qirekk|Home|pp_header*html','hot')">class="current"</if>
+		>
+		<a href="{:ff_mytpl_url('my_hot.html')}">
+			<span>排行榜</span>
+		</a>
+	</li>
+	<li <if condition="strchr('/index.php?s=Admin-Tpl-Add-id-.|Tpl|qirekk|Home|pp_header*html','new')">class="current"</if>
+	>
+	<a href="{:ff_mytpl_url('my_new.html')}">
+		<span>最近更新</span>
+	</a>
+</li>
+</ul>
+<!--<p class="help-link">
+<a href="http://www.alimenhu.com/" target="_blank">使用帮助</a>
+<a class="gb" href="{$url_guestbook}" target="_blank">给我留言</a>
+</p>
+-->
+</div>
+<!-- // Menu End -->
+</div>
+<div class="navBar">
+<div class="nav w960 fn-clear">
+<div class="index-tags fn-clear">
+<div class="index-tags-tv fn-left">
+<label class="tv">电视剧：</label>
+<volist name="list_menu" id="ppvod">
+	<in name="ppvod.list_id" value="2">
+		<volist name="ppvod.son" id="ppvodson">
+			<a href="{$ppvodson.list_url}">{$ppvodson.list_name}</a>
+			<em>|</em>
+		</volist>
+	</in>
+</volist>
+</div>
+<div class="index-tags-movie fn-right">
+<label class="movie">电影：</label>
+<volist name="list_menu" id="ppvod">
+	<in name="ppvod.list_id" value="1">
+		<volist name="ppvod.son" id="ppvodson">
+			<a href="{$ppvodson.list_url}">{$ppvodson.list_name}</a>
+			<em>|</em>
+		</volist>
+	</in>
+</volist>
+</div>
+</div>
+</div>
+<!-- // Nav End -->
+</div>
+</div>

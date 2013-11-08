@@ -1,0 +1,50 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>观众印象最好的电影、电视剧-百度影音播放器观看-{$sitename}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<include file="./Public/tpl/home/header.html" />
+<link rel="stylesheet" type="text/css" href="/Tpl/defalut/top.css">
+</head>
+<body>
+<php>
+$vod_dy_top = ff_mysql_vod('limit:100;cid:1,2;up:50;order:vod_hits_week desc');</php>
+<include file="Home:pp_header" />
+<div class="wrap w960">
+<div class="position w960 fn-clear"> 
+  <div class="fn-left">您现在的位置：<a href='/'>首页</a>  »  <a href='{:ff_mytpl_url('my_gold.html')}' >被顶最多的影视剧</a></div> 
+</div> 
+<div class="wrap w960"> 
+<div class="maxBox2" id="top-box"> 
+  <div class="box fn-clear"> 
+    <div class="top-catalog fn-left"> 
+      <h2 class="active"><a href="{:ff_mytpl_url('my_hot.html')}">排行榜首页</a></h2> 
+      <ul> 
+        <li><a href="{:ff_mytpl_url('my_dsjtop.html')}">经典电视剧</a></li> 
+        <li><a href="{:ff_mytpl_url('my_dytop.html')}">经典电影</a></li> 
+        <li><a href="{:ff_mytpl_url('my_dmtop.html')}"> 经典动漫</a></li> 
+        <li><a href="{:ff_mytpl_url('my_zytop.html')}">经典综艺</a></li> 
+      </ul> 
+    </div> 
+    <div class="top-content fn-right"> 
+      <div class="top-min top-min-long"> 
+        <div class="tt fn-clear"> 
+          <h5><a href="tv-top.html">本月被顶最多的影视剧</a></h5> 
+          <span>人气</span> </div> 
+        <ul class="top-list fn-clear">
+          <fflist name="vod_dy_top" id="ppvod"> 
+          <li> 
+            <div class="lasted-num fn-left">{$i}</div> 
+            <h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,10}</a></h5> 
+            <div class="lasted-time fn-right">{$ppvod.vod_hits}℃</div> 
+          </li> 
+          </fflist>
+          
+        </ul> 
+      </div> 
+    </div> 
+  </div> 
+  <div class="boot"></div> 
+</div> 
+<include file="Home:pp_footer" />  
+</body>
+</html>

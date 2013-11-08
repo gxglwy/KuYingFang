@@ -71,7 +71,7 @@ if($_GET[order]) $u_order="-order-".$_GET[order];else $u_order=NULL;
 					<a href="{:ff_mytpl_url('my_new.html')}">最近更新</a>
 				</li>
 				<li class="site_nav_item fn_right">
-					<a href="{:UU('Home-vod/type')}">片库索引</a>
+					<a href="{:UU('Home-vod/type',array('id'=>2,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}">片库索引</a>
 				</li>
 			</ul>
 		</div>

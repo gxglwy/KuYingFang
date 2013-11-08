@@ -8,7 +8,7 @@ return array (
   'db_port' => '3306',
   'db_prefix' => 'ff_',
   'db_charset' => 'utf8',
-  'default_theme' => 'defalut',
+  'default_theme' => 'yueying',
   'site_name' => '酷影坊',
   'site_path' => '/',
   'site_url' => 'http://127.0.0.1/',
@@ -50,6 +50,7 @@ return array (
   'data_cache_special' => '0',
   'data_cache_foreach' => '510cf584e9edf',
   'data_cache_vodforeach' => '0',
+  'data_cache_tagslist' => '0',
   'data_cache_newsforeach' => '0',
   'data_cache_specialforeach' => '0',
   'tmpl_cache_on' => false,
@@ -176,6 +177,5 @@ return array (
   'rand_tag' => '1',
   'user_post' => '0',
   'user_check' => '0',
-  'data_cache_tagslist' => '0',
 );
 ?>

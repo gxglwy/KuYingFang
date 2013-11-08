@@ -1,0 +1,17 @@
+<div class="site_nav" role="navigation sitemap">
+	<div class="wrap">
+		<ul class="site_nav_list clearfix">
+			<li class="site_nav_item" id="index_page_navbtn">
+				<a href="{$root}"><strong>首页</strong></a>
+			</li>
+			<volist name="list_menu" id="list">
+				<if condition="$list.list_oid elt 4">
+					<li class="site_nav_item <eq name="list.list_id" value="$list_id">current</eq>"<eq name="list.list_id" value="$list_pid">current"</eq>><a href="{$list.list_url}">{$list.list_name}</a></li>
+				</if>
+			</volist>
+			<li class="site_nav_item">
+				<a href="{:ff_mytpl_url('my_tv.html')}" class="tv">电视直播</a>
+			</li>
+		</ul>
+	</div>
+</div>

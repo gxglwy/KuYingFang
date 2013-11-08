@@ -1,4 +1,0 @@
-[ 2013-11-08T10:07:27+08:00 ] ERR: (ThinkException) 模板不存在[./Tpl/yueying/Home/my_wei_top.html]
-[ 2013-11-08T10:08:16+08:00 ] ERR: (ThinkException) 模板不存在[./Tpl/yueying/Home/my_weidy_top.html]
-[ 2013-11-08T10:10:00+08:00 ] ERR: (ThinkException) 模板不存在[./Tpl/yueying/Home/my_weidy_top.html]
-[ 2013-11-08T10:10:03+08:00 ] ERR: (ThinkException) 模板不存在[./Tpl/yueying/Home/my_weidy_top.html]

@@ -1,3 +1,5 @@
+@CHARSET "UTF-8";
+
 @import "header.css";
 @import "footer.css";
 @import "index.css";
@@ -23,6 +25,7 @@ ol, ul,li {list-style: none;}
 table {border-collapse: collapse;border-spacing: 0;}
 sup, sub {font-size: 100%;vertical-align: baseline;}
 :link, :visited , ins {text-decoration: none;}
+
 a{text-decoration: none; color: #333;}
 
 body{
@@ -73,8 +76,6 @@ body{
 
 
 
-@CHARSET "UTF-8";
-
 /*==========网站整体风格==========*/
 body{
 	color: #2e2e2e;
@@ -113,7 +114,7 @@ body{
 
 /*整体的颜色设置：字体和背景*/
 a:hover{
-	color: #FF3300 !important;
+	color: #FF3300;
 	text-decoration: underline;
 }
 
@@ -221,9 +222,7 @@ a:hover{
 	padding:4px 0 9px 120px;
 	zoom:1;
 }
-.two_row{
-	padding-left:130px;
-}
+
 .mod_indexs_bar dt{
 	position:absolute;
 	top:0;
@@ -246,13 +245,7 @@ a:hover{
 	border-right:#DEDEDE solid 1px;
 	background:#F6F7F6;
 }
-.two_row dt span{height:65px;
-	_height:66px;
-	line-height:65px;
-	line-height:67px\9;
-	+line-height:66px;
-	_line-height:65px;
-}
+
 .mod_indexs_bar dt .arrow{
 	position:absolute;
 	top:50%;
@@ -295,9 +288,6 @@ a:hover{
 	white-space:nowrap;
 	+font-family:simsun;
 }
-.two_row dd{
-	margin-right:20px;
-}
 .mod_indexs_bar dd.current{
 	background:#484948
 }
@@ -307,4 +297,5 @@ a:hover{
 }
 .mod_indexs_bar dd.current a:hover{
 	text-decoration:none;
+	color: #FFF;
 }

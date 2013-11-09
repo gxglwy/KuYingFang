@@ -1,0 +1,74 @@
+/*左边*/
+.aside_left.mod_left{width:260px;}
+/*右边*/
+.aside_right.mod_right{width:720px;}
+
+
+.mod_filter{padding:0 0 15px 20px;border-bottom:#DEDEDE solid 1px;background-color:#f6f6f8}
+.mod_filter h4{padding:15px 0 0;font-size:14px;color: #484848;font-weight: bold;}
+.mod_filter .mod_cont ul{overflow:hidden;margin:10px 0 0 0;zoom:1}
+.mod_filter .mod_cont li{position:relative;float:left;height:17px;line-height:17px;overflow:hidden;padding:0 16px 0 3px;margin:0 5px 0 0;border:#DEDEDE solid 1px;background:#FFF}
+.mod_filter .mod_cont li a{position:absolute;top:4px;right:3px;width:10px;height:9px;line-height:999px;overflow:hidden;font-size:0;background:url(../images/bg_list_v3.png) no-repeat 0 -120px}
+.mod_filter .clear_all{margin:10px 0 0 0}
+.mod_filter .clear_all a{color:#0078B3}
+
+.mod_indexs{margin:0 0 20px 0;}
+.mod_indexs .mod_cont{padding:0 0 0 8px;width:250px}
+.mod_indexs h3{font-size:14px;margin:14px 0 6px 10px;font-weight:normal}
+.mod_indexs ul{margin-bottom:20px}
+.mod_indexs li{float:left;width:48px;height:24px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.mod_indexs li.long_item{width:68px}
+.mod_indexs li.short_item{width:28px}
+.mod_indexs li a{float:left;padding:2px 10px}
+.mod_indexs li a:hover{text-decoration:none;background:#DFDFDF}
+.mod_indexs .current a{font-weight:bold;cursor:default;color:#FF9805}
+.mod_indexs li.four_characters{width:70px}
+.mod_indexs_v2 h3 a{font-weight:700}
+.mod_indexs_v2 h3 a.current{color:#FF9805;cursor:default}
+.mod_indexs_v2 h3 a.current:hover{text-decoration:none}
+
+
+.mod_toolbar{position:relative;height:32px;overflow:hidden;margin-bottom:20px}
+/*排序*/
+.mod_toolbar .mod_tab_sort{width:100%;overflow:hidden}
+.mod_toolbar .mod_tab_sort ul{height:31px;border-bottom:#C9C9C9 solid 1px;overflow:hidden}
+.mod_toolbar .mod_tab_sort li{float:left;width:70px;height:31px;margin:0 -1px 0 0;background-color:#F6F6F8}
+.mod_toolbar .mod_tab_sort li a{display:block;height:31px;line-height:31px;text-align:center;font-size:14px;border:#DEDEDE solid 1px}
+.mod_toolbar .mod_tab_sort li a:hover{text-decoration:none}
+/*查看方式切换*/
+.mod_toolbar .mod_tab_sort li.current a{position:absolute;width:68px;border:#C9C9C9 solid 1px;border-bottom:#FFF solid 1px;font-weight:bold;cursor:default;color:#484848;background:#FFF}
+.mod_toolbar .mod_list_display{position:absolute;top:0;right:200px;width:124px;height:22px;overflow:hidden}
+.mod_toolbar .mod_list_display a{display:block;width:62px;height:22px;line-height:999px;overflow:hidden;font-size:0;background:url(../images/bg_list_v3.png) no-repeat}
+.mod_toolbar .mod_list_display #poster{float:left;background-position:0 -30px}
+.mod_toolbar .mod_list_display #poster.current,.mod_toolbar .mod_list_display #poster:hover{background-position:0 0}
+.mod_toolbar .mod_list_display #details{float:right;background-position:0 -90px}
+.mod_toolbar .mod_list_display #details.current,.mod_toolbar .mod_list_display #details:hover{background-position:0 -60px}
+.mod_toolbar .mod_list_display #poster.current,.mod_toolbar .mod_list_display #details.current{cursor:default}
+/*翻页*/
+.mod_pagenav{height:25px;margin:0 auto;padding:10px 0 30px;text-align:center}
+.mod_pagenav .mod_pagenav_count a,.mod_pagenav .mod_pagenav_count .current{display:inline-block;height:24px;line-height:24px;padding:0 10px;text-align:center;border:1px solid #e1e1e1;vertical-align:bottom;font-family:Arial,Helvetica;color:#787878}
+.mod_pagenav .mod_pagenav_count a:hover{font-weight:bold;text-decoration:none;color:#575757;background-color:#f7f7f7;border-color:#515151}
+.mod_pagenav .mod_pagenav_count .current{background:#515151}
+.mod_pagenav .mod_pagenav_count .current span{font-weight:bold;color:#FFF}
+.mod_pagenav .mod_pagenav_count .mod_pagenav_more{border:none;padding:0 5px}
+.mod_pagenav .prev,.mod_pagenav .next{display:inline-block;width:68px;height:25px;line-height:999px;overflow:hidden;font-size:0;vertical-align:bottom;background:url(../images/bg_pagenav.png)}
+.mod_pagenav .prev{background-position:0 -60px}
+.mod_pagenav .next{background-position:0 -90px}
+.mod_pagenav .prev:hover,.mod_pagenav .next:hover{filter:alpha(opacity=80);opacity:.8}
+.mod_pagenav .prev_disable,.mod_pagenav .next_disable,.mod_pagenav .prev_disable:hover,.mod_pagenav .next_disable:hover{filter:alpha(opacity=50);opacity:.5}
+.mod_pagenav .prev_disable{margin-right:4px}
+.s_page{border:none;margin:0;padding:0;background:none}
+.s_page .mod_pagenav_count2{display:block;float:left;line-height:22px;padding-right:5px}
+.mod_pagenav.s_page .prev,.mod_pagenav.s_page .next{display:block;float:left;width:55px;height:22px;line-height:999px;margin-right:0;overflow:hidden;font-size:0;vertical-align:bottom;background:url(../images/bg_pagenav.png)}
+.mod_pagenav.s_page .prev{width:54px;background-position:0 0}
+.mod_pagenav.s_page .next{background-position:0 -30px}
+
+
+/*结果列表区*/
+.mod_video_list .mod_cont{width:725px}
+.mod_list_pic_130{width:760px}
+.mod_list_pic_130 li{width:130px;margin-right:59px}
+.mod_list_pic_130 li p{width:100%;overflow:hidden;text-overflow:ellipsis}
+.mod_list_pic_130 li .mod_poster_130{position:relative;display:block;overflow:visible;_height:182px;width:130px}
+.mod_poster_130{position:relative;display:block;overflow:hidden;_height:182px;_width:130px}
+.mod_list_pic_130 li .mod_poster_130:hover{text-decoration:none}

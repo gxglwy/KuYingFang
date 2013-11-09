@@ -13,19 +13,21 @@
 	<include file="Home:pp_header_mini" />
 
 	<php>
+		/* 读取配置项里面的地区和年份 */
 		$array_area = explode(',',C('play_area'));
 		$array_year = explode(',',C('play_year'));
+		
+		/* 如果该类不是最大类，那么$array_list代表其父类列表，$type_cid代表其父类的id */
 		if($type_pid){
 			$array_list = getlistarr($type_pid);
 			$type_cid = $type_pid;
-			$hasPid = true;
 		}else{
 			$array_list = getlistarr($type_id);
 			$type_cid = $type_id;
 		}
 	</php>
 
-	<div class="head_bar wrap">
+	<div class="wrap">
 		<dl class="mod_indexs_bar bor">
 			<dt><span>分类检索</span><i class="arrow"><b class="a_outer"></b><b class="a_inner"></b></i></dt>
 			<!-- 频道切换 -->
@@ -39,115 +41,165 @@
 		</dl>
 	</div>
 
-	<div class="ui_box">
-		<div class="aside_left">
-			<div class="mod_filter bor" id="mod_filter">
+	<div class="wrap">
+		<div class="aside_left mod_left bor">
+			<div class="mod_filter" id="mod_filter">
 				<h4 style="display:none;">请选择条件</h4>
 				<h4>您已选择</h4>
 				<div class="mod_cont" id="mod_nav_option">
 					<ul id="nav_option">
 						<!-- 按类型 -->
-						<li>
-							<if condition="$hasPid">
+						<if condition="$type_pid">
+							<li>
 								<span>{:getlistname($type_id)}</span>
 								<a href="{:UU('Home-vod/type',array('id'=>$type_pid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">删除</a>
-							</if>
-						</li>
+							</li>
+						</if>
 						<!-- 按地区 -->
-						<li>
-							<if condition="$type_area">
+						<if condition="$type_area">
+							<li>
 								<span>{:$type_area}</span>
 								<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">删除</a>
-							</if>
-						</li>
+							</li>
+						</if>
 						<!-- 按年份 -->
-						<li>
-							<if condition="$type_year neq 0">
+						<if condition="$type_year neq 0">
+							<li>
 								<span>{:$type_year}</span>
 								<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>0,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">删除</a>
-							</if>
-						</li>
+							</li>
+						</if>
 						<!-- 按字母 -->
-						<li>
-							<if condition="$type_letter">
+						<if condition="$type_letter">
+							<li>
 								<span>{:$type_letter}</span>
-								<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>'','year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<empty name="type_letter">hover</empty>">删除</a>
-							</if>
-						</li>
+								<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>'','year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<empty name="type_letter">current</empty>">删除</a>
+							</li>
+						</if>
 					</ul>
 					<!-- 清空所有条件 -->
 					<div class="clear_all">
-						<a href="{:UU('Home-vod/type',array('id'=>$type_pid,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}">清空已选</a>
+						<a href="{:UU('Home-vod/type',array('id'=>$type_cid,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}">清空已选</a>
 					</div>
 				</div>
 			</div>
 
 			<!-- 筛选设置项 -->
-			<div class="select">
-				<ul>
+			<div class="mod_indexs">
+				<div class="mod_cont">
 					<notempty name="array_list">
-						<li>
-							<span>类型</span>
-							<a href="{:UU('Home-vod/type',array('id'=>$type_cid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_pid" value="0">hover</eq>">全部</a>
-							<volist name="array_list" id="cid">
-								<a href="{:UU('Home-vod/type',array('id'=>$cid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_id" value="$cid">hover</eq> ">{$cid|getlistname}</a>
-							</volist>
+					<h3>按类型</h3>
+					<ul class="clearfix">
+						<li class="<eq name="type_pid" value="0">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_cid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">全部</a>
 						</li>
-					</notempty>
-					<if>
-						<neq name="type_cid" value="2">
-							<span>地区</span>
-							<a href="{:UU('Home-vod/type',array('id'=> $type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>'','order'=>$type_order,'p'=>1),false,true)}" class="<empty name="type_area">hover</empty> ">全部</a>
-							<volist name="array_area" id="area">
-								<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($area),'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_area" value="$area">hover</eq> ">{$area}</a>
-							</volist>
-						</neq>
-					</if>
-					<li>
-						<span>年份</span>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>0,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_year" value="0">hover</eq> ">全部</a>
-						<volist name="array_year" id="year" offset="0" length="14">
-							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_year" value="$year">hover</eq> ">{$year}</a>
+						<volist name="array_list" id="cid">
+						<li class="<eq name="type_id" value="$cid">current</eq> ">
+								<a href="{:UU('Home-vod/type',array('id'=>$cid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">{$cid|getlistname}</a>
+						</li>
 						</volist>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19901999','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_year" value="19901999">hover</eq> ">90年代</a>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19801989','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_year" value="19801989">hover</eq> ">80后</a>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19001980','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_year" value="19001980">hover</eq> ">更早</a>
-					</li>
-					<li>
-						<span>字母</span>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>'','year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}" class="<empty name="type_letter">hover</empty>">全部</a>
+					</ul>
+					</notempty>
+
+					<neq name="type_cid" value="2">
+					<h3>按地区</h3>
+					<ul class="clearfix">
+						<li class="<empty name="type_area">current</empty> ">
+							<a href="{:UU('Home-vod/type',array('id'=> $type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">全部</a>
+						</li>
+						<volist name="array_area" id="area">
+						<li class="<eq name="type_area" value="$area">current</eq> ">
+								<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($area),'order'=>$type_order,'p'=>1),false,true)}">{$area}</a>
+						</li>
+						</volist>
+					</ul>
+					</neq>
+
+
+					<h3>按年份</h3>
+					<ul class="clearfix">
+						<li class="<eq name="type_year" value="0">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=> $type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>0,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">全部</a>
+						</li>
+
+						<volist name="array_year" id="year" offset="0" length="14">
+						<li class="<eq name="type_year" value="$year">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">{$year}</a>
+						</li>
+						</volist>
+
+						<li class="<eq name="type_year" value="19901999">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19901999','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">90年代</a>
+						</li>
+						<li class="<eq name="type_year" value="19801989">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19801989','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">80后</a>
+						</li>
+						<li class="<eq name="type_year" value="19001980">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19001980','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">更早</a>
+						</li>
+					</ul>
+					
+					<h3>按字母</h3>
+					<ul class="clearfix">
+						<li class="<empty name="type_letter">current</empty>">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>'','year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">全部</a>
+						</li>
 						<php>
 							for($i=1;$i<=26;$i++){
 								if($type_letter==chr($i+64)){
-									echo '<a href="'.UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'" class="hover">'.chr($i+64).'</a>';
+									echo '<li><a href="'.UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'" class="current">'.chr($i+64).'</a></li>';
 								}else{
-									echo '<a href="'.UU('Home-vod/type',array('id'=> $type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'">'.chr($i+64).'</a>';
+									echo '<li><a href="'.UU('Home-vod/type',array('id'=> $type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'">'.chr($i+64).'</a></li>';
 								}
 							}
 						</php>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>'0,1,2,3,4,5,6,7,8,9','year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}" class="<eq name="type_letter" value="0,1,2,3,4,5,6,7,8,9">hover</eq> ">0-9</a>
-					</li>
-				</ul>
+						<li class="<eq name="type_letter" value="0,1,2,3,4,5,6,7,8,9">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>'0,1,2,3,4,5,6,7,8,9','year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">0-9</a>
+						</li>
+					</ul>
+				</div>
+				<!-- mod_cont end -->
 			</div>
 		</div>
 		<!-- aside_left end -->
 
-		<div class="aside_right">
-			<!-- 排序方式 -->
-			<div class="orderby">
-				<ul>
-					<h4>排序</h4>
-					<li>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'addtime','p'=>1),false,true)}" class="<eq name="type_order" value="addtime">hover</eq> ">最新</a>
-					</li>
-					<li>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'hits','p'=>1),false,true)}" class="<eq name="type_order" value="hits">hover</eq> ">最热</a>
-					</li>
-					<li>
-						<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'gold','p'=>1),false,true)}" class="<eq name="type_order" value="gold">hover</eq> ">评分</a>
-					</li>
-				</ul>
+		<div class="aside_right  mod_right">
+			<div class="mod_toolbar">
+				<!-- 排序tab start -->
+				<div class="mod_tab_sort">
+					<ul>
+						<li class="<eq name="type_order" value="addtime">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'addtime','p'=>1),false,true)}" class="<eq name="type_order" value="addtime">current</eq> ">最新</a>
+						</li>
+						<li class="<eq name="type_order" value="hits">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'hits','p'=>1),false,true)}" class="<eq name="type_order" value="hits">current</eq> ">最热</a>
+						</li>
+						<li class="<eq name="type_order" value="gold">current</eq> ">
+							<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'gold','p'=>1),false,true)}" class="<eq name="type_order" value="gold">current</eq> ">评分</a>
+						</li>
+					</ul>
+				</div>
+				<!-- 排序tab end -->
+
+				<!-- 列表查看方式切换 -->
+				<div class="mod_list_display">
+					<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'addtime','p'=>1),false,true)}" class="<eq name="type_showway" value="poster">current</eq> " id="poster">海报</a>
+					<a href="{:UU('Home-vod/type',array('id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'addtime','p'=>1),false,true)}" class="<eq name="type_showway" value="details">current</eq> " id="details">详情</a>
+				</div>
+
+				<div class="mod_pagenav s_page" id="pager2">
+					<p class="mod_pagenav_main">
+						<span class="mod_pagenav_count2">
+							<span class="current">1</span>/9
+						</span>
+						<span class="prev_disable prev"><span>上一页</span></span>
+						<a href="http://v.qq.com/list/2_1_-1_-1_0_0_1_20_-1_-1_0.html" title="下一页" class="next" _hot="tv.page0.next.0"><span>下一页</span></a>
+					</p>
+				</div>
+
 			</div>
+
+
 
 			<php>
 				if(strlen($type_year)==8){
@@ -160,27 +212,93 @@
 				}
 			</php>
 
+
+
 			<!-- 结果列表 -->
-			<div class="list">
-				<notempty name="vod_list" value="0">
-					<volist name="vod_list" id="ppvod">
-						<ul>
-							<a href="{$ppvod.vod_readurl}" target="_blank">
-								<img class="lazy" data-original="{$ppvod.vod_picurl}" src="{$tpl}images/js/blank.png" alt="点击播放{$ppvod.vod_name}" width="128" height="170"/>
+			<!-- 海报方式 -->
+			<div class="mod_video_list poster">
+				<div class="mod_cont" id="content">
+					<notempty name="vod_list" value="0">
+					<ul class="mod_list_pic_130">
+						<volist name="vod_list" id="ppvod">
+						<li>
+							<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}" target="_blank">
+								<img class="lazy" data-original="{$ppvod.vod_picurl}" src="{$tpl}images/js/blank.png" alt="点击播放{$ppvod.vod_name}"/>
+								<span class="figure_mask"><em class="mask_txt"><label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19,20,21"><notempty name="ppvod.vod_continu">连载至{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label></em></span>
 							</a>
-							<p class="h3">
-								<a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name}</a>
-							</p>
+							<h6 class="scores"><a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name}</a>
+								<strong class="c_txt3">{$ppvod.vod_gold}</strong>
+							</h6>
 							<p>主演∶{$ppvod.vod_actor|ff_search_url}</p>
-							<p>评分∶{$ppvod.vod_gold}</p>
-						</ul>
+						</li>
 					</volist>
+					</ul>
 					<div class="pages">{$page}</div>
 					<else />
 					<div class="zero">该条件暂无数据，请重新选择！</div>
-				</notempty>
+					</notempty>
+				</div>
+			</div>
+
+
+			<!-- 结果列表 -->
+			<!-- 详情方式 -->
+			<div class="mod_video_list details">
+				<div class="mod_cont" id="content">
+					<div class="mod_item">
+						<div class="mod_pic">
+							<a href="http://v.qq.com/detail/z/zaasslvhhyy1sg7.html" class="mod_poster_130" target="_blank" _hot="tv.image.link.2.0">
+								<img src="http://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/z/zaasslvhhyy1sg7_l.jpg" onerror="picerr(this);" alt="爱情公寓3" class="_tipimg">
+								<span class="figure_mask"><em class="mask_txt">全24集</em></span>
+								<sup class="mark_hd">高清</sup>
+								<span class="mod_mask"></span>
+							</a>
+						</div>
+						<div class="mod_txt">
+							<div class="mod_item_tit">
+								<h6><a href="http://v.qq.com/cover/z/zaasslvhhyy1sg7.html" title="爱情公寓3" target="_blank" _hot="tv.title.link.2.0">爱情公寓3</a></h6>
+							</div>
+							<div class="mod_scores">
+								<span class="mod_number c_txt4">(213246人评)</span>
+								<strong class="c_txt3">9<em>.6</em></strong>
+							</div>
+							<ul class="mod_info">
+								<li class="date">年份：
+									<a href="http://v.qq.com/list/2_-1_-1_2012_2_1_0_10_-1_-1_-1.html">2012</a>
+								</li>
+								<li class="area">地区：<a href="http://v.qq.com/list/2_-1_0_-1_2_1_0_10_-1_-1_-1.html">内地</a></li>
+								<li class="category">类型：
+									<a href="http://v.qq.com/list/2_3_-1_-1_2_1_0_10_-1_-1_0.html">爱情</a>
+									<a href="http://v.qq.com/list/2_1_-1_-1_2_1_0_10_-1_-1_0.html">偶像</a>
+									<a href="http://v.qq.com/list/2_2_-1_-1_2_1_0_10_-1_-1_0.html">喜剧</a>
+								</li>
+								<li class="play_time">播放：
+									33033.6万
+								</li>
+								<li class="director">导演：
+									<a href="http://v.qq.com/search.html?pagetype=3&amp;stag=word.list_all&amp;ms_key=%E9%9F%A6%E6%AD%A3" target="_blank" _hot="tv.director.link.0">韦正</a>
+								</li>
+								<li class="performer">主演：
+									<a href="http://v.qq.com/search.html?pagetype=3&amp;stag=word.list_all&amp;ms_key=%E9%87%91%E4%B8%96%E4%BD%B3" title="金世佳" target="_blank" _hot="tv.actor.link.0">金世佳</a>
+									<a href="http://v.qq.com/search.html?pagetype=3&amp;stag=word.list_all&amp;ms_key=%E6%9D%8E%E9%87%91%E9%93%AD" title="李金铭" target="_blank" _hot="tv.actor.link.0">李金铭</a>
+								</li>
+							</ul>
+							<p class="mod_desc c_txt1"><span class="c_txt1">简介：</span>[正统看点]火爆网络和电视荧幕，用嬉笑和夸张诠释青春的另一种境界。</p>
+							<div class="mod_operate">
+								<a href="http://v.qq.com/cover/z/zaasslvhhyy1sg7.html" class="btn_play_strong" target="_blank" _hot="tv.play.link.0"><span>立即观看</span></a>
+								<div class="mod_dropdown" id="mod_dropdown_hide_zaasslvhhyy1sg7">
+									<a href="javascript:;" class="btn_normal" _hot="tv.play.link.0"><span>分集观看<i></i></span></a>
+								</div>
+								<span class="mod_update c_txt1">剧集：全24集</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</div>
+
+	<include file="Home:pp_footer" />
 </body>
 </html>

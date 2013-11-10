@@ -36,11 +36,13 @@
 					<ol class="pic_list">
 						<fflist name="latest" id="ppvod">
 						<li>
-							<a class="play_pic" href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
-								<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}">
-								<label class="mask">&nbsp;</label>
-								<label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">第{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label>
-							</a>
+							<div class="mod_play_img">
+								<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
+									<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}">
+									<label class="mask">&nbsp;</label>
+									<label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">第{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label>
+								</a>
+							</div>
 							<h4><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name}</a></h4>
 							<p>{$ppvod.vod_actor|ff_search_url}</p>
 						</li>
@@ -66,11 +68,13 @@
 						<?php $latest= ff_mysql_vod('cid:'.$ppcid.';limit:6;order:vod_addtime desc,vod_hits desc,vod_gold desc'); ?>
 						<fflist name="latest" id="ppvod">
 						<li>
-							<a class="play_pic" href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
-							<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}"/>
-								<label class="mask">&nbsp;</label>
-								<label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">连载至{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label>
-							</a>
+							<div class="mod_play_img">
+								<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
+								<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}"/>
+									<label class="mask">&nbsp;</label>
+									<label class="text"><in name="ppvod.vod_cid" value="3,15,16,17,18,19"><notempty name="ppvod.vod_continu">连载至{$ppvod.vod_continu}集<else/>完结</notempty><else/><switch name="ppvod.vod_cid"><case value="4"><notempty name="ppvod.vod_continu">{$ppvod.vod_continu}期<else/>完结</notempty></case><default />{$ppvod.vod_title|default="高清版"}</switch></in></label>
+								</a>
+							</div>
 							<h4><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,7}</a></h4>
 							<p>{$ppvod.vod_actor|ff_search_url}</p>
 						</li>
@@ -167,10 +171,12 @@
 				<ul class="img_list list_top clearfix">
 					<fflist name="hot" id="ppvod">
 					<li>
-						<a class="play_img" href="{$ppvod.vod_readurl}" target="_blank">
-							<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
-							<label class="score">{$ppvod.vod_gold}</label>
-						</a>
+						<div class="mod_play_img">
+							<a href="{$ppvod.vod_readurl}" target="_blank">
+								<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
+								<label class="score">{$ppvod.vod_gold}</label>
+							</a>
+						</div>
 						<div class="play_txt">
 							<h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h5>
 							<p class="num site_color_text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></p>
@@ -187,14 +193,16 @@
 				<ul class="img_list list_middle clearfix">
 					<volist name="hot" id="ppvod">
 					<li>
-						<a class="play_img" href="{$ppvod.vod_readurl}" target="_blank">
-							<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
-							<label class="mask"></label>
-							<label class="text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></label>
-							<label class="score">{$ppvod.vod_gold}</label>
-						</a>
+						<div class="mod_play_img">
+							<a href="{$ppvod.vod_readurl}" target="_blank">
+								<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
+								<label class="score">{$ppvod.vod_gold}</label>
+								<label class="mask">&nbsp;</label>
+								<label class="text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></label>
+							</a>
+						</div>
 						<h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h5>
-						<p class="actor">{$ppvod.vod_actor}</p>
+						<p class="actor">主演：{$ppvod.vod_actor}</p>
 					</li>
 					</volist>
 				</ul>

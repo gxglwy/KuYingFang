@@ -67,56 +67,19 @@
 	border-right: 1px solid #fefefe;
 	overflow: hidden;
 }
-.latest_tab_content .pic_list li a.play_pic{
-	position: relative;
-	display: block;
+
+.latest_tab_content .pic_list li .mod_play_img{
 	width: 110px;
 	height: 150px;
 	margin: 0 auto;
 	margin-top: 16px;
-	padding: 3px;
-	border: 1px solid #ddd;
-	background-color: #fff;
-	overflow: hidden;
 }
-.latest_tab_content .pic_list li a.play_pic:hover{
-	border: 1px solid #93C533;
+.latest_tab_content .pic_list li .mod_play_img a{
+	width: 106px;
+	height: 146px;
 }
-.latest_tab_content .pic_list li img{
-	width: 110px;
-	height: 150px;
-	display: block;
-	background: url(../images/loading.gif) no-repeat center center transparent;
-	overflow: hidden;
-}
-.latest_tab_content .pic_list .mask{
-	width: 110px;
-	height: 20px;
-	display: block;
-	background-color: #000;
-	position: absolute;
-	left: 3px;
-	bottom: 3px;
-	filter: alpha(opacity=30);
-	opacity: 0.3;
-	z-index: 1;
-	overflow: hidden;
-}
-.latest_tab_content .pic_list .text{
-	position: absolute;
-	left: 3px;
-	bottom: 3px;
-	padding: 0 5px;
-	text-align: right;
-	width: 100px;
-	height: 20px;
-	color: #fff;
-	white-space: nowrap;
-	line-height: 20px;
-	display: block;
-	z-index: 2;
-	overflow: hidden;
-}
+
+
 .latest_tab_content .pic_list h4{
 	width: 110px;
 	height: 22px;
@@ -263,53 +226,18 @@
 .aside_right .img_list li:hover{
 	background-color: #fbfafa;
 }
-.aside_right .img_list .play_img{
-	float: left;
-	position: relative;
-	display: block;
-	border: 1px solid #fff;
-	background-color: #fff;
-	background:url(../images/loading.gif) no-repeat center center transparent;
-	overflow: hidden;
-}
+
+
 /*第一行图片*/
 .aside_right .list_top li{
 	width: 360px;
 	height: 200px;
 	padding: 16px 0 0 16px;
 }
-.aside_right .list_top .play_img{
-	width: 130px;
-	height: 180px;
+.aside_right .list_top .mod_play_img{
+	float: left;
 	margin: 0 10px 0 0;
 }
-.aside_right .img_list .play_img:hover{
-	border: 1px solid #93C533;
-}
-.aside_right .list_top .play_img img{
-	width: 126px;
-	height: 176px;
-	position: relative;
-	top: 2px;
-	left: 2px;
-}
-.play_img .score{
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 8px;
-	width: 30px;
-	height: 18px;
-	line-height: 16px;
-	padding-right: 5px;
-	text-align: center;
-	color: #fff;
-	font-weight: 700;
-	overflow: hidden;
-	z-index: 3;
-	background: url(../images/score_icon.gif) 0 0 no-repeat;	
-}
-
 .aside_right .list_top .play_txt{
 	float: right;
 	width: 193px;
@@ -369,47 +297,14 @@
 	width: 150px;
 	height: 235px;
 }
-.aside_right .list_middle .play_img{
+.aside_right .list_middle .mod_play_img{
 	width: 114px;
 	height: 154px;
 	margin: 16px 0 0 16px;
 }
-.aside_right .list_middle .play_img img{
-	position: relative;
-	left: 2px;
-	top: 2px;
+.aside_right .list_middle .mod_play_img a{
 	width: 110px;
 	height: 150px;
-}
-.aside_right .play_img .mask{
-	position: absolute;
-	width: 110px;
-	height: 20px;
-	left: 2px;
-	bottom: 2px;
-	display: block;
-	overflow: hidden;
-	background-color: #000;
-	filter:alpha(opacity=30);
-	opacity: 0.3;
-	z-index: 1;
-}
-
-.play_img .text{
-	position: absolute;
-	left: 3px;
-	bottom: 2px;
-	width: 100px;
-	height: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 12px;
-	padding: 0 5px;
-	text-align: right;
-	z-index: 2;
-	color: #fff;
-	white-space:nowrap;
-	overflow: hidden;
 }
 .aside_right .list_middle h5{
 	width: 110px;

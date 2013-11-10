@@ -211,7 +211,7 @@ a:hover{
 }
 
 
-
+/*=======通用的部件模块=====*/
 
 /*内页上方标题(不是网站header)*/
 .mod_indexs_bar{
@@ -297,4 +297,136 @@ a:hover{
 .mod_indexs_bar dd.current a:hover{
 	text-decoration:none;
 	color: #FFF;
+}
+
+/*影片图片模块*/
+/*(具体使用时可以调整宽高,但里面的图片宽高也要同时调整)*/
+.mod_play_img{
+	display: block;
+	position: relative;
+	width: 130px;
+	height: 180px;
+	border: 1px solid #FFF;
+	background-color: #fff;
+	overflow: hidden;
+}
+.mod_play_img:hover{
+	border: 1px solid #93C533;
+}
+.mod_play_img a{
+	position: relative;
+	display: block;
+	width: 126px;
+	height: 176px;
+	top: 2px;
+	left: 2px;
+}
+.mod_play_img a img{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background:url(../images/loading.gif) no-repeat center center transparent;
+}
+.mod_play_img a .score{
+	display: block;
+	position: absolute;
+	left: -2px;
+	top: 8px;
+	width: 30px;
+	height: 18px;
+	line-height: 16px;
+	padding-right: 5px;
+	text-align: center;
+	color: #FFF;
+	font-weight: 700;
+	background: url(../images/score_icon.gif) 0 0 no-repeat;
+	overflow: hidden;
+	z-index: 3;
+}
+.mod_play_img a .mask{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 20px;
+	bottom: 0;
+	background-color: #000;
+	filter:alpha(opacity=30);
+	opacity: 0.3;
+	z-index: 1;
+	overflow: hidden;
+}
+.mod_play_img a .text{
+	position: absolute;
+	display: block;
+	bottom: 0;
+	height: 20px;
+	width: 100%;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: right;
+	color: #fff;
+	white-space:nowrap;
+	z-index: 2;
+	overflow: hidden;
+}
+
+
+
+/*分页跳转导航按钮(大小两套)*/
+.mod_pagenav,.mod_minipagenav{
+	margin:0 auto;
+	overflow:hidden;
+}
+.mod_pagenav{
+	height:25px;
+	text-align:center;
+	padding:10px 0 30px;
+}
+.mod_minipagenav{
+	height:22px;
+}
+.mod_pagenav a,
+.mod_pagenav span,
+.mod_minipagenav a,
+.mod_minipagenav span{
+	display:inline-block;
+	padding:0 10px;
+	margin-right: 6px;
+	text-align:center;
+	border:1px solid #e1e1e1;
+	vertical-align:bottom;
+	font-family:Arial,Helvetica;
+	color:#787878;
+}
+.mod_pagenav a,
+.mod_pagenav span{
+	height:24px;
+	line-height:24px;
+}
+.mod_minipagenav a,
+.mod_minipagenav span{
+	height: 20px;
+	line-height: 20px;
+	font-size: 10px;
+}
+.mod_pagenav .current,
+.mod_minipagenav .current{
+	background:#515151;
+	color: #fff;
+	font-weight: bold;
+}
+.mod_pagenav .disable,
+.mod_minipagenav .disable{
+	color: #ccc;
+	border:1px solid #eee;
+}
+.mod_pagenav a:hover,
+.mod_minipagenav a:hover{
+	background:#888;
+	color: #eee !important;
+	text-decoration: none !important;
+}
+.mod_minipagenav .count{
+	border: none;
+	padding: 0 6px 0;
 }

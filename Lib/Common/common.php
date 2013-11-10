@@ -406,7 +406,7 @@ function getlistsqlin($cid){
 	}
 	return $cid;
 }
-//通过栏目ID返回其它值按数组方式
+//通过栏目ID返回其它值，按数组方式
 function getlistarr($cid,$type='list_id'){
 	$tree = list_search(F('_ppvod/listtree'),'list_id='.$cid);
 	if(!empty($tree[0]['son'])){
@@ -517,19 +517,73 @@ function getjifen($fen){
 	return '<strong>'.$array[0].'</strong>.'.$array[1];
 }
 //分页样式
-function getpage($currentPage,$totalPages,$halfPer=5,$url,$pagego){
+/*function getpage($currentPage,$totalPages,$halfPer=5,$url,$pagego){
 	$linkPage .= ( $currentPage > 1 )
-		? '<a href="'.str_replace('{!page!}',1,$url).'" class="pagegbk">首页</a>&nbsp;<a href="'.str_replace('{!page!}',($currentPage-1),$url).'" class="pagegbk">上一页</a>&nbsp;' 
-		: '<em>首页</em>&nbsp;<em>上一页</em>&nbsp;';
+		? '<a href="'.str_replace('{!page!}',($currentPage-1),$url).'" class="pre">上一页</a><a href="'.str_replace('{!page!}',1,$url).'" class="begin">1</a>' 
+		: '<span class="pre disable">上一页</span><span class="begin disable">1</span>';
 	for($i=$currentPage-$halfPer,$i>1||$i=1,$j=$currentPage+$halfPer,$j<$totalPages||$j=$totalPages;$i<$j+1;$i++){
-		$linkPage .= ($i==$currentPage)?'<span>'.$i.'</span>&nbsp;':'<a href="'.str_replace('{!page!}',$i,$url).'">'.$i.'</a>&nbsp;'; 
+		$linkPage .= ($i==$currentPage)?'<span class="current">'.$i.'</span>':'<a href="'.str_replace('{!page!}',$i,$url).'">'.$i.'</a>'; 
 	}
 	$linkPage .= ( $currentPage < $totalPages )
-		? '<a href="'.str_replace('{!page!}',($currentPage+1),$url).'" class="pagegbk">下一页</a>&nbsp;<a href="'.str_replace('{!page!}',$totalPages,$url).'" class="pagegbk">尾页</a>'
-		: '<em>下一页</em>&nbsp;<em>尾页</em>';
+		? '<a href="'.str_replace('{!page!}',($currentPage+1),$url).'" class="next">下一页</a><a href="'.str_replace('{!page!}',$totalPages,$url).'" class="end">尾页</a>'
+		: '<span class="next disable">下一页</span><span class="end disable">尾页</span>';
 	if(!empty($pagego)){
-		$linkPage .='&nbsp;<input type="input" name="page" id="page" size=4 class="pagego"/><input type="button" value="跳 转" onclick="'.$pagego.'" class="pagebtn" />';
+		$linkPage .='<input type="input" name="page" id="page" size=4 class="pagego"/><input type="button" value="跳 转" onclick="'.$pagego.'" class="pagebtn" />';
 	}
+	//
+	if(C('url_html') && C('url_html_list')){
+		return str_replace('-1'.C('html_file_suffix'),C('html_file_suffix'),str_replace('index1'.C('html_file_suffix'),'',$linkPage));
+	}else{
+		return $linkPage;
+	}
+}*/
+function getpage($currentPage,$totalPages,$halfPer=5,$url){
+	if ($totalPages <= 1)return;
+
+	if($currentPage > 1){
+		$linkPage .= '<a href="'.str_replace('{!page!}',($currentPage-1),$url).'" class="pre">上一页</a><a href="'.str_replace('{!page!}',1,$url).'">1</a>';
+		if($currentPage == $halfPer+3){
+			$linkPage .= '<a href="'.str_replace('{!page!}',2,$url).'">2</a>';
+		}
+		elseif($currentPage > $halfPer+3){
+			$linkPage .= '<a href="'.str_replace('{!page!}',ceil(($currentPage-$halfPer)/2),$url).'" class="ellipsis">...</a>';
+		}
+	} else {
+		$linkPage .= '<span class="pre disable">上一页</span><span class="current">1</span>';
+	}
+
+	for($i=$currentPage-$halfPer,$i>2||$i=2,$j=$currentPage+$halfPer,$j<$totalPages-1||$j=$totalPages-1;$i<$j+1;$i++){
+		$linkPage .= ($i==$currentPage)?'<span class="current">'.$i.'</span>':'<a href="'.str_replace('{!page!}',$i,$url).'">'.$i.'</a>'; 
+	}
+
+	if($currentPage < $totalPages){
+		if($currentPage < $totalPages-$halfPer-2){
+			$linkPage .= '<a href="'.str_replace('{!page!}',$currentPage+$halfPer+ceil(($totalPages-$currentPage-$halfPer)/2),$url).'" class="ellipsis">...</a>';
+		} elseif($currentPage == $totalPages-$halfPer-2) {
+			$linkPage .= '<a href="'.str_replace('{!page!}',$totalPages-1,$url).'">'.($totalPages-1).'</a>';
+		}
+		$linkPage .= '<a href="'.str_replace('{!page!}',$totalPages,$url).'">'.$totalPages.'</a><a href="'.str_replace('{!page!}',($currentPage+1),$url).'" class="next">下一页</a>';
+	} else {
+		$linkPage .= '<span class="current">'.$totalPages.'</span><span class="next disable">下一页</span>';
+	}
+
+	if(C('url_html') && C('url_html_list')){
+		return str_replace('-1'.C('html_file_suffix'),C('html_file_suffix'),str_replace('index1'.C('html_file_suffix'),'',$linkPage));
+	}else{
+		return $linkPage;
+	}
+}
+//分页小样式（自己添加的，只有上一页和下一页）
+function getminipage($currentPage,$totalPages,$halfPer=5,$url){
+	if ($totalPages <= 1)return;
+
+	$linkPage .= ( $currentPage > 1 )
+		? '<a href="'.str_replace('{!page!}',($currentPage-1),$url).'" class="pre">上一页</a>' 
+		: '<span class="pre disable">上一页</span>';
+
+	$linkPage .= ( $currentPage < $totalPages )
+		? '<a href="'.str_replace('{!page!}',($currentPage+1),$url).'" class="next">下一页</a>'
+		: '<span class="next disable">下一页</span>';
 	//
 	if(C('url_html') && C('url_html_list')){
 		return str_replace('-1'.C('html_file_suffix'),C('html_file_suffix'),str_replace('index1'.C('html_file_suffix'),'',$linkPage));
@@ -965,7 +1019,7 @@ function ff_param_jump($where){
 	$jumpurl['p'] = '';
 	return $jumpurl;
 }
-//返回安全的orderby
+//返回安全的orderby(即只有请求这里列出的才会被处理)
 function ff_order_by($order = 'addtime'){
 	if(empty($order)){
 		return 'addtime';
@@ -1155,11 +1209,16 @@ function ff_mysql_vod($tag){
 		//生成分页列表
 		//$pageurl = ff_list_url('vod',C('jumpurl'),9999);
 		$pageurl = C('jumpurl');
-		$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl,'pagego(\''.$pageurl.'\','.$totalpages.')');
+		//$pages = '共'.$count.'部影片&nbsp;当前:'.$currentpage.'/'.$totalpages.'页&nbsp;'.getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl,'pagego(\''.$pageurl.'\','.$totalpages.')');
+		$page = getpage($currentpage,$totalpages,C('home_pagenum'),$pageurl);
+		$minipage = (($totalpages > 1)?'<span class="count">'.$currentpage.'/'.$totalpages:'').'</span>'.getminipage($currentpage,$totalpages,C('home_pagenum'),$pageurl);
 		//数据列表
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->page($currentpage)->select();
 		$list[0]['count'] = count($list);
-		$list[0]['page'] = $pages;						
+		$list[0]['page'] = $page;
+		$list[0]['minipage'] = $minipage;
+		$list[0]['totalpages'] = $totalpages;
+		$list[0]['currentpage'] = $currentpage;
 	}else{
 		$list = $rs->field($field)->where($where)->order($order)->limit($limit)->select();
 	}

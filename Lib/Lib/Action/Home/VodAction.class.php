@@ -30,7 +30,7 @@ class VodAction extends HomeAction{
     public function type(){
     	$Url = ff_param_url();
     	$JumpUrl = ff_param_jump($Url);
-    	$JumpUrl['p'] = '{!page!}'; 
+    	$JumpUrl['p'] = '{!page!}';
     	C('jumpurl',UU('Home-vod/type',$JumpUrl,false,true));
     	C('currentpage',$Url['page']);
     	$List = list_search(F('_ppvod/list'),'list_id='.$Url['id']);

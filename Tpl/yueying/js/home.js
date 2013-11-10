@@ -521,7 +521,7 @@ $(document).ready(function(){
 */
 
 	//延时加载
-	FF.Lazyload.Show();	
+	FF.Lazyload.Show();
 	//搜索联想
 	FF.Suggest.Show('keyword',12,Root+'index.php?s=plus-search-vod',Root+'index.php?s=vod-search-wd-');
 
@@ -570,6 +570,7 @@ $(document).ready(function(){
 			$("#"+contentNamePre+(index+1)).siblings().hide().end().show();
 		});
 	}
+	//
 	tab("latest","latest_content_","current");
 
 

@@ -20,40 +20,38 @@
 	<div class="ui_box ui_box_kyf">
 
 		<div id="new" class="clearfix">
-			<ul class="title">
-				<li class="first  site_color_text">最近100个更新</li>
-				<li>类型</li>
-				<li>主演</li>
-				<li class="time">更新时间</li>
-			</ul>
 
 			<php>
 				$vod_new=ff_mysql_vod('cid:0;limit:100;order:vod_addtime desc');
 			</php>
-			<volist name="vod_new" id="ppvod">
 			<ul>
-				<li class="first" name="first"><em>{$i}</em>
-					<a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name|msubstr=0,18}</a>
+				<li class="title">
+					<span class="first  site_color_text">最近100个更新</span>
+					<span>类型</span>
+					<span>主演</span>
+					<span class="time">更新时间</span>
 				</li>
-				<li>{$ppvod.list_name}</li>
-				<li>{$ppvod.vod_actor|msubstr=0,10|default='未录入'}</li>
-				<li class="time">{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</li>
-				<li class="detail" id="detail{$i}" >
-					<dl class="clearfix">
-						<dt>
-							<img src="{$ppvod.vod_pic|getpicurl_s}" alt="{$ppvod.vod_name|msubstr=0,18}" />
-						</dt>
-						<dd class="bg"></dd>
-						<dd class="info">{$ppvod.vod_title}</dd>
-						<dd class="title">{$ppvod.vod_name|msubstr=0,10}</dd>
-						<dd>主演：{$ppvod.vod_actor|msubstr=0,10}</dd>
-						<dd>剧情：{$ppvod.vod_content|msubstr=0,28}...</dd>
-						<dd class="change line">上映时间：{$ppvod.vod_year|default='不详'}</dd>
-						<dd class="change">更新时间:{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</dd>
-					</dl>
+				<volist name="vod_new" id="ppvod">
+				<li>
+					<span class="first" name="first"><em>{$i}</em><a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name|msubstr=0,18}</a></span>
+					<span class="list_type">{$ppvod.list_name}</span>
+					<span class="actor">{$ppvod.vod_actor|msubstr=0,10|default='未录入'}</span>
+					<span class="addtime">{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</span>
+					<div class="detail" id="detail{$i}" >
+						<dl class="clearfix">
+							<dt><img src="{$ppvod.vod_pic|getpicurl_s}" alt="{$ppvod.vod_name|msubstr=0,18}" /></dt>
+							<dd class="bg"></dd>
+							<dd class="info">{$ppvod.vod_title}</dd>
+							<dd class="title">{$ppvod.vod_name|msubstr=0,10}</dd>
+							<dd>主演：{$ppvod.vod_actor|msubstr=0,10}</dd>
+							<dd>剧情：{$ppvod.vod_content|msubstr=0,28}...</dd>
+							<dd class="change line">上映时间：{$ppvod.vod_year|default='不详'}</dd>
+							<dd class="change">更新时间:{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</dd>
+						</dl>
+					</div>
 				</li>
+				</volist>
 			</ul>
-			</volist>
 		</div>
 	</div>
 	<include file="Home:pp_footer" />

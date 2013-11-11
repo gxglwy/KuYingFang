@@ -106,11 +106,18 @@
 				<!-- 标题 -->
 				<div class="ui_title clearfix">
 					<h3>
-						<switch name="cid"><case value="2">电视剧</case><case value="1">电影</case><case value="3">动漫</case><case value="4">综艺</case><case value="5">微电影</case></switch><a href="{:getlistname($cid,'list_url')}"></a>
+						<switch name="cid">
+							<case value="2">电视剧<a href="{:getlistname($cid,'list_url')}"></a></case>
+							<case value="1">电影<a href="{:getlistname($cid,'list_url')}"></a></case>
+							<case value="3">动漫<a href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}"></a></case>
+							<case value="4">综艺<a href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}"></a></case>
+							<case value="5">微电影<a href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}"></a></case>
+						</switch>
 					</h3>
-					<a class="view_more site_color_text" href="{:getlistname($cid,'list_url')}">更多</a>
+					<a class="view_more site_color_text" href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}">更多</a>
 				</div>
 
+				<!-- 电视和电影 -->
 				<in name="cid" value="1,2">
 				<div class="ui_sort">
 					<!-- 小分类 -->
@@ -118,7 +125,7 @@
 						<ul class="sort_list clearfix">
 						<?php $vod_type=M('list')->where(array('list_pid'=>$cid))->order('list_oid')->select() ?>
 						<fflist name="vod_type" id="ppvod">
-						<li><a href="{:getlistname($ppvod['list_id'],'list_url')}">{$ppvod.list_name}</a></li>
+						<li><a href="{:UU('Home-vod/type',array('id'=>$ppvod[list_id],'p'=>1),false,true)}">{$ppvod.list_name}</a></li>
 						</fflist>
 						</ul>
 					</div>
@@ -138,6 +145,7 @@
 				</div>
 				</in>
 
+				<!-- 其他 -->
 				<in name="cid" value="3,4,5">
 				<div class="list">
 					<h4 class="list_title">最新更新</h4>

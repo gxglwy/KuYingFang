@@ -6,6 +6,7 @@
 @import "vodtype.css";
 @import "my_new.css";
 @import "my_top.css";
+@import "my_detail.css";
 @import "my_vodchannel_tv.css";
 
 
@@ -304,6 +305,33 @@ a:hover{
 	text-decoration:none;
 	color: #FFF;
 }
+
+/*面包屑导航条*/
+.mod_bread_crumb_nav{
+	height: 24px;
+	line-height: 24px;
+	overflow: hidden;
+	padding: 4px 0;
+	margin-top: 5px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	border-radius: 2px;
+}		
+.mod_bread_crumbs li{
+	float: left;
+	font-size: 14px;
+	padding: 0 10px 0 18px;
+	background: url(../images/bread_crumb_arrow.gif) 0 center no-repeat;
+}
+.mod_bread_crumbs li.home{ background: none; padding-left: 13px;}
+.mod_bread_crumbs li a{ margin: 0 5px;}
+.mod_bread_share{
+	height: 24px;
+	line-height: 18px;
+	overflow: hidden;
+	padding: 0 3px;
+}
+
 
 /*影片图片模块*/
 /*(具体使用时可以调整宽高,但里面的图片宽高也要同时调整)*/

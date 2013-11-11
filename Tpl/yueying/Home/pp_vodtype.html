@@ -29,9 +29,10 @@
 		/*取得结果的显示方式*/
 		$show_way = $_GET["show_way"] ? $_GET["show_way"] : 'poster';
 
-		/*从数据库获取结果列表*/
 		$type_id = ($type_id) ? $type_id : 2;
 		C('jumpurl',UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>'{!page!}'),false,true));
+		
+		/*从数据库获取结果列表*/
 		if($show_way == 'details') {
 			$vod_list = ff_mysql_vod('cid:'.$type_id.';tag:'.$type_wd.';year:'.$type_year.';area:'.$type_area.';letter:'.$type_letter.';actor:'.$type_actor.';limit:10;page:true;order:vod_'.$type_order.' desc,vod_id desc');
 		} else {
@@ -46,10 +47,11 @@
 		<dl class="mod_indexs_bar bor">
 			<dt><span>分类检索</span><i class="arrow"><b class="a_outer"></b><b class="a_inner"></b></i></dt>
 			<!-- 频道切换 -->
-			<volist name="list_menu" id="cid">
-			<if condition="$cid.list_oid elt 6">
-				<dd  class="<eq name="type_id" value="$cid['list_id']">current</eq><eq name="type_pid" value="$cid['list_id']">current</eq>">
-					<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$cid['list_id'],'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">{$cid.list_name}</a>
+			<volist name="list_menu" id="list">
+			{// 只展示前6个大类 }
+			<if condition="$list.list_oid elt 6">
+				<dd class="<eq name="type_id" value="$list['list_id']">current</eq><eq name="type_pid" value="$list['list_id']">current</eq>">
+					<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$list['list_id'],'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">{$list.list_name}</a>
 				</dd>
 			</if>
 			</volist>

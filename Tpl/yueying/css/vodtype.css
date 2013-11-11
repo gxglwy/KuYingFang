@@ -1,9 +1,10 @@
+/*>>>>for pp_vodtype.html<<<<*/
 /*左边*/
 .aside_left.mod_left{width:260px;}
 /*右边*/
 .aside_right.mod_right{width:720px;}
 
-
+/*====左边====*/
 .mod_filter{padding:0 0 15px 20px;border-bottom:#DEDEDE solid 1px;background-color:#f6f6f8}
 .mod_filter h4{padding:15px 0 0;font-size:14px;color: #484848;font-weight: bold;}
 .mod_filter .mod_cont ul{overflow:hidden;margin:10px 0 0 0;zoom:1}
@@ -27,7 +28,7 @@
 .mod_indexs_v2 h3 a.current{color:#FF9805;cursor:default}
 .mod_indexs_v2 h3 a.current:hover{text-decoration:none}
 
-
+/*====右边====*/
 .mod_toolbar{position:relative;height:32px;overflow:hidden;margin-bottom:20px}
 /*排序*/
 .mod_toolbar .mod_tab_sort{overflow:hidden}

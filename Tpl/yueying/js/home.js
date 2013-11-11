@@ -609,4 +609,47 @@ $(document).ready(function(){
 		$(this).addClass('current').siblings().removeClass('current');
 		$('#top_detail .ui_top_tab_item').removeClass('ui_top_tab_item_current').eq(index).addClass('ui_top_tab_item_current');
 	});
+
+
+
+	//轮播图
+	//主banner动画 start
+	var timer = {};
+	$("#JS_banner_pic,#JS_tit").bind('navChange',function(event,index){
+		$(this).find("li").stop(true,true).fadeOut(1000).eq(index).stop(true,true).fadeIn(1000);
+	}).bind('mouseenter',function(){
+		$("#JS_banner_nav").find('.on').trigger('mouseenter');
+	}).bind('mouseleave',function(){
+		$("#JS_banner_nav").find('.on').trigger('mouseleave');
+	});
+
+	$("#JS_banner_nav").delegate('li','mouseenter',function () {
+		var self = $(this);
+
+		if(!self.is('.on')){
+			self.addClass('on').siblings().removeClass('on');
+
+			$("#JS_banner_pic,#JS_tit").trigger('navChange',[self.index()]);
+		}
+
+		timer && clearInterval(timer);
+	}).delegate('li','mouseleave',function(){
+		timer && clearInterval(timer);
+
+		timer = setInterval(function(){
+			var li = $('#JS_banner_nav').find('li'),
+				index = $('#JS_banner_nav').find('.on').index() + 1;
+
+			if(index < li.length){
+				li.eq(index).addClass('on').siblings().removeClass('on');
+				$("#JS_banner_pic,#JS_tit").trigger('navChange',[index]);
+			}else{
+				li.eq(0).addClass('on').siblings().removeClass('on');
+				$("#JS_banner_pic,#JS_tit").trigger('navChange',[0]);
+			}
+		},3500);
+	}).find('li').eq(0).trigger('mouseleave');
+	//主banner动画 end
+
+	
 });

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>最新{$list_name}-{$list_dir}{$list_name_big}{$list_name}-2013最新{$list_name}</title> 
+	<meta name="keywords" content="<notempty name="list_keywords">{$list_keywords}<else/>最新{$list_name},{$keywords}</notempty> ">
+	<meta name="description" content="最新{$list_name}包含的影片有<volist name='vod_list' id='ppvod'>{$ppvod.vod_name|msubstr=0,10},</volist>完全免费在线观看！">
+	<include file="Home:home_header" />
+</head>
+<body>
+
+	<include file="Home:pp_header" />
+
+	<?php
+
+	?>
+
+	<section class="scroll_banner">
+		<div class="banner" id="JS_banner_pic">
+			<ul>
+				<fflist name="list_slide" id="slide">
+					<if condition="$slide.slide_id eq 1">
+						<li style="background:url({$slide.slide_pic}) center 0 no-repeat;"></li>
+					<else />
+						<li style="background:url({$slide.slide_pic}) center 0 no-repeat;display:none;"></li>
+					</if>
+				</fflist>
+			</ul>
+		</div>
+		<div class="banner_tit" id="JS_tit">
+			<ul>
+				<fflist name="list_slide" id="slide">
+					<if condition="$slide.slide_id eq 1">
+						<li>
+					<else />
+						<li style="display:none;">
+					</if>
+					<a href="{$slide.slide_url}" hidefocus="true" target="_blank"><b class="ico_play"></b>{$slide.slide_title}</a></li>
+				</fflist>
+			</ul>
+		</div>
+		<div class="banner_nav" id="JS_banner_nav">
+			<ul>
+				<fflist name="list_slide" id="slide">
+					<if condition="$slide.slide_id eq 1"><li class="on"><else /><li></if>
+					<a href="{$slide.slide_url}" title="{$slide.slide_name}" target="_blank"><img src="{$slide.slide_logo}" alt="{$slide.slide_name}" /></a></li>
+				</fflist>
+			</ul>
+		</div>
+
+
+		<div class="info" id="JS_info" style="">
+			<h3>$slide.name</h3>
+			<p class="actor">演员：{$actor}</p>
+			<p class="introduction">{$slide.slide_content}</p>
+		</div>
+	</section>
+	<!-- scroll_banner end -->
+
+</body>
+</html>

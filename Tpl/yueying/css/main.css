@@ -6,7 +6,7 @@
 @import "vodtype.css";
 @import "my_new.css";
 @import "my_top.css";
-
+@import "my_vodchannel_tv.css";
 
 
 /* reset */
@@ -113,31 +113,37 @@ body{
 
 /*整体的颜色设置：字体和背景*/
 a:hover{
-	color: #FF3300;
+	color: #1C9631;
 	text-decoration: underline;
 }
 
 .site_color_text{
-	color: #FF3300 ! important;
+	color: #1C9631 ! important;
+}
+.site_color_hover:hover{
+	color: #1C9631 ! important;
 }
 .site_color_bg{
-	background-color: #FF3300 ! important;
+	background-color: #1C9631 ! important;
 }
 .site_color_bg_hover:hover{
-	background-color: #FF3300 ! important;
+	background-color: #1C9631 ! important;
 }
 .site_color_border{
-	border-color: #FF3300 ! important;
+	border-color: #1C9631 ! important;
+}
+.site_color_text a{
+	color: #1C9631 ! important;
 }
 
 
 /*搜索框边框颜色*/
 .search_area{
-	border: 1px solid #FF3300 !important;
+	border: 1px solid #1C9631 !important;
 }
 /*导航条当前选中项的颜色*/
 .site_nav_item.current a{
-	border-bottom: 2px solid #FF3300 !important;
+	border-bottom: 2px solid #1C9631 !important;
 }
 
 /*首页tab栏目切换框的各个栏目颜色设置*/

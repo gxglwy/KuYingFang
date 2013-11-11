@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://localhost/index.php?s=Admin-Slide-Add-id-6 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加幻灯广告</title>
+    
+    <link rel="stylesheet" type="text/css" href="admin-style.css">
+    <script language="JavaScript" type="text/javascript" charset="utf-8" src="jquery-1.7.2.min.js"></script>
+    <script language="JavaScript" type="text/javascript" charset="utf-8" src="admin.js"></script>
+    <script language="javascript">
+$(document).ready(function(){
+    $("#myform").submit(function(){
+        if($feifeicms.form.empty('myform','slide_name') == false){
+            return false;
+        }
+        if($feifeicms.form.empty('myform','slide_url') == false){
+            return false;
+        }   
+    });
+});
+</script>
+</head>
+<body class="body">
+    <!--图片预览框-->
+    <div id="showpic" class="showpic" style="left: 321px; top: 197px; display: none;">
+        <img name="showpic_img" id="showpic_img" width="120" height="160" src="1383374846098.jpg"></div>
+    <script language="JavaScript" type="text/javascript" charset="utf-8" src="jquery-1.7.2.min.js"></script>
+    <div class="title">
+        <div class="left">编辑幻灯贴片</div>
+        <div class="right">
+            <a href="http://localhost/index.php?s=Admin-Slide-Show">返回幻灯管理</a>
+        </div>
+    </div>
+    <div class="add">
+        <form action="http://localhost/index.php?s=Admin-Slide-Update" method="post" name="myform" id="myform">
+                <input type="hidden" name="slide_id" value="6">
+                                <ul>
+                    <li class="left">幻灯名称（影片名称）：</li>
+                    <li class="right">
+                        <input type="text" name="slide_name" id="slide_name" value="一座城池" class="w300" error="* 请填写幻灯片名称!">
+                        <span id="slide_name_error">*</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="left">小标题（简短说明）：</li>
+                    <li class="right">
+                        <input type="text" name="slide_title" id="slide_title" value="" class="w300" error="* 请填写幻灯片小标题!">
+                        <span id="slide_name_error">*</span>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li class="left">链接地址：</li>
+                    <li class="right">
+                        <input type="text" name="slide_url" id="slide_url" value="http://vip.kankan.com/vod/73403.html" class="w300" error="* 请填写幻灯片链接地址!">
+                        <span id="slide_url_error">*</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="left">LOGO小图：</li>
+                    <li class="right">
+                        <input type="text" name="slide_logo" id="slide_logo" maxlength="255" value="http://img.vip.kankan.kanimg.com/dm_pic/dm/headline/1383374846128.jpg" class="w300" onmouseover="if(this.value)showpic(event, this.value,&#39;Uploads/&#39;);" onmouseout="hiddenpic();">&nbsp;</li>
+                    <li class="left" style="width:94px">上传图片：</li>
+                    <li class="right">
+                        <iframe src="index(3).htm" scrolling="no" topmargin="0" width="270" height="26" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px"></iframe>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="left">幻灯图片：</li>
+                    <li class="right">
+                        <input type="text" name="slide_pic" id="slide_pic" maxlength="255" value="http://img.vip.kankan.kanimg.com/dm_pic/dm/headline/1383374846098.jpg" class="w300" onmouseover="if(this.value)showpic(event, this.value,&#39;Uploads/&#39;);" onmouseout="hiddenpic();">&nbsp;</li>
+                    <li class="left" style="width:94px">上传图片：</li>
+                    <li class="right">
+                        <iframe src="index(4).htm" scrolling="no" topmargin="0" width="270" height="26" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px"></iframe>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="left">幻灯排序：</li>
+                    <li class="right">
+                        <input name="slide_oid" type="text" value="6" maxlength="3" title="越小越前面" class="w50">
+                        <span id="slide_oid">*</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="left">幻灯分类：</li>
+                    <li class="right">
+                        <input name="slide_cid" type="text" value="1" maxlength="3" class="w50">自定义幻灯分类ID，便于前台栏目判断指定的幻灯</li>
+                </ul>
+                <ul>
+                    <li class="left">幻灯状态：</li>
+                    <li>
+                        <select name="slide_status">
+                            <option value="1">显示</option>
+                            <option value="0">隐藏
+                        </option>
+                    </select>
+                    &nbsp;
+                </li>
+            </ul>
+            <ul>
+                <li class="left">幻灯简介：</li>
+                <li class="right" style="height:140px;">
+                    <textarea name="slide_content" style="width:650px;height:120px" title="支持html语法">韩寒同名小说改编 解密不可思议的激荡青春</textarea>
+                </li>
+            </ul>
+            <ul class="footer" style="border-top:1px solid #cad9ea">
+                <input type="submit" name="submit" value="提交">
+                <input type="reset" name="reset" value="重置">
+                            </ul>
+        <input type="hidden" name="__hash__" value="6dad5de268e0e5d9e7f1bf6a31dcdc74"></form>
+    </div>
+    <br><center>Version：<font color="#FF0000">2.8.130909</font></center>
+
+</body></html>

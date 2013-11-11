@@ -33,7 +33,7 @@
 				</li>
 				<volist name="vod_new" id="ppvod">
 				<li>
-					<span class="first" name="first"><em>{$i}</em><a href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name|msubstr=0,18}</a></span>
+					<span class="first" name="first"><em>{$i}</em><a class="site_color_hover" href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name|msubstr=0,18}</a></span>
 					<span class="list_type">{$ppvod.list_name}</span>
 					<span class="actor">{$ppvod.vod_actor|msubstr=0,10|default='未录入'}</span>
 					<span class="addtime">{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</span>

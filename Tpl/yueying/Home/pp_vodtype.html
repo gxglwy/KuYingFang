@@ -105,11 +105,11 @@
 					<notempty name="array_list">
 					<h3>按类型</h3>
 					<ul class="clearfix">
-						<li class="<eq name="type_pid" value="0">current</eq> ">
+						<li class="<eq name="type_pid" value="0">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_cid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">全部</a>
 						</li>
 						<volist name="array_list" id="cid">
-						<li class="<eq name="type_id" value="$cid">current</eq> ">
+						<li class="<eq name="type_id" value="$cid">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$cid,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">{$cid|getlistname}</a>
 						</li>
 						</volist>
@@ -119,11 +119,11 @@
 					<neq name="type_cid" value="2">
 					<h3>按地区</h3>
 					<ul class="clearfix">
-						<li class="<empty name="type_area">current</empty> ">
+						<li class="<empty name="type_area">current site_color_text</empty> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=> $type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">全部</a>
 						</li>
 						<volist name="array_area" id="area">
-						<li class="<eq name="type_area" value="$area">current</eq> ">
+						<li class="<eq name="type_area" value="$area">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($area),'order'=>$type_order,'p'=>1),false,true)}">{$area}</a>
 						</li>
 						</volist>
@@ -133,20 +133,20 @@
 
 					<h3>按年份</h3>
 					<ul class="clearfix">
-						<li class="<eq name="type_year" value="0">current</eq> ">
+						<li class="<eq name="type_year" value="0">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=> $type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>0,'area'=>'','order'=>$type_order,'p'=>1),false,true)}">全部</a>
 						</li>
 
 						<volist name="array_year" id="year" offset="0" length="14">
-						<li class="<eq name="type_year" value="$year">current</eq> ">
+						<li class="<eq name="type_year" value="$year">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">{$year}</a>
 						</li>
 						</volist>
 
-						<li class="<eq name="type_year" value="19901999">current</eq> ">
+						<li class="<eq name="type_year" value="19901999">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19901999','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">90年代</a>
 						</li>
-						<li class="<eq name="type_year" value="19801989">current</eq> ">
+						<li class="<eq name="type_year" value="19801989">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>'19801989','area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">80后</a>
 						</li>
 						<li class="<eq name="type_year" value="19001980">current</eq> ">
@@ -156,19 +156,19 @@
 					
 					<h3>按字母</h3>
 					<ul class="clearfix">
-						<li class="<empty name="type_letter">current</empty>">
+						<li class="<empty name="type_letter">current site_color_text</empty>">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>'','year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">全部</a>
 						</li>
 						<php>
 							for($i=1;$i<=26;$i++){
 								if($type_letter==chr($i+64)){
-									echo '<li><a href="'.UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'" class="current">'.chr($i+64).'</a></li>';
+									echo '<li class="current site_color_text"><a href="'.UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'" class="current">'.chr($i+64).'</a></li>';
 								}else{
 									echo '<li><a href="'.UU('Home-vod/type',array('show_way'=>$show_way,'id'=> $type_id,'wd'=>$type_wd,'letter'=>chr($i+64),'year'=>$type_year,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true).'">'.chr($i+64).'</a></li>';
 								}
 							}
 						</php>
-						<li class="<eq name="type_letter" value="0,1,2,3,4,5,6,7,8,9">current</eq> ">
+						<li class="<eq name="type_letter" value="0,1,2,3,4,5,6,7,8,9">current site_color_text</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>'0,1,2,3,4,5,6,7,8,9','year'=>$type_year,'area'=>$type_area,'order'=>$type_order,'p'=>1),false,true)}">0-9</a>
 						</li>
 					</ul>

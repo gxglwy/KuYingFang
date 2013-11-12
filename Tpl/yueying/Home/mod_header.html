@@ -1,3 +1,4 @@
+{//网站完整的大顶部，主要用于首页  }
 <div id="site_header">
 	<!-- 顶部 -->
 	<div id="site_top">
@@ -67,5 +68,33 @@
 		</div>
 	</div>
 
+	<!-- 子栏目 -->
+	<div class="site_subnav" role="navigation sitemap">
+		<div class="wrap">
+			<!-- 副栏 -->
+			<!-- 电视剧下的子栏目 -->
+			<div class="site_subnav_tv">
+				<h3 class="site_subnav_title_tv">电视剧：</h3>
+				<ul class="site_subnav_list site_subnav_list_tv clearfix">
+					{// 取得电视类别下的所有类（也是list）}
+					<?php $vod_type=M('list')->where(array('list_pid'=>2))->order('list_oid')->select() ?>
+					<fflist name="vod_type" id="ppvod">
+						{// 子类的链接是到片库索引的 }
+						<li class="site_subnav_item"><a href="{:UU('Home-vod/type',array('id'=>$ppvod[list_id],'p'=>1),false,true)}">{$ppvod.list_name}</a></li>
+					</fflist>
+				</ul>
+			</div>
+			<!-- 电影下子栏目 -->
+			<div class="site_subnav_mv">
+				<h3 class="site_subnav_title_mv">电&nbsp;&nbsp;影：</h3>
+				<ul class="site_subnav_list site_subnav_list_mv clearfix">
+				<?php $vod_type=M('list')->where(array('list_pid'=>1))->order('list_oid')->select() ?>
+					<fflist name="vod_type" id="ppvod">
+						<li class="site_subnav_item"><a href="{:UU('Home-vod/type',array('id'=>$ppvod[list_id],'p'=>1),false,true)}">{$ppvod.list_name}</a></li>
+					</fflist>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<!-- end site_nav -->
 </div>

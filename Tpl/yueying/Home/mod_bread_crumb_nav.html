@@ -1,0 +1,17 @@
+{//面包屑导航 }
+<div class="mod_bread_crumb_nav clearfix">
+	<ul class="mod_bread_crumbs">
+		<li class="home">
+			<a href="{$root}">首页</a>
+		</li>
+		{// 多级的面包屑，自动的区分类别从而选择跳转的模板 }
+		<if condition="$list_pid eq 0">
+			<li><a href="{:UU('Home-vod/type',array('id'=>$list_id,'p'=>1),false,true)}">{:$list_name}</a></li>
+		<else />
+			<li><a href="{:$list_url_big}">{:$list_name_big}</a></li><li><a href="{:UU('Home-vod/type',array('id'=>$list_id,'p'=>1),false,true)}">{:$list_name}</a></li>
+		</if>
+		<li>
+			<span>{$vod_name}</span>
+		</li>
+	</ul>	
+</div>

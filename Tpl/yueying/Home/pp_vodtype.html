@@ -10,12 +10,16 @@
 
 </head>
 <body>
-	<include file="Home:pp_header_mini" />
+
+	{// 分类检索页 }
+
+	<include file="Home:mod_header_mini" />
 
 	<?php
 		/* 读取配置项里面的地区和年份 */
 		$array_area = explode(',',C('play_area'));
 		$array_year = explode(',',C('play_year'));
+		$array_actor = explode(',',C('play_actor'));
 		
 		/* 如果该类不是最大类，那么$array_list代表其父类列表，$type_cid代表其父类的id */
 		if($type_pid){
@@ -86,6 +90,7 @@
 								<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>0,'area'=>urlencode($type_area),'order'=>$type_order,'p'=>1),false,true)}">删除</a>
 							</li>
 						</if>
+
 						<!-- 按字母 -->
 						<if condition="$type_letter">
 							<li>
@@ -131,7 +136,6 @@
 						</volist>
 					</ul>
 					</neq>
-
 
 					<h3>按年份</h3>
 					<ul class="clearfix">
@@ -303,6 +307,6 @@
 	</div>
 	<!-- wrap end -->
 
-	<include file="Home:pp_footer" />
+	<include file="Home:mod_footer" />
 </body>
 </html>

@@ -537,6 +537,7 @@ function getjifen($fen){
 		return $linkPage;
 	}
 }*/
+//分页样式（自己修改的）
 function getpage($currentPage,$totalPages,$halfPer=5,$url){
 	if ($totalPages <= 1)return;
 

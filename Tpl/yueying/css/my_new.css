@@ -1,3 +1,4 @@
+/*>>>>for my_new.html<<<<*/
 #new{
 	padding: 10px 40px;
 }
@@ -20,6 +21,7 @@
 	height: 30px;
 	line-height: 30px;
 }
+
 #new li span{
 	float:left;
 	width:170px;
@@ -45,10 +47,14 @@
 	width:400px;
 	text-align:left;
 }
+#new li span.addtime{
+	text-align: right;
+}
 #new li span.time{
 	text-align:right;
 }
 
+/*弹出的小框框*/
 #new li div.detail {
  	display:none;
  	position:absolute;
@@ -78,7 +84,6 @@
 	padding:2px;
 	border-right:1px solid #ccc;
 }
-
 #new li div.detail dd{
 	float:left;
 	display:block;
@@ -88,29 +93,6 @@
 	padding: 0 10px 0 10px;
 	color:#444;
 }
-#new li div.detail dd.bg{
-	height:20px;
-	line-height:20px;
-	background:#000;
-	position:absolute;
-	width:75px;
-	top:110px;
-	left:2px;
-	filter:alpha(opacity=50);
-	 -moz-opacity:0.5;
-	 -khtml-opacity: 0.5;
-	 opacity: 0.5;
-}
-#new li div.detail dd.info{
-	height:20px;
-	line-height:20px;
-	position:absolute;
-	width:75px;
-	top:110px;
-	left:2px;
-	text-align:right;
-	color:#fff;
-}
 #new li div.detail dd.title{
 	font-weight:bold;
 	color:#333;
@@ -118,7 +100,7 @@
 #new li div.detail dd.line{
 	border-top:1px solid #ccc;
 }
-#new li div.detail dd.change{
-	background:#fffbd1;
+#new li div.detail dd.update{
+	background:#ffe;
 	height:23px;
 }

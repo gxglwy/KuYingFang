@@ -36,17 +36,15 @@
 					<span class="first" name="first"><em>{$i}</em><a class="site_color_hover" href="{$ppvod.vod_readurl}" target="_blank">{$ppvod.vod_name|msubstr=0,18}</a></span>
 					<span class="list_type">{$ppvod.list_name}</span>
 					<span class="actor">{$ppvod.vod_actor|msubstr=0,10|default='未录入'}</span>
-					<span class="addtime">{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</span>
-					<div class="detail" id="detail{$i}" >
+					<span class="addtime">{$ppvod.vod_addtime|date='Y-m-d',###}</span>
+					<div class="detail" >
 						<dl class="clearfix">
 							<dt><img src="{$ppvod.vod_pic|getpicurl_s}" alt="{$ppvod.vod_name|msubstr=0,18}" /></dt>
-							<dd class="bg"></dd>
-							<dd class="info">{$ppvod.vod_title}</dd>
 							<dd class="title">{$ppvod.vod_name|msubstr=0,10}</dd>
 							<dd>主演：{$ppvod.vod_actor|msubstr=0,10}</dd>
 							<dd>剧情：{$ppvod.vod_content|msubstr=0,28}...</dd>
-							<dd class="change line">上映时间：{$ppvod.vod_year|default='不详'}</dd>
-							<dd class="change">更新时间:{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</dd>
+							<dd class="update line">上映时间：{$ppvod.vod_year|default='不详'}</dd>
+							<dd class="update">更新时间:{$ppvod.vod_addtime|date='Y-m-d H:i:s',###}</dd>
 						</dl>
 					</div>
 				</li>

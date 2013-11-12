@@ -13,7 +13,7 @@
 .mod_filter .clear_all{margin:10px 0 0 0}
 .mod_filter .clear_all a{color:#0078B3}
 
-.mod_indexs{margin:0 0 20px 0;}
+.mod_indexs{margin:0 0 20px 0;border:1px solid #FFF;}
 .mod_indexs .mod_cont{padding:0 0 0 8px;width:250px}
 .mod_indexs h3{font-size:14px;margin:14px 0 6px 10px;font-weight:normal}
 .mod_indexs ul{margin-bottom:20px}

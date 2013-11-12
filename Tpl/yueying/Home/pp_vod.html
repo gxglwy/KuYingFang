@@ -15,7 +15,7 @@
 				<li class="home">
 					<a href="{$root}">首页</a>
 				</li>
-				{// 多级的面包屑，且自动的区分跳转的模板 }
+				{// 多级的面包屑，自动的区分类别从而选择跳转的模板 }
 				<if condition="$list_pid eq 0">
 					<li><a href="{:UU('Home-vod/type',array('id'=>$list_id,'p'=>1),false,true)}">{:$list_name}</a></li>
 				<else />
@@ -149,7 +149,7 @@
 		</div>
 		<script language="javascript">FF.History.Insert('{$vod_name}','{$vod_readurl}',10,7,'','');</script>
 		{$vod_hits_insert}
-		<include file="Home:pp_footer" />
 	</div>
+	<include file="Home:pp_footer" />
 </body>
 </html>

@@ -1,11 +1,13 @@
 #site_header{
-	z-index: 100;
+	background-color: #F0F3F5;
+	position: relative;
+	z-index:9999;
 }
 
 /*==========网站顶部区域==========*/
 #site_top{
 	position: relative;
-	overflow: hidden;
+	z-index: 2;
 }
 /*=====logo_area=====*/
 .logo_area{
@@ -38,15 +40,18 @@
 #search_form input{
 	border: 0;
 	height: 30px;
-	line-height: 20px;
+	line-height: 30px;
 	font-size: 15px;
 	vertical-align: middle;
 	overflow: hidden;
 	color: #555;
 }
 #keyword{
+	float: left;
 	width: 206px;
+	_width: 190px;
 	text-indent: 10px;
+	_text-indent: 4px;
 	background-color: transparent;
 }
 #search_button{
@@ -71,9 +76,9 @@
 	margin-right: 20px;
 }
 .user_area_item{
+	position: relative;
 	float: right;
 	margin-right: 10px;
-	overflow: hidden;
 }
 .user_area_bar {
 	position: relative;
@@ -83,9 +88,8 @@
 	width: 50px;
 	height: 30px;
 	line-height: 30px;
-	background: #ececec;
+	background: #e0e0ea;
 	border-radius: 2px; 
-	/*box-shadow: 10px 10px 10px #000;*/
 	cursor: pointer;
 }
 .user_area_bar:hover{
@@ -96,7 +100,6 @@
 	display: inline-block;
 	float: left;
 	font-size: 10px;
-	/*font-family: stheiti,microsoft yahei;*/
 	text-indent: 6px;
 }
 .user_area_bar .triangle_down{
@@ -124,18 +127,18 @@
 	border-top-color: #fff; 
 }
 
+
 /*==========site header end==========*/
 
 
 
 
-/*1==========site_nav==========*/
+/*==========site_nav==========*/
 .site_nav{
 	position: relative;
 	height: 35px;
 	background-color: #262626;
 	overflow: hidden;
-	/*z-index: 1;*/
 }
 .site_nav_item{
 	float: left;
@@ -183,8 +186,6 @@
 	/*border-bottom: 1px solid #E2E2E2;*/
 	box-shadow: 0px 2px 4px #888;
 	overflow: hidden;
-	/*z-index: 1;*/
-	margin-bottom: 20px;
 }
 .site_subnav_tv,.site_subnav_mv{
 	float: left;

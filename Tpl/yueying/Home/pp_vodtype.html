@@ -61,8 +61,8 @@
 	<div class="wrap">
 		<div class="aside_left mod_left bor">
 			<div class="mod_filter" id="mod_filter">
-				<h4 style="display:none;">请选择条件</h4>
-				<h4>您已选择</h4>
+				<h4 style="display:none;" id="JS_please">请选择条件</h4>
+				<h4 id="JS_yet">您已选择</h4>
 				<div class="mod_cont" id="mod_nav_option">
 					<ul id="nav_option">
 						<!-- 按类型 -->
@@ -95,7 +95,7 @@
 						</if>
 					</ul>
 					<!-- 清空所有条件 -->
-					<div class="clear_all">
+					<div class="clear_all" id="JS_clear">
 						<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_cid,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}">清空已选</a>
 					</div>
 				</div>
@@ -283,7 +283,7 @@
 									<li class="actor">主演：{$ppvod.vod_actor|ff_search_url}</li>
 								</ul>
 								<p class="mod_desc"><span>简介：</span>{$ppvod.vod_content|msubstr=0,80}...</p>
-								<p class="state"><span>状态：</span><a target="_blank" href="{$ppvod.vod_readurl}" class="" >第9集</a><cite>(连载中,待更新)</cite></p>
+								<p class="state"><span>状态：</span><empty name="ppvod.vod_continu">全集<else/>更新到第{$ppvod.vod_continu}集</empty></p>
 								<p class="more"><a class="site_color_text" target="_blank" href="{$ppvod.vod_readurl}">详细>></a></p>
 							</div>
 						</div>

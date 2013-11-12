@@ -35,7 +35,7 @@ a.Down{background:url(images/js/up_down.gif) no-repeat 0px -24px; padding-left:1
 .Digdown .Digbar div{background-position:0 -270px;}
 
 /*jquery.autocomplete*/
-.ac_results {border:1px solid #999999;background-color:white;overflow:hidden;z-index:99999;margin:0;padding:0;text-align:left}
+.ac_results {border:1px solid #999;background-color:white;overflow:hidden;z-index:9999;margin:0;padding:0;text-align:left}
 .ac_results ul {width: 100%;list-style-position: outside;list-style: none;padding: 0;margin: 0;}
 .ac_results li {margin: 0px;padding: 2px 5px;cursor: default;display: block;font: menu;font-size: 12px;line-height: 16px;overflow: hidden;}
 .ac_loading {background: white right center no-repeat;}
@@ -43,13 +43,17 @@ a.Down{background:url(images/js/up_down.gif) no-repeat 0px -24px; padding-left:1
 .ac_over {background-color: #0A246A;color: white;}
 
 /*jquery历史记录*/
-.history_box{z-index:9999; border:1px solid #F5F5F5; background:#fff; width:150px; overflow:hidden;}
+.history_box{z-index:9999;left: -190px; *top: 30px; border:1px solid #999; background:#fff; width:240px; overflow:hidden;}
 .history_box dt{text-align:right; padding-right:5px; height:24px; line-height:24px; border-bottom:1px solid #F9F9F9; cursor:pointer}
-.history_box dt a{color:#000000}
-.history_box dd{clear:both;height:24px;line-height:24px;text-overflow:ellipsis;white-space: nowrap;}
-.history_box dd a{color:#990033; display:block;padding-left:5px;}
+.history_box dt:hover{}
+.history_box dt a{padding: 0 30px;color:#333;height:24px;line-height:24px;}
+.history_box dt a.clear{float: left;}
+.history_box dt a.close{float: right;}
+.history_box dd{clear:both;padding: 0 5px;text-overflow:ellipsis;white-space: nowrap;font-size: 14px;overflow: hidden;}
+.history_box dd a{display:block;padding-left:5px;height:24px;line-height:24px;}
 .history_box dd.odd {background-color: #eee;}
-.history_box dd a:hover{background-color: #acacac;color: white;}
+.history_box dd a:hover{color: white;text-decoration: none;}
+
 
 /*jquery延时加载*/
 /*.lazy{background:url(images/js/loading.gif) center no-repeat}*/

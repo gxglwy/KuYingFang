@@ -436,13 +436,13 @@ var FF = {
 				}
 			}
 			html = '<dl class="history_box" id="history_box" style="display:none;position:absolute;">';
-			html +='<dt><a href="javascript:void(0)" onclick="FF.History.Clear();">清空</a> | <a href="javascript:void(0)" onclick="FF.History.Hide();">关闭</a></dt>';
+			html +='<dt><a class="clear" href="javascript:void(0)" onclick="FF.History.Clear();">清空</a><a class="close" href="javascript:void(0)" onclick="FF.History.Hide();">关闭</a></dt>';
 			if(jsondata.length > 0){
 				for($i=0; $i<jsondata.length; $i++){
 					if($i%2==1){
-						html +='<dd class="odd">';
+						html +='<dd class="odd site_color_bg_hover">';
 					}else{
-						html +='<dd class="even">';
+						html +='<dd class="even site_color_bg_hover">';
 					}
 					html +='<a href="'+jsondata[$i].vodlink+'" class="hx_title">'+jsondata[$i].vodname+'</a></dd>';
 				}
@@ -452,10 +452,11 @@ var FF = {
 			html += '</dl>';
 			$('#'+$id).after(html);
 			
-			var w = $('#'+$id).width();
-			var h = $('#'+$id).height();
-			var position = $('#'+$id).position();
-			$('#history_box').css({'left':position.left,'top':(position.top+h)});
+			//var w = $('#'+$id).width();
+			//var h = $('#'+$id).height();
+			//var offset = $('#'+$id).offset();
+			// $('#history_box').offset(offset);
+			// $('#history_box').css({'left':position.left,'top':(position.top+h)});
 			//$('#history_box').width(w);
 		},	
 		'Insert': function(vodname,vodlink,limit,days,cidname,vodpic){
@@ -524,8 +525,10 @@ $(document).ready(function(){
 	FF.Lazyload.Show();
 	//搜索联想
 	FF.Suggest.Show('keyword',12,Root+'index.php?s=plus-search-vod',Root+'index.php?s=vod-search-wd-');
+	//历史记录
+	FF.History.List('history_bar');
 
-	/*=======导航菜单的效果=======*/
+	/*============导航菜单的效果============*/
 	var $curItem = $('.site_nav_item.current');
 	if($curItem.length === 0) {
 		if(window.isIndexPage) {
@@ -570,11 +573,11 @@ $(document).ready(function(){
 			$("#"+contentNamePre+(index+1)).siblings().hide().end().show();
 		});
 	}
-	//
+	
 	tab("latest","latest_content_","current");
 
 
-	// 回到顶部功能
+	/*============回到顶部功能============*/
 	$("#backToTop").click(function(){
 		$("html, body").animate({ scrollTop: 0 }, 120);
 		return false;
@@ -594,7 +597,7 @@ $(document).ready(function(){
 	});
 
 
-	// 最新影片页的鼠标滑过图片效果
+	/*============最新影片页的鼠标滑过显示详细的图片效果============*/
 	$('#new ul .first a').mouseover(function() {
 		$(this).parent().siblings('.detail').show();
 	});
@@ -603,7 +606,7 @@ $(document).ready(function(){
 	});
 
 
-	//排行榜页，电影和电视剧排行分类tab切换
+	/*============排行榜页，电影和电视剧排行分类tab切换============*/
 	$("#top_detail .ui_title li").click(function() {
 		var index = $(this).index();
 		$(this).addClass('current').siblings().removeClass('current');
@@ -611,11 +614,14 @@ $(document).ready(function(){
 	});
 
 
+	/*============片库检索页============*/
+	($("#nav_option li").length >= 1) ? ($("#JS_please").hide(),$("#JS_yet").show(),$("#JS_clear").show()) : ($("#JS_please").show(),$("#JS_yet").hide(),$("#JS_clear").hide());
 
-	//轮播图
-	//主banner动画 start
+
+
+	/*============轮播图============*/
 	var timer = {};
-	$("#JS_banner_pic,#JS_tit").bind('navChange',function(event,index){
+	$("#JS_banner_pic,#JS_tit,#JS_info").bind('navChange',function(event,index){
 		$(this).find("li").stop(true,true).fadeOut(1000).eq(index).stop(true,true).fadeIn(1000);
 	}).bind('mouseenter',function(){
 		$("#JS_banner_nav").find('.on').trigger('mouseenter');
@@ -629,7 +635,7 @@ $(document).ready(function(){
 		if(!self.is('.on')){
 			self.addClass('on').siblings().removeClass('on');
 
-			$("#JS_banner_pic,#JS_tit").trigger('navChange',[self.index()]);
+			$("#JS_banner_pic,#JS_tit,#JS_info").trigger('navChange',[self.index()]);
 		}
 
 		timer && clearInterval(timer);
@@ -642,14 +648,13 @@ $(document).ready(function(){
 
 			if(index < li.length){
 				li.eq(index).addClass('on').siblings().removeClass('on');
-				$("#JS_banner_pic,#JS_tit").trigger('navChange',[index]);
+				$("#JS_banner_pic,#JS_tit,#JS_info").trigger('navChange',[index]);
 			}else{
 				li.eq(0).addClass('on').siblings().removeClass('on');
-				$("#JS_banner_pic,#JS_tit").trigger('navChange',[0]);
+				$("#JS_banner_pic,#JS_tit,#JS_info").trigger('navChange',[0]);
 			}
 		},3500);
 	}).find('li').eq(0).trigger('mouseleave');
-	//主banner动画 end
 
 	
 });

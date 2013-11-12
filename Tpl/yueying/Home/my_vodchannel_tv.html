@@ -9,17 +9,13 @@
 </head>
 <body>
 
-	<include file="Home:pp_header" />
-
-	<?php
-
-	?>
-
-	<section class="scroll_banner">
+	<include file="Home:pp_header_small" />
+	
+	<div class="scroll_banner">
 		<div class="banner" id="JS_banner_pic">
-			<ul>
+			<ul class="clearfix">
 				<fflist name="list_slide" id="slide">
-					<if condition="$slide.slide_id eq 1">
+					<if condition="$slide.slide_oid eq 1">
 						<li style="background:url({$slide.slide_pic}) center 0 no-repeat;"></li>
 					<else />
 						<li style="background:url({$slide.slide_pic}) center 0 no-repeat;display:none;"></li>
@@ -30,7 +26,7 @@
 		<div class="banner_tit" id="JS_tit">
 			<ul>
 				<fflist name="list_slide" id="slide">
-					<if condition="$slide.slide_id eq 1">
+					<if condition="$slide.slide_oid eq 1">
 						<li>
 					<else />
 						<li style="display:none;">
@@ -40,21 +36,34 @@
 			</ul>
 		</div>
 		<div class="banner_nav" id="JS_banner_nav">
-			<ul>
+			<ul class="clearfix">
 				<fflist name="list_slide" id="slide">
-					<if condition="$slide.slide_id eq 1"><li class="on"><else /><li></if>
+					<if condition="$slide.slide_oid eq 1"><li class="on"><else /><li></if>
 					<a href="{$slide.slide_url}" title="{$slide.slide_name}" target="_blank"><img src="{$slide.slide_logo}" alt="{$slide.slide_name}" /></a></li>
 				</fflist>
 			</ul>
 		</div>
-
-
-		<div class="info" id="JS_info" style="">
-			<h3>$slide.name</h3>
-			<p class="actor">演员：{$actor}</p>
-			<p class="introduction">{$slide.slide_content}</p>
+		
+		
+		<div class="info" id="JS_info">		
+			<ul>
+				<fflist name="list_slide" id="slide">
+					<if condition="$slide.slide_oid neq 1">
+						<li style="display:none;">
+					<else />
+						<li>
+					</if>
+						<h3>{$slide.slide_name}</h3>
+						<p class="actor"><em>演员：</em>{$slide.slide_actor}</p>
+						<p class="actor"><em>简介：</em>{$slide.slide_actor}</p>
+						<p class="introduction">{$slide.slide_content|msubstr=0,234}</p>
+					</li>
+				</fflist>
+			</ul>
 		</div>
-	</section>
+		
+
+	</div>
 	<!-- scroll_banner end -->
 
 </body>

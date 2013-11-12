@@ -5,8 +5,13 @@
 				<a href="{$root}"><strong>首页</strong></a>
 			</li>
 			<volist name="list_menu" id="list">
-				<if condition="$list.list_oid elt 4">
+				{// 如果菜单项是电视或者电影，那么标题的跳转页面使用专用的模板页 }
+				<if condition="$list.list_oid elt 2">
 					<li class="site_nav_item <eq name="list.list_id" value="$list_id">current</eq>"<eq name="list.list_id" value="$list_pid">current"</eq>><a href="{$list.list_url}">{$list.list_name}</a></li>
+				{// 其他的导航项，则跳转到分类检索页面 }
+				<elseif condition="$list.list_oid elt 4" />
+					<li class="site_nav_item <eq name="list.list_id" value="$list_id">current</eq>"<eq name="list.list_id" value="$list_pid">current"</eq>><a href="{:UU('Home-vod/type',array('id'=>$list[list_id],'p'=>1),false,true)}">{$list.list_name}</a></li>
+				<else />
 				</if>
 			</volist>
 			<li class="site_nav_item">
@@ -15,3 +20,4 @@
 		</ul>
 	</div>
 </div>
+

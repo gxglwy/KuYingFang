@@ -142,7 +142,7 @@
 .top_list li a:hover{ 
 	text-decoration: none; 
 	color: #333; 
-	background-color: #fcfcfc;
+	background-color: #f4f4f4;
 }
 .top_list li a:hover .tit{
 	text-decoration: underline;

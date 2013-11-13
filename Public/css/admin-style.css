@@ -144,12 +144,12 @@ button,.button,.submit{
 /*----------------------------图片展示框---------------------------------*/
 #showpic {
 	position:absolute;
-	width:75;
-	height:75;
+	width:320;
+	height:160;
 }
 .showpic {
 	text-align:center;
-	line-height:150%;
+	/*line-height:150%;*/
 	border:2px solid #33CCFF;
 	padding:5px;
 	background:#FFFFFF;

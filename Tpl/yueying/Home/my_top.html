@@ -43,7 +43,7 @@
 			<?php $cidArr=array(2,1,3,4,5) ?>
 			<volist name="cidArr" id="cid">
 			<div class="top_item_box">
-				<!-- 底部标题 -->
+				<!-- 顶部标题 -->
 				<div class="ui_title clearfix">
 					<switch name="cid">
 						<case value="2">
@@ -92,7 +92,7 @@
 						<?php $ranklist=ff_mysql_vod('cid:'.$cid.';day:7;limit:10;order:vod_gold desc,vod_addtime desc'); ?>
 						<fflist name="ranklist" id="ppvod">
 							<li>
-								<a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">
+								<a href="{$ppvod.vod_readurl}" target="_blank" title="{$ppvod.vod_name}">
 									<span class="num <if condition="$i elt 3">site_color_text</if>">{$i}<if condition="$i lt 10">.</if></span>
 									<span class="title">{$ppvod.vod_name|msubstr=0,12}</span>
 									<span class="score site_color_text">{$ppvod.vod_gold}</span>

@@ -129,14 +129,14 @@
 
 /*==========板块区==========*/
 /*====左边====*/
-.aside_left .ui_title{
+.aside_left .caption{
 	float: left;
 	width: 243px;
 	height: 55px;
 	position: relative;
 	border-bottom: 1px solid #eee;
 }
-.aside_left .ui_title h3{
+.aside_left .caption h3{
 	float: left;
 	position: relative;
 	color: #669933;
@@ -147,7 +147,7 @@
 	font-weight: bold;
 	text-indent: 10px;
 }
-.aside_left .ui_title h3 a{
+.aside_left .caption h3 a{
 	display: inline-block;
 	position: absolute;
 	left: 0;
@@ -156,7 +156,7 @@
 	text-decoration: none;
 	z-index: 1;
 }
-.aside_left .ui_title .view_more{
+.aside_left .caption .view_more{
 	float: right;
 	height: 56px;
 	line-height: 56px;
@@ -322,6 +322,7 @@
 	font-size: 12px;
 }
 
+/*下面的文字*/
 .aside_right .list_bottom{
 	width:627px;
 	border-bottom:1px solid #eee;
@@ -330,6 +331,7 @@
 .aside_right .list_bottom li{
 	float:left;
 	width:125px;
+	overflow:hidden;
 }
 .aside_right .list_bottom li a{
 	color:#333;
@@ -341,6 +343,9 @@
 	background:url(../images/assist_icon.gif) no-repeat;
 	padding:0 0 0 35px;
 	overflow:hidden;
+}
+.aside_right .list_bottom li a:hover{
+	background-color: #EEE;
 }
 
 #box_tv .aside_right .list_bottom li a{

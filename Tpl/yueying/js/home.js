@@ -397,10 +397,10 @@ var FF = {
 			$('#'+$id).hover(function(){
 				FF.History.Show();		
 			}, function(){
-				FF.History.FlagHide();
-				/*setTimeout(function() {
+				// FF.History.FlagHide();
+				setTimeout(function() {
 					FF.History.FlagHide();
-				}, 200);*/
+				}, 200);
 			});
 		},
 		'Clear': function(){
@@ -408,7 +408,9 @@ var FF = {
 			$('#history_box').html('<li class="hx_clear">已清空观看记录。</li>');
 		},	
 		'Show': function(){
-			$('#history_box').show();
+			// var height = $('#history_box').css('height');
+			// $('#history_box').css({'height':0,'display':'block'}).stop().animate({'height':height},500);
+			$('#history_box').slideDown(200);;
 		},
 		'Hide': function(){
 			$('#history_box').hide();

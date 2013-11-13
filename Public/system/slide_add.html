@@ -68,7 +68,7 @@ $(document).ready(function(){
                 <ul>
                     <li class="left">LOGO小图：</li>
                     <li class="right">
-                        <input type="text" name="slide_logo" id="slide_logo" maxlength="255" value="{$slide_logo}" class="w300" onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/');" onMouseOut="hiddenpic();">&nbsp;</li>
+                        <input type="text" name="slide_logo" id="slide_logo" maxlength="255" value="{$slide_logo}" class="w300" onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/','small');" onMouseOut="hiddenpic();">&nbsp;</li>
                     <li class="left" style="width:94px">上传图片：</li>
                     <li class="right">
                         <iframe src="?s=Admin-Upload-Show-sid-slide-fileback-slide_logo" scrolling="no" topmargin="0" width="270" height="26" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px"></iframe>
@@ -77,7 +77,7 @@ $(document).ready(function(){
                 <ul>
                     <li class="left">幻灯图片(大图)：</li>
                     <li class="right">
-                        <input type="text" name="slide_pic" id="slide_pic" maxlength="255" value="{$slide_pic}" class="w300" onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/');" onMouseOut="hiddenpic();">&nbsp;</li>
+                        <input type="text" name="slide_pic" id="slide_pic" maxlength="255" value="{$slide_pic}" class="w300" onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/','big');" onMouseOut="hiddenpic();">&nbsp;</li>
                     <li class="left" style="width:94px">上传图片：</li>
                     <li class="right">
                         <iframe src="?s=Admin-Upload-Show-sid-slide-fileback-slide_pic" scrolling="no" topmargin="0" width="270" height="26" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px"></iframe>

@@ -91,14 +91,19 @@ function pagego($url,$total){
 	return false;
 }
 // 图片预览
-function showpic(event,imgsrc,path){	
+function showpic(event,imgsrc,path,size){	
 	var left = event.clientX+document.body.scrollLeft+20;
 	var top = event.clientY+document.body.scrollTop+20;
 	$("#showpic").css({left:left,top:top,display:""});
 	if(imgsrc.indexOf('://')<0){
 		imgsrc = path+imgsrc;
 	}
-	$("#showpic_img").attr("src",imgsrc);
+	if(size == 'small'){
+		$("#showpic_img").attr({"src":imgsrc,"width":"160px","height":"80px"});
+	} else {
+		$("#showpic_img").attr({"src":imgsrc,"width":"360px","height":"120px"});
+	}
+	
 }
 // 取消图片预览
 function hiddenpic(){

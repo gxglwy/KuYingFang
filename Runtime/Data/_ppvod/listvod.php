@@ -310,7 +310,7 @@ return array (
     'list_keywords' => '',
     'list_title' => '',
     'list_description' => '',
-    'list_jumpurl' => '',
+    'list_jumpurl' => 'http://',
   ),
   3 => 
   array (

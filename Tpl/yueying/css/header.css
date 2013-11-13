@@ -1,5 +1,5 @@
 #site_header{
-	background-color: #F0F3F5;
+	background-color: #F3F3F5;
 	position: relative;
 	z-index:9999;
 }
@@ -19,7 +19,7 @@
 	display: block;
 	width: 155px;
 	height: 50px;
-	/*background: url(../images/site_logo.png) 0 0 no-repeat;*/
+	background: url(../images/site_logo.png) 0 0 no-repeat;
 }
 .logo a:hover{
 	/*background: url(../images/site_logo.png) 0 -50px no-repeat;*/
@@ -33,7 +33,7 @@
 	margin-top: 20px;
 	margin-left: 240px;
 	border: 1px solid #93C533;
-	border-radius: 3px;
+	/*border-radius: 2px;*/
 	background-color: #FFF;
 }
 

@@ -7,7 +7,7 @@
 @import "my_new.css";
 @import "my_top.css";
 @import "my_detail.css";
-@import "my_vodchannel_tv.css";
+@import "my_vodchannel.css";
 
 
 /* reset */
@@ -92,6 +92,7 @@ body{
 	width: 243px;
 	float: left;
 	border-right: 1px solid #eee;
+	border-bottom:  1px solid #eee;
 	background-color: #fcfcfc;
 	overflow: hidden;
 }
@@ -109,18 +110,17 @@ body{
 .aside_r{width: 250px;}
 
 /*边框色*/
-.bor{border: 1px solid #ddd;}
+.bor{border: 1px solid #3377AA;}
 
 /*有边框和边距的方框*/
 .ui_box{
-	border: 1px solid #ddd;
+	border: 1px solid #3377AA;
 	margin: 10px auto 0px;
 	background-color: #fff;
 }
 /*有顶部厚边框的方框*/
 .ui_box_kyf{
-	border-top: 3px solid #3377AA;
-	background-color: #fcfcfc;
+	border-top: 2px solid #3377AA;
 }
 
 
@@ -170,32 +170,32 @@ a:hover{
 .latest_tab_nav #latest1.current,
 .latest_tab_content #latest_content_1,
 .latest_tab_content #latest_content_1 .txt_list li .num{
-	border-top-color: #f30;
-	color: #f30;
+	border-top-color: #3377AA;
+	color: #3377AA;
 }
 .latest_tab_nav #latest2.current,
 .latest_tab_content #latest_content_2,
 .latest_tab_content #latest_content_2 .txt_list li .num{
-	border-top-color: #693;
-	color: #693;
+	border-top-color: #FF3300;
+	color: #FF3300;
 }
 .latest_tab_nav #latest3.current,
 .latest_tab_content #latest_content_3,
 .latest_tab_content #latest_content_3 .txt_list li .num{
-	border-top-color: #369;
-	color: #369;
+	border-top-color: #669933;
+	color: #669933;
 }
 .latest_tab_nav #latest4.current,
 .latest_tab_content #latest_content_4,
 .latest_tab_content #latest_content_4 .txt_list li .num{
-	border-top-color: #fc3;
-	color: #fc3;
+	border-top-color: #FFB700;
+	color: #FFB700;
 }
 .latest_tab_nav #latest5.current,
 .latest_tab_content #latest_content_5,
 .latest_tab_content #latest_content_5 .txt_list li .num{
-	border-top-color: #3c9;
-	color: #3c9;
+	border-top-color: #1469EB;
+	color: #1469EB;
 }
 .latest_tab_nav #latest6.current,
 .latest_tab_content #latest_content_6,
@@ -205,32 +205,32 @@ a:hover{
 }
 /*首页的各个栏目框的顶部边框也是和标题颜色*/
 #box_tv{
-	border-top: 3px solid #693;
+	border-top-color: #FF3300;
 }
 #box_mv{
-	border-top: 3px solid #369;
+	border-top-color: #669933;
 }
 #box_cartoon{
-	border-top: 3px solid #fc3;
+	border-top-color: #FFB700;
 }
 #box_fun{
-	border-top: 3px solid #3c9;
+	border-top-color: #1469EB;
 }
 #box_wei{
-	border-top: 3px solid #c60;
+	border-top-color: #c60;
 }
 
 #box_tv .caption h3{
-	color: #693;
+	color: #FF3300;
 }
 #box_mv .caption h3{
-	color: #369;
+	color: #669933;
 }
 #box_cartoon .caption h3{
-	color: #fc3;
+	color: #FFB700;
 }
 #box_fun .caption h3{
-	color: #3c9;
+	color: #1469EB;
 }
 #box_wei .caption h3{
 	color: #c60;
@@ -245,6 +245,7 @@ a:hover{
 	overflow:hidden;
 	margin:20px 0 10px;
 	padding:4px 0 9px 120px;
+	border: 1px solid #eee;
 	zoom:1;
 }
 

@@ -1,0 +1,37 @@
+{//播放来源 显示集数列表}
+<volist name="vod_playlist" id="ppvod" key="playerkey">
+	<?php
+		/*根据集数的多少来决定滚动栏的高度，集数越多则越高（且小于20集的时候不会出现滚动，但高度也做了智能适应）*/
+		$count = count($ppvod['son']);
+		if($count<=10){
+			$scroll_height="1";
+		} elseif($count<=20){
+			$scroll_height="2_0";	/*两行，且还没有出现滚动条*/
+		} elseif($count<=80) {
+			$scroll_height="2";
+		}
+		if($count>80){
+			$scroll_height="3";
+		}
+		if($count>160){
+			$scroll_height="4";
+		}
+		if($count>320){
+			$scroll_height="5";
+		}
+	?>
+	<div class="ui_box resource">
+		<div class="resource_item">
+			<h3 class="title">
+				<span>播放来源：</span><a href="{:ff_play_url($vod_id,($playerkey-1),1,$vod_cid,$vod_name)}">{$ppvod.playername}</a>
+			</h3>
+			<div class="playlist clearfix <switch name="scroll_height"><case value="1">one_line</case><case value="2_0">two_line_0</case><case value="2">two_line</case><case value="3">three_line</case><case value="4">four_line</case><case value="5">five_line</case></switch>">
+				<ul class="clearfix">
+				<volist name="ppvod['son']" id="ppvodson">
+					<li><a class="site_color_bg_hover" href="{$ppvodson.playurl}" target="_blank"><if condition="list_pid eq 2"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty><else />{$ppvodson.playname}</if></a></li>
+				</volist>
+				</ul>
+			</div>
+		</div>
+	</div>
+</volist>

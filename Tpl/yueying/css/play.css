@@ -1,0 +1,28 @@
+/*for pp_play.html*/
+.player_area{
+	background-color: #333;
+	border: 1px solid #333;
+}
+.player_area .player{
+	margin: 0 auto 10px;
+}
+
+
+
+/*修改一下面包屑导航*/
+.bread_nav_play{
+	color: #eee;
+	height: 24px;
+	line-height: 24px;
+}
+.bread_nav_play .bread_crumbs li{
+	float: left;
+	font-size: 12px;
+	padding: 0 6px;
+}
+.bread_nav_play .bread_crumbs li a{
+	color: #eee;
+}
+.bread_nav_play .bread_crumbs li a:hover{
+	color: #aaa;
+}

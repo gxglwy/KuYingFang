@@ -8,6 +8,7 @@
 @import "my_top.css";
 @import "my_detail.css";
 @import "my_vodchannel.css";
+@import "play.css";
 
 
 /* reset */
@@ -83,7 +84,7 @@ a {
 /*==========网站整体风格==========*/
 body{
 	color: #2e2e2e;
-	background-color: #FFF;
+	background-color: #F8F8F8;
 }
 
 /*==========网站方框风格(不能直接在这里修改尺寸，只能修改颜色)==========*/
@@ -131,22 +132,26 @@ a:hover{
 }
 
 .site_color_text{
-	color: #3377AA ! important;
+	color: #3377AA !important;
 }
 .site_color_hover:hover{
-	color: #3377AA ! important;
+	color: #3377AA !important;
 }
 .site_color_bg{
-	background-color: #3377AA ! important;
+	background-color: #3377AA !important;
 }
 .site_color_bg_hover:hover{
-	background-color: #3377AA ! important;
+	background-color: #3377AA !important;
 }
 .site_color_border{
-	border-color: #3377AA ! important;
+	border-color: #3377AA !important;
 }
 .site_color_text a{
-	color: #3377AA ! important;
+	color: #3377AA !important;
+}
+.JS_on{
+	color: #FFF !important;
+	background-color: #3377AA !important;
 }
 
 
@@ -200,8 +205,8 @@ a:hover{
 .latest_tab_nav #latest6.current,
 .latest_tab_content #latest_content_6,
 .latest_tab_content #latest_content_6 .txt_list li .num{
-	border-top-color: #c60;
-	color: #c60;
+	border-top-color: #34A43E;
+	color: #34A43E;
 }
 /*首页的各个栏目框的顶部边框也是和标题颜色*/
 #box_tv{
@@ -217,7 +222,7 @@ a:hover{
 	border-top-color: #1469EB;
 }
 #box_wei{
-	border-top-color: #c60;
+	border-top-color: #34A43E;
 }
 
 #box_tv .caption h3{
@@ -233,7 +238,7 @@ a:hover{
 	color: #1469EB;
 }
 #box_wei .caption h3{
-	color: #c60;
+	color: #34A43E;
 }
 
 
@@ -328,11 +333,12 @@ a:hover{
 
 /*面包屑导航条*/
 .mod_bread_crumb_nav{
+	width: 1000px;
 	height: 24px;
 	line-height: 24px;
 	overflow: hidden;
 	padding: 4px 0;
-	margin-top: 5px;
+	margin: 20px auto 0;
 	border: 1px solid #ddd;
 	background-color: #fff;
 	border-radius: 2px;
@@ -625,3 +631,55 @@ a:hover{
 	line-height: 18px;
 }
 
+
+
+/*剧集来源 显示集数列表*/
+.resource_item{
+	margin-bottom: 10px;
+}
+.playlist{
+	overflow: auto;
+	margin: 0 10px;
+}
+.playlist.one_line{
+	height: 36px;
+	margin-left: 18px;
+}
+.playlist.two_line_0{
+	height: 72px;
+	margin-left: 18px;
+}
+.playlist.two_line{
+	height: 72px;
+}
+.playlist.three_line{
+	height: 108px;
+}
+.playlist.four_line{
+	height: 144px;
+}
+.playlist.five_line{
+	height: 176px;
+}
+.playlist li{
+	float: left;
+}
+.playlist a{
+	float:left;
+	border:1px solid #dcdcdc;
+	background:#f2f2f2;
+	color:#333333;
+	display:block;
+	width:85px;
+	height:26px;
+	line-height:26px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	text-align:center;
+	margin: 4px;
+}
+.playlist a:hover{
+	color:#fff;
+	text-decoration:none;
+}

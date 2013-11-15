@@ -32,8 +32,13 @@
 	width: 340px;
 }
 .infos .txt p{
+	font-size: 14px;
 	float:left;
 	margin-bottom:3px;
+}
+.infos .txt span{
+	margin-right:10px;
+	color: #888;
 }
 .infos .txt .w{
 	display:inline-block;
@@ -50,10 +55,7 @@
 	padding-left:5px;
 	font-weight:normal;
 }
-.infos .txt span{
-	margin-right:20px;
-	font-size:12px;
-}
+
 .infos .txt .up span{
 	margin-right:0px;
 }
@@ -79,6 +81,9 @@ h3.title span{
 
 
 /*热播*/
+.vod_hot h3 em{
+	font-size: 14px;
+}
 .vod_hot li{
 	width: 122px;
 	margin: 0 10px;
@@ -108,7 +113,7 @@ h3.title span{
 
 /*剧情简介*/
 .vod_content {
-	margin: 20px 10px;
+	margin: 10px;
 }
 .vod_content p{
 	line-height: 25px;

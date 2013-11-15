@@ -5,19 +5,24 @@
 	<title>最新{$list_name}-{$list_dir}{$list_name_big}{$list_name}-2013最新{$list_name}</title> 
 	<meta name="keywords" content="<notempty name="list_keywords">{$list_keywords}<else/>最新{$list_name},{$keywords}</notempty> ">
 	<meta name="description" content="最新{$list_name}包含的影片有<volist name='vod_list' id='ppvod'>{$ppvod.vod_name|msubstr=0,10},</volist>完全免费在线观看！">
+	<base target="_blank">
 	<include file="Home:home_header" />
 </head>
 <body>
 
 	{//电视直播页 }
 
-	<include file="Home:mod_header_small" />
+	<include file="Home:mod_header_mini" />
 
-
-	
-
-	
-
+	{//播放器 }
+	<div class="player_area">
+		<h4>正在直播</h4>
+		<div class="wrap">
+			<div class="player" style="margin-left:20px;">
+				<iframe src="http://union.feifeicms.com/live" width="960" height="540" frameborder="0" scrolling="no"></iframe>
+			</div>
+		</div>
+	</div>
 
 	<include file="Home:mod_footer" />
 </body>

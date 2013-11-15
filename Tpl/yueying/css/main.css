@@ -37,9 +37,9 @@ a {
 	color: #333;
 	text-decoration: none;
 	outline: 0 none;
-	-webkit-transition: all .2s linear;-moz-transition:all .2s linear;
-	-ms-transition: all .2s linear;
-	transition: all .2s linear;
+	-webkit-transition: all .1s linear;-moz-transition:all .1s linear;
+	-ms-transition: all .1s linear;
+	transition: all .1s linear;
 }
 
 /*function style*/
@@ -128,14 +128,14 @@ body{
 
 /*======整体的颜色设置：字体和背景======*/
 a:hover{
-	color: #3377AA;
+	color: #FF6600;
 }
 
 .site_color_text{
 	color: #3377AA !important;
 }
 .site_color_hover:hover{
-	color: #3377AA !important;
+	color: #FF6600 !important;
 }
 .site_color_bg{
 	background-color: #3377AA !important;

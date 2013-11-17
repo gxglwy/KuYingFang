@@ -600,20 +600,26 @@ function get_maxpage($currentpage,$totalpages){
 	return $currentpage;
 }
 // 获取热门关键词
-function ff_hot_key($string){
-	if(C('url_html')){
-		return '<script type="text/javascript" src="'.C('site_path').'Runtime/Js/hotkey.js" charset="utf-8"></script>';
+function ff_hot_key($string,$notLink){
+	if($notLink){
+		return $string;
 	}
-	$array_hot = array();
-	foreach(explode(chr(13),trim($string)) as $key=>$value){
-		$array = explode('|',$value);
-		if($array[1]){
-			$array_hot[$key] = '<a href="'.$array[1].'" target="_blank">'.trim($array[0]).'</a>';
-		}else{
-			$array_hot[$key] = '<a href="'.UU('Home-vod/search',array('wd'=>urlencode(trim($value))),false,true).'">'.trim($value).'</a>';
+	else{
+		if(C('url_html')){
+			return '<script type="text/javascript" src="'.C('site_path').'Runtime/Js/hotkey.js" charset="utf-8"></script>';
 		}
+		$array_hot = array();
+		foreach(explode(chr(13),trim($string)) as $key=>$value){
+			$array = explode('|',$value);
+			if($array[1]){
+				$array_hot[$key] = '<a href="'.$array[1].'" target="_blank">'.trim($array[0]).'</a>';
+			}else{
+				$array_hot[$key] = '<a href="'.UU('Home-vod/search',array('wd'=>urlencode(trim($value))),false,true).'">'.trim($value).'</a>';
+			}
+		}
+		return implode(' ',$array_hot);
 	}
-	return implode(' ',$array_hot);
+
 }
 // 获取与处理人气值
 function ff_get_hits($sidname,$type='hits',$array,$js=true){
@@ -946,7 +952,7 @@ function ff_search_url($str,$type="actor",$sidname='vod',$action='search'){
 	$str = str_replace(array('/','|',',','，'),' ',$str);
 	$arr = explode(' ',$str);
 	foreach($arr as $key=>$val){
-		$array[$key] = '<a href="'.UU('Home-'.$sidname.'/'.$action,array($type=>urlencode($val)),false,true).'" target="_blank">'.$val.'</a>';
+		$array[$key] = '<a href="'.UU('Home-'.$sidname.'/'.$action,array($type=>urlencode($val)),false,true).'">'.$val.'</a>';
 	}
 	return implode(' ',$array);
 }

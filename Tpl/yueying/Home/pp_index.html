@@ -6,7 +6,9 @@
 	<meta name="keywords" content="{$keywords}">
 	<meta name="description" content="{$description}">
 	<base target="_blank">
-	<script type="text/javascript">window.isIndexPage = true;</script>
+	<script type="text/javascript">var navIndex=0;</script>
+
+	
 	<include file="Home:home_header" />
 
 </head>
@@ -115,7 +117,7 @@
 							<case value="5">微电影<a href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}"></a></case>
 						</switch>
 					</h3>
-					<a class="view_more site_color_text" href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}">更多</a>
+					<a class="view_more" href="{:UU('Home-vod/type',array('id'=>$cid,'p'=>1),false,true)}">更多</a>
 				</div>
 
 				<!-- 电视和电影 -->
@@ -182,7 +184,7 @@
 					<li>
 						<div class="mod_play_img">
 							<a href="{$ppvod.vod_readurl}" target="_blank">
-								<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
+								<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}"/>
 								<label class="score">{$ppvod.vod_gold}</label>
 							</a>
 						</div>
@@ -190,7 +192,7 @@
 							<h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h5>
 							<p class="num site_color_text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></p>
 							<p class="desc">{$ppvod.vod_content|msubstr=0,40}...</p>
-							<dl class="item"><dt>演员：</dt><dd class="actor">{$ppvod.vod_actor}</dd> </dl>
+							<dl class="item"><dt>演员：</dt><dd class="actor">{$ppvod.vod_actor|ff_search_url}</dd> </dl>
 							<dl class="item"><dt>地区：</dt><dd>{$ppvod.vod_area}</dd></dl>
 							<dl class="item"><dt>类型：</dt><dd>{$ppvod.list_name}</dd></dl>
 						</div>
@@ -204,14 +206,14 @@
 					<li>
 						<div class="mod_play_img">
 							<a href="{$ppvod.vod_readurl}" target="_blank">
-								<img class="lazy" data-original="{$ppvod.vod_picurl}" src="" alt="{$ppvod.vod_name}"/>
+								<img src="{$ppvod.vod_picurl}" alt="{$ppvod.vod_name}"/>
 								<label class="score">{$ppvod.vod_gold}</label>
 								<label class="mask">&nbsp;</label>
 								<label class="text"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty></label>
 							</a>
 						</div>
 						<h5><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name}</a></h5>
-						<p class="actor">主演：{$ppvod.vod_actor}</p>
+						<p class="actor">主演：{$ppvod.vod_actor|ff_search_url}</p>
 					</li>
 					</volist>
 				</ul>

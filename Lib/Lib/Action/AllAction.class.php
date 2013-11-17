@@ -322,7 +322,8 @@ class AllAction extends Action{
 		$array['css'] = '<link rel="stylesheet" type="text/css" href="'.$array['tpl'].'style.css">'."\n";
 		$array['sitename'] = C('site_name');
 		$array['siteurl'] = C('site_url');
-		$array['sitehot'] = ff_hot_key(C('site_hot'));
+		// $array['sitehot'] = ff_hot_key(C('site_hot'));
+		$array['sitehot'] = ff_hot_key(C('site_hot'),true);
 		$array['keywords'] = C('site_keywords');
 		$array['description'] = C('site_description');
 		$array['email'] = C('site_email');

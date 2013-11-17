@@ -16,9 +16,7 @@ return array (
   'site_description' => '提供最新最热的高清电视剧和电影在线观看',
   'site_email' => '110119@qq.com',
   'site_copyright' => '本网站为非赢利性站点，本网站所有内容均来源于互联网相关站点自动搜索采集信息，相关链接已经注明来源。',
-  'site_hot' => '全民目击
-爸爸去哪儿
-钢铁侠3',
+  'site_hot' => '全民目击，爸爸去哪儿，钢铁侠3',
   'site_tongji' => '',
   'site_icp' => 'ICP备2010111号',
   'url_html_suffix' => '.html',

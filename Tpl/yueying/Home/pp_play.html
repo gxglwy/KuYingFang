@@ -11,8 +11,6 @@
 	<include file="Home:mod_header_mini" />
 
 
-
-
 	{//播放器 }
 	<div class="player_area">
 		{//面包屑导航按钮 }
@@ -52,7 +50,7 @@
 					<a href="{$ppvod.vod_readurl}">
 						<img class="lazy" data-original="{$ppvod.vod_picurl}" src="{$tpl}images/js/blank.png" alt="{$ppvod.vod_name}" />
 					</a>
-					<h4 class="space"><a href="{$ppvod.vod_readurl}">{$ppvod.vod_name|msubstr=0,12}</a></h4>
+					<h4 class="space"><a href="{$ppvod.vod_readurl}" title="{$ppvod.vod_name}">{$ppvod.vod_name|msubstr=0,12}</a></h4>
 				</li>
 			</volist>
 		</ul>

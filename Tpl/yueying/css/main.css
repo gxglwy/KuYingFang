@@ -9,6 +9,7 @@
 @import "my_detail.css";
 @import "my_vodchannel.css";
 @import "play.css";
+@import "search.css";
 
 
 /* reset */
@@ -111,63 +112,64 @@ body{
 .aside_r{width: 250px;}
 
 /*边框色*/
-.bor{border: 1px solid #3377AA;}
+.bor{border: 1px solid #249FF1;}
 
 /*有边框和边距的方框*/
 .ui_box{
-	border: 1px solid #3377AA;
+	border: 1px solid #249FF1;
 	margin: 10px auto 0px;
 	background-color: #fff;
 }
 /*有顶部厚边框的方框*/
 .ui_box_kyf{
-	border-top: 2px solid #3377AA;
+	border-top: 2px solid #249FF1;
 }
 
 
 
 /*======整体的颜色设置：字体和背景======*/
 a:hover{
-	color: #FF6600;
+	color: #249FF1 !important;
 }
 
 .site_color_text{
-	color: #3377AA !important;
+	color: #249FF1 !important;
 }
 .site_color_hover:hover{
-	color: #FF6600 !important;
+	color: #249FF1 !important;
 }
 .site_color_bg{
-	background-color: #3377AA !important;
+	background-color: #249FF1 !important;
 }
 .site_color_bg_hover:hover{
-	background-color: #3377AA !important;
+	background-color: #249FF1 !important;
 }
 .site_color_border{
-	border-color: #3377AA !important;
+	border-color: #249FF1 !important;
 }
 .site_color_text a{
-	color: #3377AA !important;
+	color: #249FF1 !important;
 }
 .JS_on{
 	color: #FFF !important;
-	background-color: #3377AA !important;
+	background-color: #249FF1 !important;
 }
 
 
 /*搜索框边框颜色*/
 .search_area{
-	border: 1px solid #3377AA !important;
+	border: 1px solid #249FF1 !important;
 }
 
 /*搜索框下拉框颜色*/
 .ac_over {
-	background-color: #3377AA;
+	background-color: #249FF1;
 }
 
 /*导航条当前选中项的颜色*/
 .site_nav_item.current a{
-	border-bottom: 2px solid #3377AA !important;
+	/*border-bottom: 2px solid #249FF1 !important;*/
+	/*border-bottom: 3px solid #FFF !important;*/
 }
 
 
@@ -175,8 +177,8 @@ a:hover{
 .latest_tab_nav #latest1.current,
 .latest_tab_content #latest_content_1,
 .latest_tab_content #latest_content_1 .txt_list li .num{
-	border-top-color: #3377AA;
-	color: #3377AA;
+	border-top-color: #249FF1;
+	color: #249FF1;
 }
 .latest_tab_nav #latest2.current,
 .latest_tab_content #latest_content_2,
@@ -371,7 +373,10 @@ a:hover{
 	overflow: hidden;
 }
 .mod_play_img:hover{
-	border: 1px solid #3377AA !important;
+	border: 1px solid #249FF1 !important;
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#88eeeeee', endColorstr='#88eeeeee');
+	filter:alpha(opacity=80);
+	opacity: 0.8;
 }
 .mod_play_img a{
 	position: relative;
@@ -471,7 +476,7 @@ a:hover{
 }
 .mod_pagenav .current,
 .mod_minipagenav .current{
-	background:#3377AA;
+	background:#249FF1;
 	color: #fff;
 	font-weight: bold;
 }
@@ -482,7 +487,7 @@ a:hover{
 }
 .mod_pagenav a:hover,
 .mod_minipagenav a:hover{
-	background:#3377AA;
+	background:#249FF1;
 	color: #FFF !important;
 	text-decoration: none !important;
 }
@@ -544,7 +549,7 @@ a:hover{
 	background:rgba(0,0,0,0);
 }
 .scroll_banner .banner_nav .on,.banner_nav a:hover,.banner_nav a:focus{
-	background: #3377AA;
+	background: #249FF1;
 }
 .scroll_banner .banner_nav img{
 	width: 90px;
@@ -580,6 +585,7 @@ a:hover{
 }
 .scroll_banner .banner_tit a:hover,
 .banner_tit a:focus{
+	color: #FFF !important;
 	margin-top: -3px;
 }
 .scroll_banner .ico_play{
@@ -603,10 +609,11 @@ a:hover{
 	height: 300px;
 	padding: 18px 20px;
 	color: #222;
-	border-top: 3px solid #3377AA;
+	border-top: 3px solid #249FF1;
 	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#88eeeeee', endColorstr='#88eeeeee');
 	background:rgba(222,222,222,0.6);
 	z-index: 20;
+	_background: #AAA;
 }
 .scroll_banner .info:hover{
 	box-shadow: 0px 0px 10px rgba(8,8,8,0.3);
@@ -682,4 +689,36 @@ a:hover{
 .playlist a:hover{
 	color:#fff;
 	text-decoration:none;
+}
+
+
+/*热播推荐*/
+.vod_hot h3 em{
+	font-size: 14px;
+}
+.vod_hot li{
+	width: 122px;
+	margin: 0 10px;
+	float: left;
+}
+.vod_hot li a{
+	display: inline-block;
+}
+.vod_hot li img{
+	width: 120px;
+	height: 160px;
+	padding:2px;
+	border:1px solid #E1E1E1;
+}
+.vod_hot li img:hover{
+	border: 1px solid #249FF1;
+}
+.vod_hot li h4 a{
+	font-size: 14px;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin: 6px 0;
+	overflow: hidden;
 }

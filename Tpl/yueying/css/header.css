@@ -34,7 +34,7 @@
 	margin-left: 240px;
 	border: 1px solid #93C533;
 	/*border-radius: 2px;*/
-	background-color: #FFF;
+	background-color: #FAFAFA;
 }
 
 #search_form input{
@@ -136,42 +136,31 @@
 /*==========site_nav==========*/
 .site_nav{
 	position: relative;
-	height: 35px;
-	background-color: #262626;
+	height: 34px;
+	/*background-color: #262626;*/
+	background-color: #249FF1;
 	overflow: hidden;
 }
-.site_nav_item{
+.site_nav li{
 	float: left;
 	height: 34px;
 }
-.site_nav_item a{
-	color: #C2C2C2;
+.site_nav li.current{
+	/*background-color: #0B0D0E;*/
+	background-color: #4FC4FB;
+}
+.site_nav li a{
+	/*color: #C2C2C2;*/
+	color: #FFF;
 	font-size: 14px;
 	display: inline-block;
 	height: 34px;
 	line-height: 34px;
 	padding: 0 16px;
 }
-.site_nav_item a:hover{
+.site_nav li a:hover{
 	text-decoration: none;
 	color: #fff !important;
-}
-.site_nav_item.current{
-	background-color: #0B0D0E;
-}
-.site_nav_item.current a{
-	height: 32px;
-	color: #fff;
-}
-.site_nav_item .divide{
-	position: relative;
-	top: 0;
-	right: 0;
-	width: 0;
-	height: 12px;
-	border-left: 1px solid #222;
-	border-right: 1px solid #363636;
-	color: #ccc;
 }
 
 .site_nav .fn_right{

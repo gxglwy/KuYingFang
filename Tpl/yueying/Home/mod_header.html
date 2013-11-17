@@ -1,4 +1,5 @@
 {//网站完整的大顶部，主要用于首页  }
+
 <div id="site_header">
 	<!-- 顶部 -->
 	<div id="site_top">
@@ -12,11 +13,36 @@
 
 			<div class="search_area" role="search">
 				<form id="search_form" name="search_form" method="post" action="{$root}index.php?s=vod-search">
-					<input type="text" name="keyword" id="keyword" class="search_text" autocomplete="off"/>
+					<input type="text" name="wd" id="keyword" class="search_text" autocomplete="off"/>
 					<input type="submit" id="search_button" class="search_button" value="" />
 				</form>
+				<script>
+					var sitehot = "{$sitehot}".split('，');
+					var i = 0;
+					var $wd = $('#keyword');
+					$wd.val(sitehot[0]);
+					var hotTimer = setInterval(changeTheSearchVal,4000);
+					function changeTheSearchVal(){
+						i++;
+						if(i==sitehot.length){
+							i = 0;
+						}
+						$('#keyword').val(sitehot[i]);
+					}
+					$wd.click(function(){
+						this.select();
+						clearInterval(hotTimer);
+					}).focus(function() {
+						clearInterval(hotTimer);
+					});
+					$wd.blur(function(){
+						clearInterval(hotTimer);
+						hotTimer = setInterval(changeTheSearchVal,4000);
+					});
+				</script>
 			</div>
-			<!-- end searsh_area -->
+			<!-- searsh_area end  -->
+
 
 			<div class="user_area">
 				<ul class="clearfix">
@@ -38,31 +64,31 @@
 	<div class="site_nav" role="navigation sitemap">
 		<div class="wrap">
 			<ul class="site_nav_list clearfix">
-				<li class="site_nav_item" id="index_page_navbtn">
+				<li>
 					<a href="{$root}"><strong>首页</strong></a>
 				</li>
 				<volist name="list_menu" id="list">
 					{// 如果菜单项是电视或者电影，那么标题的跳转页面使用专用的模板页 }
 					<if condition="$list.list_oid elt 2">
-						<li class="site_nav_item <eq name="list.list_id" value="$list_id">current</eq>"<eq name="list.list_id" value="$list_pid">current"</eq>><a href="{$list.list_url}">{$list.list_name}</a></li>
+						<li><a href="{$list.list_url}">{$list.list_name}</a></li>
 					{// 其他的导航项，则跳转到分类检索页面 }
 					<elseif condition="$list.list_oid elt 6" />
-						<li class="site_nav_item <eq name="list.list_id" value="$list_id">current</eq>"<eq name="list.list_id" value="$list_pid">current"</eq>><a href="{:UU('Home-vod/type',array('id'=>$list[list_id],'p'=>1),false,true)}">{$list.list_name}</a></li>
+						<li><a href="{:UU('Home-vod/type',array('id'=>$list[list_id],'p'=>1),false,true)}">{$list.list_name}</a></li>
 					<else />
 					</if>
 				</volist>
-				<li class="site_nav_item">
+				<li>
 					<a href="{:ff_mytpl_url('my_live.html')}" class="tv">电视直播</a>
 				</li>
-				<li class="site_nav_item fn_right">
-					<a href="{:ff_mytpl_url('my_top.html')}">影视排行</a>
+				{// 片库索引，且默认的展示结果是电视剧 }
+				<li class="fn_right">
+					<a href="{:UU('Home-vod/type',array('id'=>2,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}">片库索引</a>
 				</li>
-				<li class="site_nav_item fn_right">
+				<li class="fn_right">
 					<a href="{:ff_mytpl_url('my_new.html')}">最近更新</a>
 				</li>
-				{// 片库索引，且默认的展示结果是电视剧 }
-				<li class="site_nav_item fn_right">
-					<a href="{:UU('Home-vod/type',array('id'=>2,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}">片库索引</a>
+				<li class="fn_right">
+					<a href="{:ff_mytpl_url('my_top.html')}">影视排行</a>
 				</li>
 			</ul>
 		</div>

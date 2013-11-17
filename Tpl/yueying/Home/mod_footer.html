@@ -1,18 +1,25 @@
-<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>
-<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#19D&amp;text=分享到"></script>
-              
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=2&amp;pos=left&amp;uid=6851829" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+var bds_config={"bdTop":160};
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+
 <div id="footer">
 	<div>
 		<div class="foot-nav">
-			<a class="color" href="#" target="_blank" title="使用帮助">使用帮助</a>
-			-
-			<a class="color" href="http://www.168kyf.com/FAQ/" target="_blank" title="使用帮助">常见问题</a>
-			-
-			<a href="#" target="_blank" title="给我留言">给我留言</a>
-			-
+			<a class="color" href="{:ff_mytpl_url('my_help.html')}" target="_blank" title="使用帮助">使用帮助</a>
+			|
+			<a href="{$url_guestbook}" target="_blank" title="给我留言">给我留言</a>
+			|
 			<a href="{:ff_mytpl_url('my_new.html')}" target="_blank" title="最新更新">最新更新</a>
-			-
-			<a href="{$url_map_baidu}" target="_blank" title="网站地图">网站地图</a>
+			|
+			<a href="{:ff_mytpl_url('my_top.html')}" target="_blank" title="影视排行">影视排行</a>
+			|
+			<a href="{:UU('Home-vod/type',array('id'=>2,'wd'=>'','letter'=>'','year'=>0,'area'=>'','order'=>'addtime','p'=>1),false,true)}" target="_blank" title="片库索引">片库索引</a>
+			<a style="display:none;" href="{$url_map_baidu}" target="_blank" title="网站地图">网站地图</a>
 		</div>
 		<!-- // foot-nav End -->
 		<div class="copyright">

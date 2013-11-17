@@ -1,0 +1,98 @@
+.search_content ul li {
+	float: left;
+	width: 446px;
+	margin: 20px 0 0 20px;
+	padding: 10px;
+	overflow: hidden;
+	border: 1px solid #CCC;
+}
+
+.search_content ul li.cbg {
+	border:1px solid #3FB4EB;
+	background-color:#F0F8FF;
+}
+
+/*左边的图片*/
+.search_content ul li a.vodImg{
+	float: left;
+	margin-right: 8px;
+}
+
+.search_content ul li a img {
+	width: 140px;
+	height: 180px;
+	display: block;
+	overflow: hidden;
+	padding: 3px;
+	border: 1px solid #CCC;
+}
+.search_content ul li a:hover img{
+	border: 1px solid #0092FF;
+}
+
+/*右边的文字*/
+.search_content ul li .txt{
+	width: 280px;
+	float: left;
+}
+
+.search_content ul li h2 {
+	font-weight: bold;
+	border-bottom: 1px dashed #CCC;
+	margin-bottom: 5px;
+}
+.search_content ul li h2 a{
+	font-size: 16px;
+	color: #333;
+}
+.search_content ul li p {
+	float: left;
+	width: 280px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #777;
+	border-bottom: 1px dashed #CFCFCF;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.search_content ul li p em {
+	margin-left: 15px;
+}
+
+.search_content ul li .jumpTo{
+	height: 28px;
+}
+.search_content ul li .jumpTo a{
+	display: block;
+	float: left;
+	width: 60px;
+	margin: 4px 20px 4px 10px;
+	border-radius: 2px;
+	text-align: center;
+}
+.search_content ul li .jumpTo a:hover{
+	color: #FFF;
+}
+
+.search_content ul li p .toPlay{
+	background-color: #33A9F3;
+}
+.search_content ul li p .toDetail{
+	background-color: #97D422;
+}
+
+.notFind{
+	height: 200px;
+	margin: 20px;
+	color: #888;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+.notFind span{
+	font-size: 20px;
+	color: #000;
+}

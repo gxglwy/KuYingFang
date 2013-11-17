@@ -5,7 +5,7 @@
 	<title>最新{$type_id|getlistname}-{$list_dir}{$list_name_big}{$list_name}-2013最新{$list_name}{$list_title}</title> 
 	<meta name="keywords" content="<notempty name="list_keywords"> {$list_keywords} <else/>最新{$list_name},{$keywords} </notempty> ">
 	<meta name="description" content="最新{$list_name}包含的影片有<volist name='vod_list' id='ppvod'>{$ppvod.vod_name|msubstr=0,10},</volist> 完全免费在线观看！">
-
+	<script type="text/javascript">var navIndex=8;</script>
 	<include file="Home:home_header" />
 
 </head>
@@ -184,12 +184,12 @@
 		</div>
 		<!-- aside_left end -->
 
-		<div class="aside_right  mod_right">
+		<div class="aside_right  mod_right bor">
 			<div class="mod_toolbar">
 				<!-- 排序tab start -->
 				<div class="mod_tab_sort">
 					<ul>
-						<li class="<eq name="type_order" value="addtime">current</eq> ">
+						<li class="first <eq name="type_order" value="addtime">current</eq> ">
 							<a href="{:UU('Home-vod/type',array('show_way'=>$show_way,'id'=>$type_id,'wd'=>$type_wd,'letter'=>$type_letter,'year'=>$type_year,'area'=>urlencode($type_area),'order'=>'addtime','p'=>$type_page),false,true)}" class="<eq name="type_order" value="addtime">current</eq> ">最新</a>
 						</li>
 						<li class="<eq name="type_order" value="hits">current</eq> ">
@@ -231,7 +231,7 @@
 				<div class="mod_video_list poster">
 					<div class="mod_content" id="content">
 						<notempty name="vod_list" value="0">
-						<ul class="mod_list">
+						<ul class="mod_list clearfix">
 							<volist name="vod_list" id="ppvod">
 							<li class="mod_item">
 								<div class="mod_play_img">
@@ -286,7 +286,7 @@
 									<li class="director">导演：{$ppvod.vod_director}</li>
 									<li class="actor">主演：{$ppvod.vod_actor|ff_search_url}</li>
 								</ul>
-								<p class="mod_desc"><span>简介：</span>{$ppvod.vod_content|msubstr=0,80}...</p>
+								<p class="mod_desc"><span>简介：</span>{$ppvod.vod_content|msubstr=0,70}...</p>
 								<p class="state"><span>状态：</span><empty name="ppvod.vod_continu">全集<else/>更新到第{$ppvod.vod_continu}集</empty></p>
 								<p class="more"><a class="site_color_text" target="_blank" href="{$ppvod.vod_readurl}">详细>></a></p>
 							</div>

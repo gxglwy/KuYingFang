@@ -1,6 +1,6 @@
 /*>>>>for pp_vodtype.html<<<<*/
 /*左边*/
-.aside_left.mod_left{width:260px;}
+.aside_left.mod_left{width:260px;_margin-right:-1px;}
 /*右边*/
 .aside_right.mod_right{width:720px;}
 
@@ -32,14 +32,15 @@
 .mod_toolbar{position:relative;height:32px;overflow:hidden;margin-bottom:20px}
 /*排序*/
 .mod_toolbar .mod_tab_sort{overflow:hidden}
-.mod_toolbar .mod_tab_sort ul{height:31px;border-bottom:#C9C9C9 solid 1px;overflow:hidden}
+.mod_toolbar .mod_tab_sort ul{height:31px;border-bottom:#C9C9C9 solid 1px;background-color:#F6F6F8;overflow:hidden}
 .mod_toolbar .mod_tab_sort li{float:left;width:70px;height:31px;margin:0 -1px 0 0;background-color:#F6F6F8}
-.mod_toolbar .mod_tab_sort li a{display:block;height:31px;line-height:31px;text-align:center;font-size:14px;border:#DEDEDE solid 1px}
-.mod_toolbar .mod_tab_sort li a:hover{text-decoration:none}
-.mod_toolbar .mod_tab_sort li.current a{position:absolute;width:68px;border:#C9C9C9 solid 1px;border-bottom:#FFF solid 1px;font-weight:bold;cursor:default;color:#484848;background:#FFF}
+.mod_toolbar .mod_tab_sort li a{display:block;height:31px;line-height:31px;text-align:center;font-size:14px;}
+.mod_toolbar .mod_tab_sort li a:hover{text-decoration:none;background:#FCFDFF;}
+.mod_toolbar .mod_tab_sort li.current a{position:absolute;width:68px;border:#C9C9C9 solid 1px;border-bottom:#FFF solid 1px;border-top:none;font-weight:bold;cursor:default;color:#484848;background:#FFF;}
+.mod_toolbar .mod_tab_sort li.first a{border-left: none;}
 
 /*查看方式切换的按钮*/
-.mod_toolbar .mod_list_display{position:absolute;top:0;left:340px;width:124px;height:22px;overflow:hidden}
+.mod_toolbar .mod_list_display{position:absolute;top:4px;left:340px;width:124px;height:22px;overflow:hidden}
 .mod_toolbar .mod_list_display a{display:block;width:62px;height:22px;line-height:999px;overflow:hidden;font-size:0;background:url(../images/bg_list_v3.png) no-repeat}
 .mod_toolbar .mod_list_display #poster{float:left;background-position:0 -30px}
 .mod_toolbar .mod_list_display #poster.current,.mod_toolbar .mod_list_display #poster:hover{background-position:0 0}
@@ -49,19 +50,23 @@
 /*分页导航按钮*/
 .mod_toolbar .mod_minipagenav{
 	position:absolute;
-	top:0;
+	top:4px;
 	right:10px;
 }
+
+
 
 /*结果列表区域*/
 .mod_video_list{
 	width: 760px;
+	margin-left: 36px;
 }
 /*海报方式*/
 .mod_video_list.poster li{
 	position: relative;
+	float: left;
 	width: 130px;
-	margin: 0 59px 18px 0;
+	margin: 0 40px 18px 0;
 	display: inline-block;
 	zoom: 1;
 	vertical-align: top;
@@ -82,7 +87,7 @@
 /*详情方式*/
 /*左边图片*/
 .mod_video_list.details{
-	width: 700px;
+	width: 650px;
 }
 .mod_video_list.details .mod_item{
 	position:relative;
@@ -102,6 +107,7 @@
 /*右侧文字*/
 .mod_video_list.details .mod_item .mod_txt{
 	position: relative;
+	width: 500px;
 	height: 182px;
 }
 .mod_video_list.details .mod_item .mod_txt .mod_item_tit{

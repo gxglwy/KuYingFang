@@ -531,41 +531,19 @@ $(document).ready(function(){
 	FF.History.List('history_bar');
 
 	/*============导航菜单的效果============*/
-	var $curItem = $('.site_nav_item.current');
-	if($curItem.length === 0) {
-		if(window.isIndexPage) {
-			$curItem = $('#index_page_navbtn').addClass('current');
-		} else {
-			$curItem = $('#live_page_nabtn').addClass('current');
-		}
-		
-	}
-	$('.site_nav_item').mouseover(function(){
+
+	var index = 999;
+	if(typeof(navIndex) == 'number') index = navIndex;
+	var $curItem = $('.site_nav li').eq(index).addClass('current');
+	$('.site_nav li').mouseover(function(){
 		$(this).addClass('current').siblings().removeClass('current');
 	});
-	$('.site_nav_item').mouseout(function(){
-		$('.site_nav_item').removeClass('current');
+	$('.site_nav li').mouseout(function(){
+		$('.site_nav li').removeClass('current');
 		$curItem.addClass("current");
 	});
 
 
-	/*============搜索框关键字行为控制============*/
-	var $key = "请输入视频名称或演员名字~"
-	if($('#keyword').val() == ''){
-		$('#keyword').val($key);
-	}
-	//搜索框获得焦点
-	$('#keyword').focus(function(){
-		if($('#keyword').val() == $key){
-			$('#keyword').val('');
-		}
-	});
-	//搜索框失去焦点
-	$('#keyword').blur(function(){
-		if($('#keyword').val() == ''){
-			$('#keyword').val($key);
-		}
-	});
 
 	/*============Tab切换============*/
 	function tab(titleNamePre,contentNamePre,classname) {
@@ -601,9 +579,11 @@ $(document).ready(function(){
 
 	/*============最新影片页的鼠标滑过显示详细的图片效果============*/
 	$('#new ul .first a').mouseover(function() {
+		$(this).parent().parent().css({"zIndex":9});	//fix IE bug
 		$(this).parent().siblings('.detail').show();
 	});
 	$('#new ul .first a').mouseout(function() {
+		$(this).parent().parent().css({"zIndex":1});
 		$(this).parent().siblings('.detail').hide();
 	});
 
@@ -657,6 +637,7 @@ $(document).ready(function(){
 			}
 		},3500);
 	}).find('li').eq(0).trigger('mouseleave');
+	// 轮播图 end
 
 
 });

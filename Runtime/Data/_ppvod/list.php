@@ -60,7 +60,7 @@ return array (
     'list_keywords' => '',
     'list_title' => '',
     'list_description' => '',
-    'list_jumpurl' => '',
+    'list_jumpurl' => 'http://',
     'list_url' => '/?s=vod-show-id-3.html',
     'list_url_big' => '/?s=vod-show-id-0.html',
     'list_name_big' => NULL,

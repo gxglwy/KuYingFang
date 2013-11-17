@@ -1,4 +1,5 @@
 {//播放来源 显示集数列表}
+<div class="ui_box resource">
 <volist name="vod_playlist" id="ppvod" key="playerkey">
 	<?php
 		/*根据集数的多少来决定滚动栏的高度，集数越多则越高（且小于20集的时候不会出现滚动，但高度也做了智能适应）*/
@@ -20,18 +21,17 @@
 			$scroll_height="5";
 		}
 	?>
-	<div class="ui_box resource">
-		<div class="resource_item">
-			<h3 class="title">
-				<a href="{:ff_play_url($vod_id,($playerkey-1),1,$vod_cid,$vod_name)}"><img src="<switch name="ppvod.playername"><case value="快播高清">{$tpl}/images/qvod.gif</case><case value="百度影音">{$tpl}/images/baiduhd.gif</case><case value="优酷视频">{$tpl}/images/youku_new.gif</case><case value="土豆视频">{$tpl}/images/tudou.gif</case><case value="奇艺视频">{$tpl}/images/qiyi.gif</case><case value="乐视视频">{$tpl}/images/leshi.gif</case></switch>" alt="{$ppvod.playername}" /></a>
-			</h3>
-			<div class="playlist clearfix <switch name="scroll_height"><case value="1">one_line</case><case value="2_0">two_line_0</case><case value="2">two_line</case><case value="3">three_line</case><case value="4">four_line</case><case value="5">five_line</case></switch>">
-				<ul class="clearfix">
-				<volist name="ppvod['son']" id="ppvodson">
-					<li><a class="site_color_bg_hover" href="{$ppvodson.playurl}" target="_blank"><if condition="list_pid eq 2"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty><else />{$ppvodson.playname}</if></a></li>
-				</volist>
-				</ul>
-			</div>
+	<div class="resource_item">
+		<h3 class="title">
+			<a href="{:ff_play_url($vod_id,($playerkey-1),1,$vod_cid,$vod_name)}"><img src="<switch name="ppvod.playername"><case value="快播高清">{$tpl}/images/qvod.gif</case><case value="百度影音">{$tpl}/images/baiduhd.gif</case><case value="优酷视频">{$tpl}/images/youku_new.gif</case><case value="土豆视频">{$tpl}/images/tudou.gif</case><case value="奇艺视频">{$tpl}/images/qiyi.gif</case><case value="乐视视频">{$tpl}/images/leshi.gif</case></switch>" alt="{$ppvod.playername}" /></a>
+		</h3>
+		<div class="playlist clearfix <switch name="scroll_height"><case value="1">one_line</case><case value="2_0">two_line_0</case><case value="2">two_line</case><case value="3">three_line</case><case value="4">four_line</case><case value="5">five_line</case></switch>">
+			<ul class="clearfix">
+			<volist name="ppvod['son']" id="ppvodson">
+				<li><a class="site_color_bg_hover" href="{$ppvodson.playurl}" target="_blank"><if condition="list_pid eq 2"><notempty name='ppvod.vod_title'>{$ppvod.vod_title}<else/><empty name="ppvod.vod_continu">全集<else/>第{$ppvod.vod_continu}集</empty></notempty><else />{$ppvodson.playname}</if></a></li>
+			</volist>
+			</ul>
 		</div>
 	</div>
 </volist>
+</div>

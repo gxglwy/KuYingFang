@@ -39,11 +39,15 @@
 	border-bottom: 1px solid #EEE;
 }
 .aside_l .content .pic_list li{
+	float: left;
+	_width: 130px;
+	overflow: hidden;
 	margin: 0 4px;
 }
 .aside_l .content .pic_list li .mod_play_img{
 	border: 1px solid #CCD;
 	margin-bottom: 4px;
+	display: inline-block;
 }
 .aside_l .content .pic_list li h5 a{
 	display: inline-block;

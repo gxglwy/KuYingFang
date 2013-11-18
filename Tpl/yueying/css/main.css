@@ -687,7 +687,7 @@ a:hover{
 	margin: 4px;
 }
 .playlist a:hover{
-	color:#fff;
+	color:#fff !important;
 	text-decoration:none;
 }
 

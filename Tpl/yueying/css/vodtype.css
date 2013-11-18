@@ -35,7 +35,7 @@
 .mod_toolbar .mod_tab_sort ul{height:31px;border-bottom:#C9C9C9 solid 1px;background-color:#F6F6F8;overflow:hidden}
 .mod_toolbar .mod_tab_sort li{float:left;width:70px;height:31px;margin:0 -1px 0 0;background-color:#F6F6F8}
 .mod_toolbar .mod_tab_sort li a{display:block;height:31px;line-height:31px;text-align:center;font-size:14px;}
-.mod_toolbar .mod_tab_sort li a:hover{text-decoration:none;background:#FCFDFF;}
+.mod_toolbar .mod_tab_sort li a:hover{text-decoration:none;background:#FFF;}
 .mod_toolbar .mod_tab_sort li.current a{position:absolute;width:68px;border:#C9C9C9 solid 1px;border-bottom:#FFF solid 1px;border-top:none;font-weight:bold;cursor:default;color:#484848;background:#FFF;}
 .mod_toolbar .mod_tab_sort li.first a{border-left: none;}
 

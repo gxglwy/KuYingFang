@@ -27,12 +27,12 @@
 .mod_back_top{
 	position: fixed;
 	display: none;
-	_position: absolute;
 	z-index: 99999;
 	bottom: 45px;
-	_bottom: auto;
 	right: 30px;
 
+	_position:absolute;
+	_top:expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight-10);
 }
 .mod_back_top .back_top{
 	display: block;

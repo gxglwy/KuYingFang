@@ -576,6 +576,21 @@ $(document).ready(function(){
 		t = setTimeout(function(){scrollHeight();},100);
 	});
 
+	// 顶部的导航自动fixed
+	function change(){
+		var scrollHeight = $(document).scrollTop();
+		if(scrollHeight >= 64){
+			$('.site_nav.inBig').addClass('mini_nav');
+		}else{
+			$('.site_nav.inBig').removeClass('mini_nav');
+		}
+	}
+	var t1;
+	$(window).scroll(function(){
+		clearTimeout(t1);
+		t1 = setTimeout(function(){change();},100);
+	});
+
 
 	/*============最新影片页的鼠标滑过显示详细的图片效果============*/
 	$('#new ul .first a').mouseover(function() {

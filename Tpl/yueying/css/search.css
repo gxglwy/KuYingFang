@@ -73,7 +73,7 @@
 	text-align: center;
 }
 .search_content ul li .jumpTo a:hover{
-	color: #FFF;
+	color: #FFF !important;
 }
 
 .search_content ul li p .toPlay{

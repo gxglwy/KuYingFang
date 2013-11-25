@@ -167,13 +167,25 @@
 	float: right;
 }
 
+/*小导航固定在顶部*/
+.site_nav.mini_nav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+	box-shadow: 0 1px 4px #222;
+
+	_position:absolute;
+	_top:expression(documentElement.scrollTop);
+}
+
 /*==========subnav==========*/
 .site_subnav{
 	position: relative;
-	height: 40px;
+	height: 45px;
 	background-color: #f0f0f0;
-	/*border-bottom: 1px solid #E2E2E2;*/
-	box-shadow: 0px 2px 4px #888;
+	background: url(../images/subnav_bg.jpg) 0 0 repeat-x;
 	overflow: hidden;
 }
 .site_subnav_tv,.site_subnav_mv{
@@ -182,8 +194,8 @@
 	margin-left: 10px;
 	overflow: hidden;
 }
-.site_subnav_tv{
-	margin-right: 90px;
+.site_subnav_mv{
+	float: right;
 }
 .site_subnav h3{
 	float: left;

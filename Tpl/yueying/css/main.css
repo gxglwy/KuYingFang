@@ -85,7 +85,7 @@ a {
 /*==========网站整体风格==========*/
 body{
 	color: #2e2e2e;
-	background-color: #F8F8F8;
+	background-color: #FAFAFA;
 }
 
 /*==========网站方框风格(不能直接在这里修改尺寸，只能修改颜色)==========*/
@@ -247,6 +247,10 @@ a:hover{
 /*=======通用的部件模块=====*/
 
 /*内页上方标题(不是网站header)*/
+.head_bar{
+	margin-top: 26px;
+	*padding-top: 40px;
+}
 .mod_indexs_bar{
 	position:relative;
 	overflow:hidden;

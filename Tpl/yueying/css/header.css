@@ -1,5 +1,5 @@
 #site_header{
-	background-color: #F3F3F5;
+	background-color: #FAFAFA;
 	position: relative;
 	z-index:9999;
 }
@@ -13,13 +13,14 @@
 .logo_area{
 	float: left;
 	width: 280px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 .logo a{
 	display: block;
 	width: 155px;
-	height: 50px;
+	height: 60px;
 	background: url(../images/site_logo.png) 0 0 no-repeat;
+	_background: url(../images/site_logo_8.png) 0 0 no-repeat;
 }
 .logo a:hover{
 	/*background: url(../images/site_logo.png) 0 -50px no-repeat;*/

@@ -43,7 +43,7 @@
 					<span class="addtime">{$ppvod.vod_addtime|date='Y-m-d',###}</span>
 					<div class="detail" >
 						<dl class="clearfix">
-							<dt><img src="{$ppvod.vod_pic|getpicurl_s}" alt="{$ppvod.vod_name|msubstr=0,18}" /></dt>
+							<dt><img src="{$ppvod.vod_pic|getpicurl}" alt="{$ppvod.vod_name|msubstr=0,18}" /></dt>
 							<dd class="title">{$ppvod.vod_name|msubstr=0,10}</dd>
 							<dd>主演：{$ppvod.vod_actor|msubstr=0,10}</dd>
 							<dd>剧情：{$ppvod.vod_content|msubstr=0,28}...</dd>

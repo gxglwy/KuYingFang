@@ -85,7 +85,7 @@ a {
 /*==========网站整体风格==========*/
 body{
 	color: #2e2e2e;
-	background-color: #FAFAFA;
+	background-color: #F2F2F2;
 }
 
 /*==========网站方框风格(不能直接在这里修改尺寸，只能修改颜色)==========*/
@@ -257,6 +257,7 @@ a:hover{
 	margin:20px 0 10px;
 	padding:4px 0 9px 120px;
 	border: 1px solid #eee;
+	background: #FDFDFD;
 	zoom:1;
 }
 
@@ -280,7 +281,7 @@ a:hover{
 	font-weight:bold;
 	font-size:14px;
 	border-right:#DEDEDE solid 1px;
-	background:#F6F7F6;
+	background:#FCFCFC;
 }
 
 .mod_indexs_bar dt .arrow{
@@ -650,15 +651,10 @@ a:hover{
 }
 .playlist{
 	overflow: auto;
-	margin: 0 10px;
+	margin: 0 10px 0 18px;
 }
 .playlist.one_line{
 	height: 36px;
-	margin-left: 18px;
-}
-.playlist.two_line_0{
-	height: 72px;
-	margin-left: 18px;
 }
 .playlist.two_line{
 	height: 72px;
@@ -670,7 +666,8 @@ a:hover{
 	height: 144px;
 }
 .playlist.five_line{
-	height: 176px;
+	height: 180px;
+	margin: 0 10px;
 }
 .playlist li{
 	float: left;

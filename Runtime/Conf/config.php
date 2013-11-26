@@ -155,7 +155,7 @@ return array (
   'url_play' => '{listdir}/{id}/play.html',
   'url_html_list' => '0',
   'url_html_play' => '0',
-  'url_rewrite' => '0',
+  'url_rewrite' => '1',
   'url_map' => 'detail/',
   'url_mytpl' => 'detail/',
   'url_special' => 'detail/',

@@ -601,7 +601,8 @@ function get_maxpage($currentpage,$totalpages){
 }
 // 获取热门关键词
 function ff_hot_key($string,$notLink){
-	if($notLink){
+	return $string;
+/*	if($notLink){
 		return $string;
 	}
 	else{
@@ -618,7 +619,7 @@ function ff_hot_key($string,$notLink){
 			}
 		}
 		return implode(' ',$array_hot);
-	}
+	}*/
 
 }
 // 获取与处理人气值

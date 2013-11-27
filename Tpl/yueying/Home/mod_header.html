@@ -68,14 +68,7 @@
 					<a href="{$root}"><strong>首页</strong></a>
 				</li>
 				<volist name="list_menu" id="list">
-					{// 如果菜单项是电视或者电影，那么标题的跳转页面使用专用的模板页 }
-					<if condition="$list.list_oid elt 2">
-						<li><a href="{$list.list_url}">{$list.list_name}</a></li>
-					{// 其他的导航项，则跳转到分类检索页面 }
-					<elseif condition="$list.list_oid elt 6" />
-						<li><a href="{:UU('Home-vod/type',array('id'=>$list[list_id],'p'=>1),false,true)}">{$list.list_name}</a></li>
-					<else />
-					</if>
+					<li><a href="{$list.list_url}">{$list.list_name}</a></li>
 				</volist>
 				<li>
 					<a href="{:ff_mytpl_url('my_live.html')}" class="tv">电视直播</a>
@@ -106,7 +99,7 @@
 					<?php $vod_type=M('list')->where(array('list_pid'=>2))->order('list_oid')->select() ?>
 					<fflist name="vod_type" id="ppvod">
 						{// 子类的链接是到片库索引的 }
-						<li class="site_subnav_item"><a href="{:UU('Home-vod/type',array('id'=>$ppvod[list_id],'p'=>1),false,true)}">{$ppvod.list_name}</a></li>
+						<li class="site_subnav_item"><a href="{:getlistname($ppvod.list_id,'list_url')}">{$ppvod.list_name}</a></li>
 					</fflist>
 				</ul>
 			</div>
@@ -116,7 +109,7 @@
 				<ul class="site_subnav_list site_subnav_list_mv clearfix">
 				<?php $vod_type=M('list')->where(array('list_pid'=>1))->order('list_oid')->select() ?>
 					<fflist name="vod_type" id="ppvod">
-						<li class="site_subnav_item"><a href="{:UU('Home-vod/type',array('id'=>$ppvod[list_id],'p'=>1),false,true)}">{$ppvod.list_name}</a></li>
+						<li class="site_subnav_item"><a href="{:getlistname($ppvod.list_id,'list_url')}">{$ppvod.list_name}</a></li>
 					</fflist>
 				</ul>
 			</div>

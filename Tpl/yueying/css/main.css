@@ -7,9 +7,10 @@
 @import "my_new.css";
 @import "my_top.css";
 @import "my_detail.css";
-@import "my_vodchannel.css";
+@import "vodchannel.css";
 @import "play.css";
 @import "search.css";
+@import "vod_list.css";
 
 
 /* reset */

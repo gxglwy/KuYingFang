@@ -66,7 +66,7 @@ $(document).ready(function(){
                     </li>
                 </ul>
                 <ul>
-                    <li class="left">LOGO小图：</li>
+                    <li class="left">LOGO小图(90 × 45)：</li>
                     <li class="right">
                         <input type="text" name="slide_logo" id="slide_logo" maxlength="255" value="{$slide_logo}" class="w300" onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/','small');" onMouseOut="hiddenpic();">&nbsp;</li>
                     <li class="left" style="width:94px">上传图片：</li>
@@ -75,7 +75,7 @@ $(document).ready(function(){
                     </li>
                 </ul>
                 <ul>
-                    <li class="left">幻灯图片(大图)：</li>
+                    <li class="left">幻灯大图(1440 × 450)：</li>
                     <li class="right">
                         <input type="text" name="slide_pic" id="slide_pic" maxlength="255" value="{$slide_pic}" class="w300" onMouseOver="if(this.value)showpic(event, this.value,'{&upload_path}/','big');" onMouseOut="hiddenpic();">&nbsp;</li>
                     <li class="left" style="width:94px">上传图片：</li>
@@ -93,7 +93,7 @@ $(document).ready(function(){
                 <ul>
                     <li class="left">幻灯分类：</li>
                     <li class="right">
-                        <input name="slide_cid" type="text" value="{$slide_cid|default='1'}" maxlength="3" class="w50">自定义幻灯分类ID，便于前台栏目判断指定的幻灯</li>
+                        <input name="slide_cid" type="text" value="{$slide_cid|default='1'}" maxlength="3" class="w50">自定义幻灯分类ID，便于前台栏目判断指定的幻灯(如：1表示电影，2表示电视剧)</li>
                 </ul>
                 <ul>
                     <li class="left">幻灯状态：</li>

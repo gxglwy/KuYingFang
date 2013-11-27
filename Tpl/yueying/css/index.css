@@ -362,3 +362,36 @@
 .aside_right .list_bottom li.bottom{
 	border-bottom:1px solid #eee;
 }
+
+
+
+/*友情链接*/
+#links{
+	margin-top: 20px;
+	background: #FAFDFD;
+	border: 1px solid #88AFF1;
+}
+#links .links_title h2,#links .links_content{
+	margin: 10px;
+}
+#links .links_title{
+	height: 32px;
+	background: #F6F6F6;
+	border-bottom: 1px dashed #88AFF1;
+}
+#links .links_title h2{
+	height: 30px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+#links li{
+	width: 98px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	overflow: hidden;
+	float: left;
+}		
+#links li a{color: #999;}
+#links li a:hover{color: #333;}

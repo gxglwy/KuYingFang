@@ -7,7 +7,7 @@ return array (
     'list_oid' => '1',
     'list_sid' => '1',
     'list_name' => '电视剧',
-    'list_skin' => 'my_vodchannel_tv',
+    'list_skin' => 'pp_vodchannel',
     'list_skin_detail' => 'pp_vod',
     'list_skin_play' => 'pp_play',
     'list_skin_type' => 'pp_vodtype',
@@ -154,7 +154,7 @@ return array (
     'list_oid' => '2',
     'list_sid' => '1',
     'list_name' => '电影',
-    'list_skin' => 'my_vodchannel_movie',
+    'list_skin' => 'pp_vodchannel',
     'list_skin_detail' => 'pp_vod',
     'list_skin_play' => 'pp_play',
     'list_skin_type' => 'pp_vodtype',
@@ -163,7 +163,7 @@ return array (
     'list_keywords' => '',
     'list_title' => '',
     'list_description' => '',
-    'list_jumpurl' => '',
+    'list_jumpurl' => 'http://',
     'son' => 
     array (
       0 => 

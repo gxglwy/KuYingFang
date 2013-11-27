@@ -2,23 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>最新{$list_name}-{$list_dir}{$list_name_big}{$list_name}-2013最新{$list_name}</title> 
+	<title>2013最新{$list_name}排行榜-好看的{$list_name}-{$sitename}</title> 
 	<meta name="keywords" content="<notempty name="list_keywords">{$list_keywords}<else/>最新{$list_name},{$keywords}</notempty> ">
 	<meta name="description" content="最新{$list_name}包含的影片有<volist name='vod_list' id='ppvod'>{$ppvod.vod_name|msubstr=0,10},</volist>完全免费在线观看！">
-	<script type="text/javascript">var navIndex=1;</script>
+	<if condition="$list_id eq 1">
+		<script type="text/javascript">var navIndex=2;</script>
+	</if>
+		<if condition="$list_id eq 2">
+		<script type="text/javascript">var navIndex=1;</script>
+	</if>
 	<include file="Home:home_header" />
 </head>
 <body>
 
-	{//电视剧频道主页 }
+	{//频道页(影视大类栏目list页) }
 
 	<include file="Home:mod_header_small" />
-	<include file="Home:mod_scroll_banner" />
 	
 	<?php
-		$array_category = M('list')->where(array('list_pid'=>2))->order('list_oid')->select();
+		$array_category = M('list')->where(array('list_pid'=>$list_id))->order('list_oid')->select();
 	?>
-	
+
 	<fflist name="array_category" id="category">
 		<?php
 			/*总排行*/
@@ -29,7 +33,7 @@
 			$ranklist_week_5 = array_slice($ranklist_week, 0, 5);
 			$ranklist_week_15 = array_slice($ranklist_week, 5, 15);
 		?>
-		<div class="wrap channel channel_tv">
+		<div class="wrap channel channel_movie">
 			{// 左边 }
 			<div class="aside_l aside_l_tv ui_box">
 				<div class="caption">

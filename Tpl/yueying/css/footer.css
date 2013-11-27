@@ -7,6 +7,9 @@
 	text-align: center;
 	padding-bottom: 30px;
 }
+#footer p{
+	color: #666;
+}
 .foot-nav{
 	color: #333;
 	height: 24px;		
@@ -14,6 +17,17 @@
 	margin: 15px 0 10px 0;
 }
 .foot-nav a{ margin: 0 10px;}
+#footer .copyright{
+	width: 800px;
+	margin: 0 auto;
+}
+#footer .copyright a{
+	color: #249FF1 !important;
+}
+#footer .copyright a:hover{
+	text-decoration: underline !important;
+}
+
 
 /* foot-weibo */
 .foot-weibo{
